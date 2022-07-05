@@ -24,8 +24,28 @@ def handle_hello():
 @api.route('/signup', methods=['POST'])
 def handle_signup():
     response_body = request.get_json(force=True)
-    hashed_pw = generate_password_hash(response_body['password'], "md5")
-    new_user = User(email=response_body['email'], password_hashed=hashed_pw, username=response_body['username'], name=response_body['name'])
-    db.session.add(new_user)
-    db.session.commit()
-    return "ok", 200
+
+    existing_username = User.query.filter_by(username=response_body["username"]).first()
+    existing_email = User.query.filter_by(email=response_body["email"]).first()
+
+    if not existing_email and not existing_username:
+        hashed_pw = generate_password_hash(response_body['password'], "md5")
+        new_user = User(email=response_body['email'], password_hashed=hashed_pw, username=response_body['username'], name=response_body['name'])
+        db.session.add(new_user)
+        db.session.commit()
+        return "ok", 200
+    elif existing_email and not existing_username:
+        error_body = {
+            "error_message": "Email already taken!"
+        }
+        return jsonify(error_body), 401
+    elif existing_username and not existing_email:
+        error_body = {
+            "error_message": "Username already taken!"
+        }
+        return jsonify(error_body), 401
+    else:
+        error_body = {
+            "error_message": "Username and email already taken!"
+        }
+        return jsonify(error_body), 401
