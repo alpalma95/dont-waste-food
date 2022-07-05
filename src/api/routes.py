@@ -46,9 +46,26 @@ def handle_signup():
             "error_message": "Username already taken!"
         }
         return jsonify(error_body), 401
-        
+
     else:
         error_body = {
             "error_message": "Username and email already taken!"
         }
         return jsonify(error_body), 401
+
+@api.route('/login', methods=['POST'])
+def user_login():
+    response_body = request.get_json(force=True)
+    email = response_body['email']
+    password = response_body['password']
+    user = User.query.filter_by(email=email).first()
+    pw_hash = user.password_hash
+    password_matched = check_password_hash(pw_hash, password)
+    
+    if password_matched:
+        access_token = create_access_token(identity=user.id)
+        return jsonify({"token": access_token, "user_id": user.id})
+    else:
+        return "NOT OK", 401
+
+# allow login also with username
