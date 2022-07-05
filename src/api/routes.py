@@ -21,3 +21,11 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+@api.route('/signup', methods=['POST'])
+def handle_signup():
+    response_body = request.get_json(force=True)
+    hashed_pw = generate_password_hash(response_body['password'], "md5")
+    new_user = User(email=response_body['email'], password_hashed=hashed_pw, username=response_body['username'], name=response_body['name'])
+    db.session.add(new_user)
+    db.session.commit()
+    return "ok", 200
