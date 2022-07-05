@@ -34,16 +34,19 @@ def handle_signup():
         db.session.add(new_user)
         db.session.commit()
         return "ok", 200
+
     elif existing_email and not existing_username:
         error_body = {
             "error_message": "Email already taken!"
         }
         return jsonify(error_body), 401
+
     elif existing_username and not existing_email:
         error_body = {
             "error_message": "Username already taken!"
         }
         return jsonify(error_body), 401
+        
     else:
         error_body = {
             "error_message": "Username and email already taken!"
