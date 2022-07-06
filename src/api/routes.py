@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+from sqlalchemy import or_
 
 api = Blueprint('api', __name__)
 
@@ -49,8 +50,8 @@ def user_login():
     response_body = request.get_json(force=True)
     email = response_body['email']
     password = response_body['password']
-    user = User.query.filter_by(email=email).first()
-    pw_hash = user.password_hash
+    user = User.query.filter(or_(User.email == email, User.username == email)).first()
+    pw_hash = user.password_hashed
     password_matched = check_password_hash(pw_hash, password)
     
     if password_matched:
@@ -58,5 +59,6 @@ def user_login():
         return jsonify({"token": access_token, "user_id": user.id})
     else:
         return "NOT OK", 401
+
 
 # allow login also with username
