@@ -87,9 +87,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       hello: () => {
         console.log("Hello Al!!!");
       },
-      blabla: () => {
+      alvaro: () => {
         console.log("Hi Julian");
-        return null;
+        return undefined;
       },
     },
   };
