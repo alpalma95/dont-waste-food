@@ -84,6 +84,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       clearPillArr: () => {
         setStore({ pillDietInput: [] });
       },
+      hello: () => {
+        console.log("Hello Al!!!");
+      },
     },
   };
 };
