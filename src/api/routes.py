@@ -16,7 +16,7 @@ api = Blueprint('api', __name__)
 @api.route('/signup', methods=['POST'])
 def handle_signup():
     response_body = request.get_json(force=True)
-
+    
     existing_username = User.query.filter_by(username=response_body["username"]).first()
     existing_email = User.query.filter_by(email=response_body["email"]).first()
 
