@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
+import SearchBar from "../component/SearchBar";
 import "../../styles/home.css";
+import Recipes from "../component/Recipes";
 
-export const Home = () => {
-  const { store, actions } = useContext(Context);
-
-  return (
-    <div className="text-center mt-5">
-      <h1>Don't waste my food!</h1>
-    </div>
-  );
-};
+export const Home = () => (
+  <div>
+    <SearchBar />
+    <Recipes />
+  </div>
+);
