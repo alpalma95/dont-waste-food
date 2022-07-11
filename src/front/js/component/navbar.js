@@ -29,10 +29,13 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3 p-3 fixed-top">
-      <a className="navbar-brand" href="#">
-        Don't Waste My Food
-      </a>
+    <nav className="navbar navbar-light bg-light mb-3 p-3 sticky-top">
+      <Link to="/">
+        <h1 className="navbar-brand" href="#">
+          Don't Waste My Food
+        </h1>
+      </Link>
+
       <div className="ml-auto">
         <div className="dropdown">
           <button
