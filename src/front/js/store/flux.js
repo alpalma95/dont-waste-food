@@ -7,6 +7,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       error: null,
       items: [],
       shoppingList: [],
+      userToken: localStorage.getItem("jwt-token") ?? null,
+      userLogged: false,
+      userEmail: null,
+      userId: null,
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -83,6 +87,27 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       clearPillArr: () => {
         setStore({ pillDietInput: [] });
+      },
+      login: (email, password) => {
+        fetch(
+          "https://3001-alpalma95-dontwastefood-qd2xig4w70o.ws-eu53.gitpod.io/api/login",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, password: password }),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            localStorage.setItem("jwt-token", data.token);
+            setStore({ userToken: localStorage.getItem("jwt-token") });
+          })
+          .catch((err) => alert("Invalid credentials!"));
+      },
+      getToken: () => {
+        setStore({
+          userToken: localStorage.getItem("jwt-token") ?? null,
+        });
       },
     },
   };
