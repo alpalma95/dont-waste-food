@@ -11,6 +11,11 @@ export const Navbar = () => {
     console.log("Delete ITEM", e);
   };
 
+  const removeTokenHandler = () => {
+    localStorage.removeItem("jwt-token");
+    actions.getToken();
+  };
+
   console.log("NEW INGREDIENTS", store.shoppingList);
   let list = store.shoppingList.map((ingredient, index) => (
     <li
@@ -29,13 +34,38 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3 p-3 sticky-top">
-      <Link to="/">
+    <nav className="navbar navbar-light bg-light mb-3 p-3 sticky-top d-flex justify-content-end">
+      <Link to="/" className="me-auto">
         <h1 className="navbar-brand" href="#">
           Don't Waste My Food
         </h1>
       </Link>
-
+      <Link to="/login">
+        {store.userToken ? (
+          <></>
+        ) : (
+          <button className="btn btn-outline-dark m-1">Login!</button>
+        )}
+      </Link>
+      <Link to="/">
+        {store.userToken ? (
+          <button
+            className="btn btn-outline-dark m-1"
+            onClick={removeTokenHandler}
+          >
+            Log out
+          </button>
+        ) : (
+          <></>
+        )}
+      </Link>
+      <Link to="/signup">
+        {store.userToken ? (
+          <></>
+        ) : (
+          <button className="btn btn-outline-dark m-1">Sign up!</button>
+        )}
+      </Link>
       <div className="ml-auto">
         <div className="dropdown">
           <button
