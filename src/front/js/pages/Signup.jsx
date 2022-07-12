@@ -34,20 +34,17 @@ const Signup = () => {
 
   const submitUserInfo = () => {
     if (emailValue && passwordValue) {
-      fetch(
-        "https://3001-alpalma95-dontwastefood-qd2xig4w70o.ws-eu53.gitpod.io/api/signup",
-        {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify({
-            email: emailValue,
-            password: passwordValue,
-            username: usernameValue,
-            name: nameValue,
-            confirmed_password: passwordConfirmedValue,
-          }),
-        }
-      )
+      fetch(`${process.env.BACKEND_URL}/signup`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          email: emailValue,
+          password: passwordValue,
+          username: usernameValue,
+          name: nameValue,
+          confirmed_password: passwordConfirmedValue,
+        }),
+      })
         .then(setRedirectToLogin(true))
         .catch((err) => {
           alert("Something went wrong! " + err.message);

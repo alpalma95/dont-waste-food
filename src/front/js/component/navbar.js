@@ -89,11 +89,13 @@ export const Navbar = () => {
           >
             {list}
 
-            <li className="d-flex justify-content-center">
-              {store.shoppingList.length !== 0 && (
-                <Link className="btn btn-secondary mt-4">Shopping List</Link>
-              )}
-            </li>
+            <Link to="/">
+              <li className="d-flex justify-content-center">
+                {store.shoppingList.length !== 0 && (
+                  <span className="btn btn-dark">Shopping list</span>
+                )}
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

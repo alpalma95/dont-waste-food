@@ -89,14 +89,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ pillDietInput: [] });
       },
       login: (email, password) => {
-        fetch(
-          "https://3001-alpalma95-dontwastefood-qd2xig4w70o.ws-eu53.gitpod.io/api/login",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: email, password: password }),
-          }
-        )
+        fetch(`${process.env.BACKEND_URL}/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email, password: password }),
+        })
           .then((response) => response.json())
           .then((data) => {
             localStorage.setItem("jwt-token", data.token);
