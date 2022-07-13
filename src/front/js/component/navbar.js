@@ -92,7 +92,7 @@ export const Navbar = () => {
             <Link to="/">
               <li className="d-flex justify-content-center">
                 {store.shoppingList.length !== 0 && (
-                  <span className="btn btn-dark">Shopping list</span>
+                  <span className="btn btn-dark mt-3">Shopping list</span>
                 )}
               </li>
             </Link>

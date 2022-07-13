@@ -17,9 +17,10 @@ const Recipes = () => {
     console.table(store.items);
     return (
       <div className="row">
-        {store.items.map((item) => (
-          <RecipeCard item={item} key={item.recipe.uri} />
+        {store.items.map((item, index) => (
+          <RecipeCard item={item} key={item.recipe.uri} index={index} />
         ))}
+        ;
       </div>
     );
   }
