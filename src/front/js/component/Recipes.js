@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import RecipeCard from "./RecipeCard";
 import { Context } from "../store/appContext";
+import Frying_Pan from "../../../assets/gif/frying pan loading logo.gif";
 
 const Recipes = () => {
   const { store, actions } = useContext(Context);
@@ -12,13 +13,20 @@ const Recipes = () => {
   if (store.error) {
     return <>{store.error.message}</>;
   } else if (!store.isLoaded || store.items.length === 0) {
-    return <>loading....</>;
+    return (
+      <>
+        <img
+          src={Frying_Pan}
+          style={{ margin: "0 auto", display: "block", width: "450px" }}
+        />
+      </>
+    );
   } else if (store.items.length != 0) {
     console.table(store.items);
     return (
       <div className="row">
-        {store.items.map((item) => (
-          <RecipeCard item={item} key={item.recipe.uri} />
+        {store.items.map((item, index) => (
+          <RecipeCard item={item} key={item.recipe.uri} index={index} />
         ))}
       </div>
     );

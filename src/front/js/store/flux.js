@@ -17,17 +17,24 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ searchInput: textSearch });
       },
       searchAPI: () => {
+        setStore({ isLoaded: false });
         const store = getStore();
-        const search = store.searchInput;
+        let search = store.searchInput;
         const diet = store.pillDietInput;
+        if (search.length === 0) {
+          search = ["mushrooms", "quinoa", "cheese"];
+        }
         fetch(
           `https://api.edamam.com/api/recipes/v2?type=public&app_id=e5010e00&app_key=0326e037783040d1e8513857ee63d982&q=${search}&healt=${diet}`
         )
           .then((response) => response.json())
           .then(
             (result) => {
-              setStore({ isLoaded: true });
               setStore({ items: result.hits });
+              setTimeout(() => {
+                setStore({ isLoaded: true });
+              }, 5000);
+
               // console.table(result.hits[0].recipe);
             },
             (error) => {

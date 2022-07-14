@@ -4,7 +4,7 @@ import "../../styles/home.css";
 import Recipes from "../component/Recipes";
 
 export const Home = () => (
-  <div>
+  <div className="m-5">
     <SearchBar />
     <Recipes />
   </div>

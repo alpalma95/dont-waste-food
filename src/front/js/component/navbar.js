@@ -34,9 +34,12 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3 p-3 sticky-top d-flex justify-content-end">
-      <Link to="/" className="me-auto">
-        <h1 className="navbar-brand" href="#">
+    <nav
+      className="navbar navbar-light mb-3 p-3 sticky-top d-flex justify-content-end"
+      style={{ backgroundColor: "#009688" }}
+    >
+      <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>
+        <h1 className="navbar-brand" style={{ color: "white" }} href="#">
           Don't Waste My Food
         </h1>
       </Link>
@@ -44,7 +47,7 @@ export const Navbar = () => {
         {store.userToken ? (
           <></>
         ) : (
-          <button className="btn btn-outline-dark m-1">Login!</button>
+          <button className="btn border-white m-1 text-white">Login!</button>
         )}
       </Link>
       <Link to="/">
@@ -63,7 +66,7 @@ export const Navbar = () => {
         {store.userToken ? (
           <></>
         ) : (
-          <button className="btn btn-outline-dark m-1">Sign up!</button>
+          <button className="btn border-white m-1 text-white">Sign up!</button>
         )}
       </Link>
       <div className="ml-auto">
@@ -92,7 +95,7 @@ export const Navbar = () => {
             <Link to="/">
               <li className="d-flex justify-content-center">
                 {store.shoppingList.length !== 0 && (
-                  <span className="btn btn-dark">Shopping list</span>
+                  <span className="btn btn-dark mt-3">Shopping list</span>
                 )}
               </li>
             </Link>

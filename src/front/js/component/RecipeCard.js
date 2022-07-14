@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 
-const RecipeCard = ({ item }) => {
+const RecipeCard = ({ item, index }) => {
   const { store, actions } = useContext(Context);
   const nutrientsArr = ["CA", "CHOLE", "FAT", "FIBTG", "SUGAR", "NA", "FE"];
   const checkBoxHandler = (e) => {
@@ -30,21 +30,85 @@ const RecipeCard = ({ item }) => {
   const addToShopList = () => {
     console.log("adding");
   };
+
+  const [starFav, setStarFav] = useState(false);
+
+  const addToFavoriteHandler = () => {
+    setStarFav((previousState) => {
+      return !previousState;
+    });
+    console.log("Et maintenant, à toi de jouer Alvaro :P !!!");
+  };
+  let star = starFav ? (
+    <i className="bi bi-star-fill"></i>
+  ) : (
+    <i className="bi bi-star"></i>
+  );
+
   return (
-    <div className="col-6 offset-3">
+    <div className="col-12 col-sm-4 col-xl-3">
       <div className="card" style={{ marginTop: "40px" }}>
-        <div style={{ paddingTop: "20px", paddingLeft: "20px" }}>
-          <h2 className="card-title text-center">{item.recipe.label} </h2>
+        <div
+          style={{
+            paddingTop: "10px",
+            height: "90px",
+          }}
+        >
+          <h5
+            className="card-title text-center"
+            style={
+              {
+                // fontSize: "20px",
+                // overflow: "hidden",
+                // textOverflow: "ellipsis",
+              }
+            }
+          >
+            {item.recipe.label}{" "}
+          </h5>
         </div>
-        <img
-          src={item.recipe.image}
-          alt={item.recipe.label}
-          style={{ padding: "10px 60px" }}
-        />
+        <img src={item.recipe.image} alt={item.recipe.label} />
         <div className="card-body">
-          <div className="card-text fw-light">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="headingTwo">
+              <button
+                className="accordion-button collapsed p-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={"#nutrientsRecipe" + index}
+                aria-expanded="false"
+                aria-controls={"nutrientsRecipe" + index}
+              >
+                <h5>Nutrients</h5>
+              </button>
+            </h2>
+            <div
+              id={"nutrientsRecipe" + index}
+              className="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body">
+                <ul>
+                  {nutrientsArr.map((nut, index) => {
+                    return (
+                      <li className="nutrients-list" key={index}>
+                        {item.recipe.totalNutrients[nut].label +
+                          ": " +
+                          item.recipe.totalNutrients[nut].quantity.toFixed(0) +
+                          " " +
+                          item.recipe.totalNutrients[nut].unit}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="card-text fw-light">
             <div className="text-center">
-              <h3>Nutrients</h3>
+              <h5>Nutrients</h5>
             </div>
             <ul>
               {nutrientsArr.map((nut, index) => {
@@ -59,37 +123,64 @@ const RecipeCard = ({ item }) => {
                 );
               })}
             </ul>
-          </div>
+          </div> */}
           <br />
           <div className="text-center">
-            <h3>Ingredients</h3>
-          </div>
-          {item.recipe.ingredients.map((ing, index) => (
-            <div
-              className="custom-control custom-checkbox list-group-item"
-              key={index}
-            >
-              <label
-                className="custom-control-label"
-                htmlFor={`${item.recipe.uri}${index}`}
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingTwo">
+                <button
+                  className="accordion-button collapsed p-2"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={"#ingredientsRecipe" + index}
+                  aria-expanded="false"
+                  aria-controls={"ingredientsRecipe" + index}
+                >
+                  <h5>Ingredients</h5>
+                </button>
+              </h2>
+              <div
+                id={"ingredientsRecipe" + index}
+                className="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample"
               >
-                {ing.text}
-              </label>
-              <div className="d-flex justify-content-end">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id={`${item.recipe.uri}${index}`}
-                  onClick={checkBoxHandler}
-                  data-recipe-uri={item.recipe.uri}
-                  data-recipe-ingredient-index={index}
-                  data-recipe-ingredient-text={ing.text}
-                />
+                <div className="accordion-body small text-start p-0">
+                  {item.recipe.ingredients.map((ing, index) => (
+                    <div
+                      className="custom-control custom-checkbox list-group-item"
+                      key={index}
+                    >
+                      <label
+                        className="custom-control-label"
+                        htmlFor={`${item.recipe.uri}${index}`}
+                      >
+                        {ing.text}
+                      </label>
+                      <div className="d-flex justify-content-end">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          id={`${item.recipe.uri}${index}`}
+                          onClick={checkBoxHandler}
+                          data-recipe-uri={item.recipe.uri}
+                          data-recipe-ingredient-index={index}
+                          data-recipe-ingredient-text={ing.text}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
-
-          <div className="card-body d-flex justify-content-around">
+          </div>
+          <div className="card-body d-flex justify-content-between pb-0">
+            <span
+              onClick={addToFavoriteHandler}
+              style={{ fontSize: "30px", color: "#FFD300" }}
+            >
+              {star}
+            </span>
             <button type="button" className="btn btn-dark">
               <a
                 href={item.recipe.url}
@@ -100,16 +191,6 @@ const RecipeCard = ({ item }) => {
                 Full Recipe!
               </a>
             </button>
-            {/* <button type="button" className="btn btn-dark">
-              <a
-                href="#"
-                className="card-link text-white"
-                onClick={addToShopList}
-                style={{ textDecoration: "none" }}
-              >
-                Add To Shopping List
-              </a>
-            </button> */}
           </div>
         </div>
       </div>
