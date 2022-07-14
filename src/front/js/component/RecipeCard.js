@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 
 const RecipeCard = ({ item, index }) => {
@@ -30,19 +30,42 @@ const RecipeCard = ({ item, index }) => {
   const addToShopList = () => {
     console.log("adding");
   };
+
+  const [starFav, setStarFav] = useState(false);
+
+  const addToFavoriteHandler = () => {
+    setStarFav((previousState) => {
+      return !previousState;
+    });
+    console.log("Et maintenant, à toi de jouer Alvaro :P !!!");
+  };
+  let star = starFav ? (
+    <i className="bi bi-star-fill"></i>
+  ) : (
+    <i className="bi bi-star"></i>
+  );
+
   return (
     <div className="col-12 col-sm-4 col-xl-3">
       <div className="card" style={{ marginTop: "40px" }}>
         <div
           style={{
             paddingTop: "10px",
-            maxHeight: "100px",
-            minHeight: "100px",
+            height: "90px",
           }}
         >
-          <h4 className="card-title text-center" style={{}}>
+          <h5
+            className="card-title text-center"
+            style={
+              {
+                // fontSize: "20px",
+                // overflow: "hidden",
+                // textOverflow: "ellipsis",
+              }
+            }
+          >
             {item.recipe.label}{" "}
-          </h4>
+          </h5>
         </div>
         <img src={item.recipe.image} alt={item.recipe.label} />
         <div className="card-body">
@@ -122,7 +145,7 @@ const RecipeCard = ({ item, index }) => {
                 aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample"
               >
-                <div className="accordion-body">
+                <div className="accordion-body small text-start p-0">
                   {item.recipe.ingredients.map((ing, index) => (
                     <div
                       className="custom-control custom-checkbox list-group-item"
@@ -150,35 +173,14 @@ const RecipeCard = ({ item, index }) => {
                 </div>
               </div>
             </div>
-
-            {/* <h5>Ingredients</h5> */}
           </div>
-          {/* {item.recipe.ingredients.map((ing, index) => (
-            <div
-              className="custom-control custom-checkbox list-group-item"
-              key={index}
-            >
-              <label
-                className="custom-control-label"
-                htmlFor={`${item.recipe.uri}${index}`}
-              >
-                {ing.text}
-              </label>
-              <div className="d-flex justify-content-end">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id={`${item.recipe.uri}${index}`}
-                  onClick={checkBoxHandler}
-                  data-recipe-uri={item.recipe.uri}
-                  data-recipe-ingredient-index={index}
-                  data-recipe-ingredient-text={ing.text}
-                />
-              </div>
-            </div>
-          ))} */}
-
           <div className="card-body d-flex justify-content-between pb-0">
+            <span
+              onClick={addToFavoriteHandler}
+              style={{ fontSize: "30px", color: "#FFD300" }}
+            >
+              {star}
+            </span>
             <button type="button" className="btn btn-dark">
               <a
                 href={item.recipe.url}
@@ -189,15 +191,6 @@ const RecipeCard = ({ item, index }) => {
                 Full Recipe!
               </a>
             </button>
-            <span type="button">
-              <a
-                href="#"
-                className="card-link"
-                style={{ fontSize: "30px", color: "#FFD300" }}
-              >
-                <i className="bi bi-star"></i>
-              </a>
-            </span>
           </div>
         </div>
       </div>

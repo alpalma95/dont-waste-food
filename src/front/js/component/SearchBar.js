@@ -53,9 +53,13 @@ const SearchBar = () => {
     actions.searchAPI();
   };
 
+  const onFocusSearchBarHandler = () => {
+    searchRef.current.value = "";
+  };
+
   const dietRequirementHandler = (e) => {
     console.log("change option handler", searchOption.current.value);
-    if (searchOption.current.value === "By Diet Requirements") {
+    if (searchOption.current.value === "Diet") {
       setdietReqDiv(true);
     } else {
       setdietReqDiv(false);
@@ -64,7 +68,7 @@ const SearchBar = () => {
   };
 
   const dietPills = (
-    <div className="col-6 offset-3 bg-light p-4 rounded">
+    <div className="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-6 offset-lg-3 pl-3 rounded">
       {" "}
       {dietArr.map((diet, index) => {
         return <Pill diet={diet} key={index} />;
@@ -73,29 +77,47 @@ const SearchBar = () => {
   );
 
   return (
-    <div className="row mt-5 pt-5">
+    <div className="row">
       <div className="row">
-        <div className="col-6 offset-3">
+        <div className="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
           <form onSubmit={searchBarHandler}>
             <div className="input-group mb-3">
               <select
-                className="btn btn-dark dropdown-toggle"
+                className="btn btn-dark dropdown-toggle p-1"
+                style={{
+                  backgroundColor: "#009688",
+                  color: "white",
+                  boxShadow: "none",
+                  border: "0",
+                }}
                 type="button"
                 ref={searchOption}
                 onChange={dietRequirementHandler}
               >
-                <option>By Ingredients</option>
-                <option>By Diet Requirements</option>
+                <option>Ingredients</option>
+                <option>Diet</option>
               </select>
               <input
                 type="text"
                 className="form-control"
+                style={{ boxShadow: "none" }}
                 aria-label="Text input with dropdown button"
                 placeholder="What's in your fridge"
                 ref={searchRef}
+                onFocus={onFocusSearchBarHandler}
               />
               <div className="input-group-append">
-                <button className="btn btn-success" type="submit">
+                <button
+                  className="btn"
+                  style={{
+                    backgroundColor: "#009688",
+                    color: "white",
+                    boxShadow: "none",
+                    borderTopLeftRadius: "0px",
+                    borderBottomLeftRadius: "0px",
+                  }}
+                  type="submit"
+                >
                   Search
                 </button>
               </div>
