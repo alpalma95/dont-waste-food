@@ -100,3 +100,15 @@ def get_favorites():
     favorites_serialized = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(favorites_serialized), 200
+
+@api.route('/favorites/delete', methods=['DELETE'])
+@jwt_required()
+def delete_favorite():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
+
+    favorite = Favorite.query.filter_by(user_id=user.id, recipe_id=response_body["recipe_id"]).delete()
+    db.session.commit()
+
+    return "Deleted", 200
