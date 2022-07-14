@@ -55,6 +55,9 @@ class Favorite(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(Category.id), nullable=False)
     recipe_id = db.Column(db.String(180), nullable=False)
+    recipe_url = db.Column(db.String(250), nullable=False)
+    recipe_title = db.Column(db.String(250), nullable=False)
+    category_name = db.Column(db.String(180))
 
     def __repr__(self):
         return f'<Favorite {self.user_id}>'
@@ -64,5 +67,8 @@ class Favorite(db.Model):
             "id": self.id,
             "user_id": self.user_id,
             "category_id": self.category_id,
-            "recipe_id": self.recipe_id
+            "recipe_id": self.recipe_id,
+            "recipe_url": self.recipe_url,
+            "recipe_title": self.recipe_title,
+            "category_name": self.category_name
         }
