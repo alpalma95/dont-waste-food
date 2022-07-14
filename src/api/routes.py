@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Category, Favorite
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
@@ -68,5 +68,24 @@ def user_login():
     else:
         return "NOT OK", 401
 
+@api.route('/favorites/add', methods=['POST'])
+@jwt_required()
+def add_favorite():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
 
-# allow login also with username
+    selected_category = response_body['category_name']
+    category = Category.query.filter_by(name=selected_category).first()
+
+    if not category:
+        category = Category(name=selected_category)
+        db.session.add(category)
+        db.session.commit()
+    
+    new_favorite = Favorite(user_id=user.id, category_id=category.id, recipe_id=response_body['recipe_id'], recipe_url=response_body["recipe_url"], recipe_title=response_body["recipe_title"])
+
+    db.session.add(new_favorite)
+    db.session.commit()
+    
+    return "Favorite added", 200

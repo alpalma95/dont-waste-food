@@ -55,6 +55,8 @@ class Favorite(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(Category.id), nullable=False)
     recipe_id = db.Column(db.String(180), nullable=False)
+    recipe_url = db.Column(db.String(250), nullable=False)
+    recipe_title = db.Column(db.String(250), nullable=False)
 
     def __repr__(self):
         return f'<Favorite {self.user_id}>'
