@@ -89,3 +89,14 @@ def add_favorite():
     db.session.commit()
     
     return "Favorite added", 200
+
+@api.route('/favorites/get', methods=['GET'])
+@jwt_required()
+def get_favorites():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    favorites = Favorite.query.filter_by(user_id=user.id).all()
+    favorites_serialized = list(map(lambda x: x.serialize(), favorites))
+
+    return jsonify(favorites_serialized), 200
