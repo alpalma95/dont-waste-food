@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoaded: false,
       error: null,
       items: [],
+      favoriteItems: [],
       shoppingList: [],
       userToken: localStorage.getItem("jwt-token") ?? null,
       userLogged: false,
@@ -112,6 +113,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({
           userToken: localStorage.getItem("jwt-token") ?? null,
         });
+      },
+      addFavorite: (newItem) => {
+        const store = getStore();
+        setStore({ favoriteItems: [...store.favoriteItems, newItem] });
+        console.log(store.favoriteItems);
       },
     },
   };
