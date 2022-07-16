@@ -34,7 +34,7 @@ const Signup = () => {
 
   const submitUserInfo = () => {
     if (emailValue && passwordValue) {
-      fetch(`${process.env.BACKEND_URL}/signup`, {
+      fetch(`${process.env.BACKEND_URL}/api/signup`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({

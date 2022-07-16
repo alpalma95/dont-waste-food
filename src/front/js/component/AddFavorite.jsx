@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 const AddFavorite = ({ setAddFavoriteShow, item }) => {
   const { store, actions } = useContext(Context);
   const [listValue, setListValue] = useState();
-  // const [pickedValue, setPickedValue] = useState(listValue);
 
   const setListValueHandler = (e) => {
     setListValue(e.target.value);
@@ -19,6 +18,7 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
     recipe_url: item.recipe.url,
     recipe_title: item.recipe.label,
     category_name: listValue,
+    recipe_img: item.recipe.image,
   };
   return (
     <div className="w-100 p-5">
@@ -36,7 +36,11 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
       <div className="d-flex">
         <button
           className="btn btn-primary d-block"
-          onClick={() => actions.addFavorite(newFavorite)}
+          onClick={() => {
+            actions.addFavorite(newFavorite);
+            actions.sendToDatabase(newFavorite);
+            setAddFavoriteShowHandler();
+          }}
         >
           Confirm
         </button>
