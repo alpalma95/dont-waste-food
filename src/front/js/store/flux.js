@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoaded: false,
       error: null,
       items: [],
+      favoriteItems: [],
       shoppingList: [],
       userToken: localStorage.getItem("jwt-token") ?? null,
       userLogged: false,
@@ -96,7 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ pillDietInput: [] });
       },
       login: (email, password) => {
-        fetch(`${process.env.BACKEND_URL}/login`, {
+        fetch(`${process.env.BACKEND_URL}/api/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: email, password: password }),
@@ -112,6 +113,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({
           userToken: localStorage.getItem("jwt-token") ?? null,
         });
+      },
+      addFavorite: (newItem) => {
+        const store = getStore();
+        setStore({ favoriteItems: [...store.favoriteItems, newItem] });
+        console.log(store.favoriteItems);
+      },
+      sendToDatabase: (favorite) => {
+        const token = localStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/favorites/add`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify(favorite),
+        }).then((resp) => {resp.json()});
       },
     },
   };

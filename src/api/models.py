@@ -58,6 +58,7 @@ class Favorite(db.Model):
     recipe_url = db.Column(db.String(250), nullable=False)
     recipe_title = db.Column(db.String(250), nullable=False)
     category_name = db.Column(db.String(180))
+    recipe_img = db.Column(db.String(10000))
 
     def __repr__(self):
         return f'<Favorite {self.user_id}>'
@@ -70,5 +71,6 @@ class Favorite(db.Model):
             "recipe_id": self.recipe_id,
             "recipe_url": self.recipe_url,
             "recipe_title": self.recipe_title,
-            "category_name": self.category_name
+            "category_name": self.category_name,
+            "image_url": self.recipe_img
         }

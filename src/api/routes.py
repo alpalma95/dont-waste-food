@@ -75,7 +75,7 @@ def add_favorite():
     user = User.query.get(current_user_id)
     response_body = request.get_json(force=True)
 
-    selected_category = response_body['category_name']
+    selected_category = response_body["category_name"]
     category = Category.query.filter_by(name=selected_category).first()
 
     if not category:
@@ -83,7 +83,7 @@ def add_favorite():
         db.session.add(category)
         db.session.commit()
     
-    new_favorite = Favorite(user_id=user.id, category_id=category.id, recipe_id=response_body['recipe_id'], recipe_url=response_body["recipe_url"], recipe_title=response_body["recipe_title"], category_name=response_body["category_name"])
+    new_favorite = Favorite(user_id=user.id, category_id=category.id, recipe_id=response_body['recipe_id'], recipe_url=response_body["recipe_url"], recipe_title=response_body["recipe_title"], category_name=response_body["category_name"], recipe_img=response_body["recipe_img"])
 
     db.session.add(new_favorite)
     db.session.commit()
