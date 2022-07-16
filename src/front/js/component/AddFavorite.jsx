@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 
 const AddFavorite = ({ setAddFavoriteShow, item }) => {
   const { store, actions } = useContext(Context);
-  const [listValue, setListValue] = useState();
+  const [listValue, setListValue] = useState("breakfast");
 
   const setListValueHandler = (e) => {
     setListValue(e.target.value);
