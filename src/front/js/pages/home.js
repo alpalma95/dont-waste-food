@@ -1,11 +1,15 @@
-import React from "react";
-import SearchBar from "../component/SearchBar";
+import React, { useContext } from "react";
 import "../../styles/home.css";
-import Recipes from "../component/Recipes";
+import LandingPage from "./LandingPage.jsx";
+import Dashboard from "./Dashboard.jsx";
+import { Context } from "../store/appContext";
 
-export const Home = () => (
-  <div className="m-5">
-    <SearchBar />
-    <Recipes />
-  </div>
-);
+export const Home = () => {
+  const { store, actions } = useContext(Context);
+
+  return (
+    <div className="m-5">
+      {store.userToken ? <Dashboard /> : <LandingPage />}
+    </div>
+  );
+};

@@ -47,7 +47,16 @@ export const Navbar = () => {
         {store.userToken ? (
           <></>
         ) : (
-          <button className="btn border-white m-1 text-white">Login!</button>
+          <button className="btn border-white m-1 text-white">Login</button>
+        )}
+      </Link>
+      <Link to="/search">
+        {!store.userToken ? (
+          <></>
+        ) : (
+          <button className="btn border-white m-1 text-white">
+            Search recipes
+          </button>
         )}
       </Link>
       <Link to="/">
@@ -66,7 +75,7 @@ export const Navbar = () => {
         {store.userToken ? (
           <></>
         ) : (
-          <button className="btn border-white m-1 text-white">Sign up!</button>
+          <button className="btn border-white m-1 text-white">Sign up</button>
         )}
       </Link>
       <div className="ml-auto">
