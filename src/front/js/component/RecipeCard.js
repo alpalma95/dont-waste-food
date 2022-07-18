@@ -14,6 +14,13 @@ const RecipeCard = ({ item, index }) => {
         ingredientIndex: e.target.getAttribute("data-recipe-ingredient-index"),
         ingredientText: e.target.getAttribute("data-recipe-ingredient-text"),
         recipeUri: e.target.getAttribute("data-recipe-uri"),
+        quantity: e.target.getAttribute("data-recipe-ingredient-quantity"),
+        food: e.target.getAttribute("data-recipe-ingredient-food"),
+        measure: e.target.getAttribute("data-recipe-ingredient-measure"),
+        weight: e.target.getAttribute("data-recipe-ingredient-weight"),
+        foodCategory: e.target.getAttribute(
+          "data-recipe-ingredient-foodcategory"
+        ),
       };
 
       actions.addShoppingList(ingredient);
@@ -65,7 +72,7 @@ const RecipeCard = ({ item, index }) => {
               aria-expanded="false"
               aria-controls={"nutrientsRecipe" + index}
             >
-              <h5>Nutrients</h5>
+              <h5 className="fs-5">Nutrients</h5>
             </button>
           </h2>
           <div
@@ -92,7 +99,7 @@ const RecipeCard = ({ item, index }) => {
           </div>
         </div>
         <br />
-        <div className="text-center">
+        <div className="">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingTwo">
               <button
@@ -103,7 +110,7 @@ const RecipeCard = ({ item, index }) => {
                 aria-expanded="false"
                 aria-controls={"ingredientsRecipe" + index}
               >
-                <h5>Ingredients</h5>
+                <h5 className="fs-5">Ingredients</h5>
               </button>
             </h2>
             <div
@@ -112,7 +119,10 @@ const RecipeCard = ({ item, index }) => {
               aria-labelledby="headingTwo"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body small text-start p-0">
+              <div
+                className="accordion-body small text-start p-0"
+                style={{ maxHeight: "200px", overflowY: "scroll" }}
+              >
                 {item.recipe.ingredients.map((ing, index) => (
                   <div
                     className="custom-control custom-checkbox list-group-item"
@@ -133,6 +143,11 @@ const RecipeCard = ({ item, index }) => {
                         data-recipe-uri={item.recipe.uri}
                         data-recipe-ingredient-index={index}
                         data-recipe-ingredient-text={ing.text}
+                        data-recipe-ingredient-quantity={ing.quantity}
+                        data-recipe-ingredient-food={ing.food}
+                        data-recipe-ingredient-measure={ing.measure}
+                        data-recipe-ingredient-weight={ing.weight}
+                        data-recipe-ingredient-foodcategory={ing.foodCategory}
                       />
                     </div>
                   </div>
@@ -165,27 +180,23 @@ const RecipeCard = ({ item, index }) => {
 
   return (
     <div className="col-12 col-sm-4 col-xl-3">
-      <div className="card" style={{ marginTop: "40px" }}>
+      <div className="card" style={{ marginTop: "40px", minHeight: "587px" }}>
         <div
           style={{
             paddingTop: "10px",
             height: "90px",
           }}
         >
-          <h5
-            className="card-title text-center"
-            style={
-              {
-                // fontSize: "20px",
-                // overflow: "hidden",
-                // textOverflow: "ellipsis",
-              }
-            }
-          >
-            {item.recipe.label}{" "}
-          </h5>
+          <h5 className="card-title text-center">{item.recipe.label} </h5>
         </div>
-        {addFavoriteShow ? <AddFavorite setAddFavoriteShow={setAddFavoriteShow} item={item} /> : cardContent}
+        {addFavoriteShow ? (
+          <>
+            <img src={item.recipe.image} alt={item.recipe.label} />
+            <AddFavorite setAddFavoriteShow={setAddFavoriteShow} item={item} />
+          </>
+        ) : (
+          cardContent
+        )}
       </div>
     </div>
   );

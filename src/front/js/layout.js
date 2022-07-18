@@ -9,6 +9,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
+import ShoppingList from "./component/ShoppingList";
 
 //create your first component
 const Layout = () => {
@@ -25,6 +26,7 @@ const Layout = () => {
             <Route element={<Home />} exact path="/" />
             <Route element={<Signup />} exact path="/signup" />
             <Route element={<Login />} exact path="/login" />
+            <Route element={<ShoppingList />} exact path="/shoppinglist" />
           </Routes>
           <Footer />
         </ScrollToTop>

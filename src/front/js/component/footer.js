@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export const Footer = () => (
   <footer
-    className="footer mt-auto py-3 text-center mt-auto text-white"
+    className="footer mt-auto pt-2 text-center mt-auto text-white"
     style={{ backgroundColor: "#009688" }}
   >
     <p style={{ color: "black" }}>
