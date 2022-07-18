@@ -11,6 +11,7 @@ import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import ShoppingList from "./component/ShoppingList";
 import Search from "./pages/Search.jsx";
+import Favorites from "./pages/Favorites.jsx";
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,7 @@ const Layout = () => {
             <Route element={<Login />} exact path="/login" />
             <Route element={<ShoppingList />} exact path="/shoppinglist" />
             <Route element={<Search />} exact path="/search" />
+            <Route element={<Favorites />} exact path="/favorites" />
           </Routes>
           <Footer />
         </ScrollToTop>

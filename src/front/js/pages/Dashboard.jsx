@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 
 const Dashboard = () => {
+  const {store, actions} = useContext(Context);
+  
+
   return (
     <div className="container-fluid pt-5 d-flex justify-content-center">
       <h1>I'm the dashboard!</h1>

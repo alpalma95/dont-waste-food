@@ -57,10 +57,19 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-lg-0">
             <li className="text-end m-1">
-              <Link to="/login">
-                {store.userToken ? (
-                  <></>
-                ) : (
+              {store.userToken ? (
+                <Link to="/">
+                  <button
+                    className="btn btn-outline-dark m-1 w-100"
+                    onClick={removeTokenHandler}
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
+                    Log out
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/login">
                   <button
                     className="btn border-white m-1 text-white w-100"
                     data-bs-toggle="collapse"
@@ -68,8 +77,31 @@ export const Navbar = () => {
                   >
                     Login
                   </button>
-                )}
-              </Link>
+                </Link>
+              )}
+            </li>
+            <li className="text-end m-1">
+              {store.userToken ? (
+                <Link to="/favorites">
+                  <button
+                    className="btn border-white m-1 text-white w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
+                    Favorites
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/signup">
+                  <button
+                    className="btn border-white m-1 text-white w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
+                    Sign up
+                  </button>
+                </Link>
+              )}
             </li>
             <li className="text-end m-1">
               <Link to="/search">
@@ -88,37 +120,6 @@ export const Navbar = () => {
                     data-bs-target=".navbar-collapse.show"
                   >
                     Search recipes
-                  </button>
-                )}
-              </Link>
-            </li>
-            <li className="text-end m-1">
-              <Link to="/">
-                {store.userToken ? (
-                  <button
-                    className="btn btn-outline-dark m-1 w-100"
-                    onClick={removeTokenHandler}
-                    data-bs-toggle="collapse"
-                    data-bs-target=".navbar-collapse.show"
-                  >
-                    Log out
-                  </button>
-                ) : (
-                  <></>
-                )}
-              </Link>
-            </li>
-            <li className="text-end m-1">
-              <Link to="/signup">
-                {store.userToken ? (
-                  <></>
-                ) : (
-                  <button
-                    className="btn border-white m-1 text-white w-100"
-                    data-bs-toggle="collapse"
-                    data-bs-target=".navbar-collapse.show"
-                  >
-                    Sign up
                   </button>
                 )}
               </Link>

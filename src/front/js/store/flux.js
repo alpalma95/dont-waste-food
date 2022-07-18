@@ -12,6 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       userLogged: !localStorage.getItem("jwt-token") ? false : true,
       userEmail: null,
       userId: null,
+      breakfastFavorites: [],
+      lunchFavorites: [],
+      dinnerFavorites: []
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -132,6 +135,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           resp.json();
         });
       },
+      fetchFavorites: () => {
+        const store = getStore()
+      }
     },
   };
 };
