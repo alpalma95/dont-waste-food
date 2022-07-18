@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       favoriteItems: [],
       shoppingList: [],
       userToken: localStorage.getItem("jwt-token") ?? null,
-      userLogged: false,
+      userLogged: !localStorage.getItem("jwt-token") ? false : true,
       userEmail: null,
       userId: null,
     },

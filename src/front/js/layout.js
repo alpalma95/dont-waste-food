@@ -10,6 +10,7 @@ import { Footer } from "./component/footer";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import ShoppingList from "./component/ShoppingList";
+import Search from "./pages/Search.jsx";
 
 //create your first component
 const Layout = () => {
@@ -27,6 +28,7 @@ const Layout = () => {
             <Route element={<Signup />} exact path="/signup" />
             <Route element={<Login />} exact path="/login" />
             <Route element={<ShoppingList />} exact path="/shoppinglist" />
+            <Route element={<Search />} exact path="/search" />
           </Routes>
           <Footer />
         </ScrollToTop>
