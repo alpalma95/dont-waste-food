@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       userId: null,
       breakfastFavorites: [],
       lunchFavorites: [],
-      dinnerFavorites: []
+      dinnerFavorites: [],
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -136,8 +136,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
       fetchFavorites: () => {
-        const store = getStore()
-      }
+        const store = getStore();
+        const token = localStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/favorites/get`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((resp) => resp.json())
+          .then((data) => setStore({ favoriteItems: data }))
+          .then(() => console.log(store.favoriteItems));
+      },
     },
   };
 };

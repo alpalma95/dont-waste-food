@@ -55,7 +55,7 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon text-white"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="text-end m-1">
               {store.userToken ? (
                 <Link to="/">
