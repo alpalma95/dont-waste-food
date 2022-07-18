@@ -52,7 +52,9 @@ export const Navbar = () => {
       </Link>
       <Link to="/search">
         {!store.userToken ? (
-          <></>
+          <button className="btn btn-danger border-white m-1 text-white">
+            Search recipes
+          </button>
         ) : (
           <button className="btn border-white m-1 text-white">
             Search recipes
