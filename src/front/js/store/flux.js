@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               setStore({ items: result.hits });
               setTimeout(() => {
                 setStore({ isLoaded: true });
-              }, 5000);
+              }, 2000);
 
               // console.table(result.hits[0].recipe);
             },
@@ -128,7 +128,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             Authorization: "Bearer " + token,
           },
           body: JSON.stringify(favorite),
-        }).then((resp) => {resp.json()});
+        }).then((resp) => {
+          resp.json();
+        });
       },
     },
   };

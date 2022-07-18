@@ -92,7 +92,7 @@ export const Navbar = () => {
           >
             {list}
 
-            <Link to="/">
+            <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
               <li className="d-flex justify-content-center">
                 {store.shoppingList.length !== 0 && (
                   <span className="btn btn-dark mt-3">Shopping list</span>

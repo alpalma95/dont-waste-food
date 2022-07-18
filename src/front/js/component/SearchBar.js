@@ -83,7 +83,7 @@ const SearchBar = () => {
           <form onSubmit={searchBarHandler}>
             <div className="input-group mb-3">
               <select
-                className="btn btn-dark dropdown-toggle p-1"
+                className="btn btn-dark dropdown-toggle"
                 style={{
                   backgroundColor: "#009688",
                   color: "white",

@@ -21,10 +21,10 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
     recipe_img: item.recipe.image,
   };
   return (
-    <div className="w-100 p-5">
-      <h3 className="mb-3">Select category:</h3>
+    <div className="w-100 p-2">
+      <h5 className="mt-3 mb-4">Select category:</h5>
       <select
-        className="form-select mb-5"
+        className="form-select mb-4"
         aria-label="Default select example"
         onChange={setListValueHandler}
       >
@@ -33,9 +33,9 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
         <option value="dinner">Dinner</option>
         <option value="snack">Snack</option>
       </select>
-      <div className="d-flex">
+      <div className="d-flex justify-content-center gap-4">
         <button
-          className="btn btn-primary d-block"
+          className="btn btn-primary"
           onClick={() => {
             actions.addFavorite(newFavorite);
             actions.sendToDatabase(newFavorite);
@@ -44,10 +44,7 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
         >
           Confirm
         </button>
-        <button
-          className="btn btn-danger d-block ms-auto"
-          onClick={setAddFavoriteShowHandler}
-        >
+        <button className="btn btn-danger" onClick={setAddFavoriteShowHandler}>
           Cancel
         </button>
       </div>
