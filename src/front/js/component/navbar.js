@@ -74,11 +74,19 @@ export const Navbar = () => {
             <li className="text-end m-1">
               <Link to="/search">
                 {!store.userToken ? (
-                  <button className="btn bg-danger border-white m-1 text-white w-100" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                  <button
+                    className="btn bg-danger border-white m-1 text-white w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
                     Search recipes
                   </button>
                 ) : (
-                  <button className="btn border-white m-1 text-white w-100" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                  <button
+                    className="btn border-white m-1 text-white w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
                     Search recipes
                   </button>
                 )}
@@ -90,7 +98,8 @@ export const Navbar = () => {
                   <button
                     className="btn btn-outline-dark m-1 w-100"
                     onClick={removeTokenHandler}
-                    data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
                   >
                     Log out
                   </button>
@@ -104,7 +113,11 @@ export const Navbar = () => {
                 {store.userToken ? (
                   <></>
                 ) : (
-                  <button className="btn border-white m-1 text-white w-100" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                  <button
+                    className="btn border-white m-1 text-white w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
                     Sign up
                   </button>
                 )}
@@ -136,7 +149,13 @@ export const Navbar = () => {
                   <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
                     <li className="d-flex justify-content-center">
                       {store.shoppingList.length !== 0 && (
-                        <span className="btn btn-dark mt-3" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Shopping list</span>
+                        <span
+                          className="btn btn-dark mt-3"
+                          data-bs-toggle="collapse"
+                          data-bs-target=".navbar-collapse.show"
+                        >
+                          Shopping list
+                        </span>
                       )}
                     </li>
                   </Link>
