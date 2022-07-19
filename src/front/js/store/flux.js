@@ -6,15 +6,12 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoaded: false,
       error: null,
       items: [],
-      favoriteItems: [],
+      favoriteItems: [], // filter by category to display on view, by default all
       shoppingList: [],
       userToken: localStorage.getItem("jwt-token") ?? null,
       userLogged: !localStorage.getItem("jwt-token") ? false : true,
       userEmail: null,
       userId: null,
-      breakfastFavorites: [],
-      lunchFavorites: [],
-      dinnerFavorites: [],
     },
     actions: {
       searchInputHandler: (textSearch) => {

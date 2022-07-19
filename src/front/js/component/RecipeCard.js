@@ -49,7 +49,7 @@ const RecipeCard = ({ item, index }) => {
     });
     setAddFavoriteShow(true);
     console.log(
-      "Et maintenant, à toi de jouer Alvaro :P !!! (ces't moi, Al: mrd)"
+      "Et maintenant, à toi de jouer Alvaro :P !!! (ces't moi, Al: mdr)"
     );
   };
   let star = starFav ? (
