@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage.jsx";
 import Dashboard from "./Dashboard.jsx";
 import { Context } from "../store/appContext";
 
+<<<<<<< HEAD
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
@@ -13,3 +14,12 @@ export const Home = () => {
     </div>
   );
 };
+=======
+
+export const Home = () => (
+  <div>
+    <SearchBar />
+    <Recipes />
+  </div>
+);
+>>>>>>> origin/patricia
