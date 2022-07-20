@@ -1,8 +1,19 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
-const PillFavorite = ({ categoryName, showHandler }) => {
+const PillFavorite = ({ categoryName, showHandler, show }) => {
   const { store, actions } = useContext(Context);
+  const displayCategory =
+    categoryName === "Breakfast"
+      ? store.showBreakfast
+      : categoryName === "Lunch"
+      ? store.showLunch
+      : categoryName === "Dinner"
+      ? store.showDinner
+      : categoryName === "Snack"
+      ? store.showSnack
+      : store.showAll;
+
   let favoriteCategory;
   if (categoryName !== "All") {
     favoriteCategory = store.favoriteItems.filter(
@@ -14,11 +25,15 @@ const PillFavorite = ({ categoryName, showHandler }) => {
 
   return (
     <div
-      className="btn btn-primary d-block d-flex justify-content-between"
-      onClick={showHandler}
+      className={`btn btn-${
+        displayCategory ? "primary" : "secondary"
+      } d-block d-flex justify-content-between`}
+      onClick={() => {
+        showHandler();
+      }}
     >
       {categoryName}{" "}
-      <span className="badge bg-secondary">{favoriteCategory.length}</span>
+      <span className="badge bg-success">{favoriteCategory.length}</span>
     </div>
   );
 };

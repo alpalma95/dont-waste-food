@@ -7,11 +7,11 @@ const FavoritePillsSection = () => {
 
   return (
     <div className="d-flex flex-sm-row flex-md-column gap-3 flex-wrap">
-      <PillFavorite categoryName="Breakfast" showHandler={actions.showBreakfastHandler} />
-      <PillFavorite categoryName="Lunch" showHandler={actions.showLunchHandler} />
-      <PillFavorite categoryName="Dinner"  showHandler={actions.showDinnerHandler}/>
-      <PillFavorite categoryName="Snack" showHandler={actions.showSnackHandler}/>
-      <PillFavorite categoryName="All" showHandler={actions.showAllHandler}/>
+      <PillFavorite categoryName="Breakfast" showHandler={actions.showBreakfastHandler} show={store.showBreakfast}/>
+      <PillFavorite categoryName="Lunch" showHandler={actions.showLunchHandler} show={store.showLunch}/>
+      <PillFavorite categoryName="Dinner"  showHandler={actions.showDinnerHandler} show={store.showDinner}/>
+      <PillFavorite categoryName="Snack" showHandler={actions.showSnackHandler} show={store.showSnack}/>
+      <PillFavorite categoryName="All" showHandler={actions.showAllHandler} show={store.showAll}/>
     </div>
   );
 };
