@@ -15,10 +15,16 @@ const Favorites = () => {
   return (
     <div className="container mx-auto mt-3">
       <div className="row">
-        <div className="col-12 col-md-2 d-flex flex-sm-row flex-md-column">
+        <div
+          className="col-12 col-md-2 d-flex flex-sm-row flex-md-column"
+          style={{ height: "95%" }}
+        >
           <FavoritePillsSection />
         </div>
-        <div className="col-12 col-md-10">
+        <div
+          className="col-12 col-md-10"
+          style={{ height: "80vh", overflow: "scroll" }}
+        >
           {store.showBreakfast ? (
             <FavoriteCategory categoryName="Breakfast" />
           ) : (
