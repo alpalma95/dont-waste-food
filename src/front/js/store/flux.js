@@ -12,6 +12,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       userLogged: !localStorage.getItem("jwt-token") ? false : true,
       userEmail: null,
       userId: null,
+      showBreakfast: false,
+      showLunch: false,
+      showDinner: false,
+      showSnack: false,
+      showAll: true,
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -145,6 +150,58 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((resp) => resp.json())
           .then((data) => setStore({ favoriteItems: data }))
           .then(() => console.log(store.favoriteItems));
+      },
+      showBreakfastHandler: () => {
+        const store = getStore();
+        setStore({ showBreakfast: !store.showBreakfast, showAll: false });
+        if (
+          !store.showBreakfast &&
+          !store.showLunch &&
+          !store.showDinner &&
+          !store.showSnack &&
+          !store.showAll
+        )
+          setStore({ showAll: true });
+      },
+      showLunchHandler: () => {
+        const store = getStore();
+        setStore({ showLunch: !store.showLunch, showAll: false });
+        if (
+          !store.showBreakfast &&
+          !store.showLunch &&
+          !store.showDinner &&
+          !store.showSnack &&
+          !store.showAll
+        )
+          setStore({ showAll: true });
+      },
+      showDinnerHandler: () => {
+        const store = getStore();
+        setStore({ showDinner: !store.showDinner, showAll: false });
+        if (
+          !store.showBreakfast &&
+          !store.showLunch &&
+          !store.showDinner &&
+          !store.showSnack &&
+          !store.showAll
+        )
+          setStore({ showAll: true });
+      },
+      showSnackHandler: () => {
+        const store = getStore();
+        setStore({ showSnack: !store.showSnack, showAll: false });
+        if (
+          !store.showBreakfast &&
+          !store.showLunch &&
+          !store.showDinner &&
+          !store.showSnack &&
+          !store.showAll
+        )
+          setStore({ showAll: true });
+      },
+      showAllHandler: () => {
+        const store = getStore();
+        if (!store.showAll) setStore({ showBreakfast: false, showLunch: false, showDinner: false, showSnack: false, showAll: true });
       },
     },
   };

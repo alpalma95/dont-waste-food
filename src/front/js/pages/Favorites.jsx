@@ -13,10 +13,24 @@ const Favorites = () => {
 
   return (
     <div className="container mx-auto mt-3">
-      <FavoriteCategory categoryName="Breakfast" />
-      <FavoriteCategory categoryName="Lunch" />
-      <FavoriteCategory categoryName="Dinner" />
-      <FavoriteCategory categoryName="Snack" />
+      {store.showBreakfast ? (
+        <FavoriteCategory categoryName="Breakfast" />
+      ) : (
+        <></>
+      )}
+      {store.showLunch ? <FavoriteCategory categoryName="Lunch" /> : <></>}
+      {store.showDinner ? <FavoriteCategory categoryName="Dinner" /> : <></>}
+      {store.showSnack ? <FavoriteCategory categoryName="Snack" /> : <></>}
+      {store.showAll ? (
+        <>
+          <FavoriteCategory categoryName="Breakfast" />
+          <FavoriteCategory categoryName="Lunch" />
+          <FavoriteCategory categoryName="Dinner" />
+          <FavoriteCategory categoryName="Snack" />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
