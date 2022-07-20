@@ -40,8 +40,6 @@ const getState = ({ getStore, getActions, setStore }) => {
               setTimeout(() => {
                 setStore({ isLoaded: true });
               }, 2000);
-
-              // console.table(result.hits[0].recipe);
             },
             (error) => {
               setStore({ isLoaded: true });
@@ -50,6 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
       },
+
       addShoppingList: (ingredient) => {
         const store = getStore();
         setStore({ shoppingList: [...store.shoppingList, ingredient] });
@@ -201,7 +200,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       showAllHandler: () => {
         const store = getStore();
-        if (!store.showAll) setStore({ showBreakfast: false, showLunch: false, showDinner: false, showSnack: false, showAll: true });
+        if (!store.showAll)
+          setStore({
+            showBreakfast: false,
+            showLunch: false,
+            showDinner: false,
+            showSnack: false,
+            showAll: true,
+          });
       },
     },
   };

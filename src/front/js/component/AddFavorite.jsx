@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 
 const AddFavorite = ({ setAddFavoriteShow, item }) => {
@@ -13,8 +13,10 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
     setAddFavoriteShow(false);
   };
 
+  const idFromUri = item.recipe.uri.split("_")[1];
+
   const newFavorite = {
-    recipe_id: item.recipe.uri,
+    recipe_id: idFromUri,
     recipe_url: item.recipe.url,
     recipe_title: item.recipe.label,
     category_name: listValue,
