@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoaded: false,
       error: null,
       items: [],
-      favoriteItems: [],
+      favoriteItems: [], // filter by category to display on view, by default all
       shoppingList: [],
       userToken: localStorage.getItem("jwt-token") ?? null,
       userLogged: !localStorage.getItem("jwt-token") ? false : true,
@@ -131,6 +131,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         }).then((resp) => {
           resp.json();
         });
+      },
+      fetchFavorites: () => {
+        const store = getStore();
+        const token = localStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/favorites/get`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((resp) => resp.json())
+          .then((data) => setStore({ favoriteItems: data }))
+          .then(() => console.log(store.favoriteItems));
       },
     },
   };
