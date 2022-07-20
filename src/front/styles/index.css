@@ -14,48 +14,47 @@ body {
   padding-right: 50px;
   text-align: center;
 }
-.image{
-background-image: url(../../img/table.jpg); 
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
-height: 900px;
+.image {
+  background-image: url(../../img/table.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 900px;
 }
-h1{
-display:inline-block;
-justify-content:center;
-font-family: 'Oswald', sans-serif;
-font-size: 80px;
-font-style:italic;
-font-weight: 500;
-text-transform: none;
-letter-spacing: normal;
-line-height: 150%;
-color: white;
-padding-bottom: 150px;
+.box > h1 {
+  display: inline-block;
+  justify-content: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 150%;
+  color: white;
+  padding-bottom: 150px;
 }
-.text{
-font-family: 'Oxygen', sans-serif;
-font-size: 50px;
-font-style:normal;
-letter-spacing: normal;
-line-height: 27px;
-text-transform: none;
-color: #FFFFFF;
-font-weight: 500;
+.text {
+  font-family: "Oxygen", sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 27px;
+  text-transform: none;
+  color: #ffffff;
+  font-weight: 500;
 }
 .description {
-display: none;
-font-size: 26px;
-font-style: normal;
-font-weight: 200;
-line-height: 1.6;
-text-align: center;
-letter-spacing: normal; 
-padding-top: 15px;
+  display: none;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: normal;
+  padding-top: 15px;
 }
 
 .text:hover > .description {
-    display: block; 
-};
-
+  display: block;
+}
