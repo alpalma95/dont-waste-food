@@ -21,6 +21,7 @@ const RecipeCard = ({ item, index }) => {
         foodCategory: e.target.getAttribute(
           "data-recipe-ingredient-foodcategory"
         ),
+        isChecked: false,
       };
 
       actions.addShoppingList(ingredient);

@@ -58,3 +58,7 @@ body {
 .text:hover > .description {
   display: block;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
