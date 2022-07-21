@@ -72,5 +72,5 @@ class Favorite(db.Model):
             "recipe_url": self.recipe_url,
             "recipe_title": self.recipe_title,
             "category_name": self.category_name,
-            "image_url": self.recipe_img
+            "recipe_image": self.recipe_img
         }

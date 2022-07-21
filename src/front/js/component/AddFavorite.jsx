@@ -20,7 +20,7 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
     recipe_url: item.recipe.url,
     recipe_title: item.recipe.label,
     category_name: listValue,
-    recipe_img: item.recipe.image,
+    recipe_image: item.recipe.image,
   };
   return (
     <div className="w-100 p-2">

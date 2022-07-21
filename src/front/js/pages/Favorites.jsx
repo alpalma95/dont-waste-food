@@ -10,6 +10,8 @@ const Favorites = () => {
     if (store.favoriteItems.length === 0) {
       actions.fetchFavorites();
     }
+
+    console.log(store.favoriteItems);
   }, []);
 
   return (

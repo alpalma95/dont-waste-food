@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import FavoriteCard from "./FavoriteCard.jsx";
 import { Context } from "../store/appContext";
+
 const FavoriteCategory = ({ categoryName }) => {
   const { store, actions } = useContext(Context);
   const favoriteCategory = store.favoriteItems.filter(
@@ -22,7 +23,7 @@ const FavoriteCategory = ({ categoryName }) => {
                 recipeUrl={x.recipe_url}
                 recipeTitle={x.recipe_title}
                 recipeId={x.recipe_id}
-                imgUrl={x.image_url}
+                imgUrl={x.recipe_image}
               />
             ))}
           </div>

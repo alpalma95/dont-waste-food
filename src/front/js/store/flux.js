@@ -121,7 +121,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       addFavorite: (newItem) => {
         const store = getStore();
         setStore({ favoriteItems: [...store.favoriteItems, newItem] });
-        console.log(store.favoriteItems);
+        console.log(
+          `Favorites from store: ${store.favoriteItems})`
+        );
       },
       sendToDatabase: (favorite) => {
         const token = localStorage.getItem("jwt-token");
