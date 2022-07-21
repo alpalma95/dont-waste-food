@@ -18,7 +18,7 @@ export const Navbar = () => {
 
   let list = store.shoppingList.map((ingredient, index) => (
     <li
-      className="list-group-item p-0 d-flex flex-row align-items-center justify-content-between"
+      className="list-group-item p-2 d-flex flex-row justify-content-between small"
       key={index}
     >
       <div>{ingredient.ingredientText}</div>
@@ -133,7 +133,10 @@ export const Navbar = () => {
                   data-bs-toggle="dropdown"
                   data-bs-auto-close="outside"
                   aria-expanded="true"
-                  style={{ marginRight: "40px", boxShadow: "none" }}
+                  style={{
+                    marginRight: "40px",
+                    boxShadow: "none",
+                  }}
                 >
                   Shopping List
                   <span className="badge text-bg-secondary">
@@ -141,11 +144,17 @@ export const Navbar = () => {
                   </span>
                 </button>
 
-                <ul
-                  className="list-group-flush dropdown-menu dropdown-menu-right p-4"
+                <div
+                  className="list-group-flush dropdown-menu dropdown-menu-right"
                   aria-labelledby="dropdownMenuButton1"
+                  style={{ marginTop: "-5px", marginLeft: "6px" }}
                 >
-                  {list}
+                  <ul
+                    className="p-0"
+                    style={{ overflowY: "scroll", maxHeight: "200px" }}
+                  >
+                    {list}
+                  </ul>
 
                   <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
                     <li className="d-flex justify-content-center">
@@ -160,7 +169,7 @@ export const Navbar = () => {
                       )}
                     </li>
                   </Link>
-                </ul>
+                </div>
               </div>
             </li>
           </ul>
