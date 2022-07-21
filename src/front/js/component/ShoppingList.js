@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 
 const ShoppingList = () => {
   const { store, actions } = useContext(Context);
+
   const mainContainer = {
     boxShadow: "7px 7px 12px 0px #006a5b",
     padding: "50px",
@@ -31,9 +32,23 @@ const ShoppingList = () => {
     overflowY: "scroll",
   };
 
+  const linethroughHandler = (e) => {
+    actions.shoppingListLineToggle(e.target.getAttribute("data-index"));
+  };
+
+  const clearHandler = (e) => {
+    actions.clearShoppingList();
+  };
+
   const shoppingListItem = store.shoppingList.map((item, index) => {
     return (
-      <div style={container} key={index}>
+      <div
+        className={item.isChecked && "line-through"}
+        style={container}
+        key={index}
+        onClick={linethroughHandler}
+        data-index={index}
+      >
         {item.quantity + " "} {item.measure + " "} {item.food}
       </div>
     );
@@ -52,6 +67,13 @@ const ShoppingList = () => {
         <div className="row" style={list}>
           {shoppingListItem}
         </div>
+        <button
+          className="btn btn-danger d-block m-auto mt-4"
+          style={{ boxShadow: "none" }}
+          onClick={clearHandler}
+        >
+          Clear!
+        </button>
       </div>
     </div>
   );

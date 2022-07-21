@@ -53,6 +53,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({ shoppingList: [...store.shoppingList, ingredient] });
       },
+      shoppingListLineToggle: (index) => {
+        const store = getStore();
+        let lineItem = store.shoppingList[index];
+        lineItem.isChecked = !lineItem.isChecked;
+        let items = store.shoppingList;
+        items[index] = lineItem;
+        setStore({ shoppingList: items });
+      },
+
+      clearShoppingList: () => {
+        setStore({ shoppingList: [] });
+      },
+
       removeShoppingList: (ingredient) => {
         const store = getStore();
         const list = store.shoppingList.filter((line) => {
