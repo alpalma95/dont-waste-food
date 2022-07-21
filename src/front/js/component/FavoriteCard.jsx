@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import Spinner from "./Spinner.jsx";
 
-const FavoriteCard = ({ recipeUrl, recipeTitle, recipeId, imgUrl }) => {
+const FavoriteCard = ({ recipeUrl, recipeTitle, recipeId }) => {
   const { store, actions } = useContext(Context);
   const [image, setImage] = useState(null);
 
   const fetchImage = (id) => {
     fetch(
-      `https://api.edamam.com/api/recipes/v2/${id}?type=public&app_id=e5010e00&app_key=0326e037783040d1e8513857ee63d982`
+      `https://api.edamam.com/api/recipes/v2/${id}?type=public&app_id=e5010e00&app_key=0326e037783040d1e8513857ee63d982&field=image`
     )
       .then((resp) => resp.json())
       .then((data) => {
