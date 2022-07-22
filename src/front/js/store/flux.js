@@ -44,7 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             (error) => {
               setStore({ isLoaded: true });
               setStore({ error: error });
-              console.log("nooooooooo", error);
             }
           );
       },
@@ -96,7 +95,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         const element = store.pillDietInput.find((elem) => {
           return elem === dietPlan;
         });
-        console.log("element", element);
         if (element === undefined) {
           setStore({ pillDietInput: [...store.pillDietInput, dietPlan] });
         } else {
@@ -134,9 +132,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       addFavorite: (newItem) => {
         const store = getStore();
         setStore({ favoriteItems: [...store.favoriteItems, newItem] });
-        console.log(
-          `Favorites from store: ${store.favoriteItems})`
-        );
       },
       sendToDatabase: (favorite) => {
         const token = localStorage.getItem("jwt-token");
@@ -147,6 +142,29 @@ const getState = ({ getStore, getActions, setStore }) => {
             Authorization: "Bearer " + token,
           },
           body: JSON.stringify(favorite),
+        }).then((resp) => {
+          resp.json();
+        });
+      },
+      deleteFavorite: (e) => {
+        const store = getStore();
+
+        const newFavsArray = store.favoriteItems.filter(
+          (x) => x.recipe_id != e.target.id
+        );
+        setStore({ favoriteItems: newFavsArray });
+      },
+      deleteFavoriteDatabase: (e) => {
+        const token = localStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/favorites/delete`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify({
+            recipe_id: e.target.id,
+          }),
         }).then((resp) => {
           resp.json();
         });
@@ -163,7 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((data) => setStore({ favoriteItems: data }))
-          .then(() => console.log(store.favoriteItems));
+          .catch((err) => alert("Something went wrong!" + err));
       },
       showBreakfastHandler: () => {
         const store = getStore();

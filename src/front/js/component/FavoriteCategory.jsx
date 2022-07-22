@@ -7,9 +7,6 @@ const FavoriteCategory = ({ categoryName }) => {
   const favoriteCategory = store.favoriteItems.filter(
     (x) => x.category_name === categoryName.toLowerCase()
   );
-  useEffect(() => {
-    console.log(favoriteCategory);
-  }, []);
 
   return (
     <div>
