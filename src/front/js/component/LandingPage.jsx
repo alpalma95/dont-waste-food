@@ -1,41 +1,88 @@
-import React from "react";
-import { render } from "react-dom";
-import tableImage from "../../img/table.jpg"
+import React  from "react";
+import { useEffect, useRef } from "react"
+import { render } from "react-dom"
+//import tableImage from "../../img/table.jpg"
+import imagem2Image from "../../img/imagem2.jpg"
+
 
 const LandingPage = () =>{
+
+  const textRef = useRef();
+  const carouselText = [
+    { text: "mushroom, quinoa, cheese" },
+    {text: "chicken, spinach"},
+    {text: "rice"}
+  ];
+  
+  useEffect(() => {
+    const getCarousel = async () => {
+    await carousel(carouselText);
+    }
+    getCarousel()
+  }, [])
+  
+  async function typeSentence(sentence, delay = 150) {
+    const letters = sentence.split("");
+    let i = 0;
+    while (i < letters.length) {
+      await waitForMs(delay);
+      textRef.current.innerHTML += letters[i];
+      i++;
+    }
+    return;
+  }
+  
+  async function deleteSentence() {
+    const sentence = textRef.current.innerHTML;
+    const letters = sentence.split("");
+    let i = 0;
+    while (letters.length > 0) {
+      await waitForMs(100);
+      letters.pop();
+      textRef.current.innerHTML = letters.join("");
+    }
+  }
+  
+  async function carousel(carouselList) {
+    var i = 0;
+    while (true) {
+      await typeSentence(carouselList[i].text);
+      await waitForMs(1500);
+      await deleteSentence();
+      await waitForMs(500);
+      i++;
+      if (i >= carouselList.length) {
+        i = 0;
+      }
+    }
+  }
+  
+  function waitForMs(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
   const styles = {
-      backgroundImage: `url(${tableImage})`,
-      backgroundSize:"cover",
-      backgroundPosition: "center"
-  };
+      backgroundImage: `url(${imagem2Image})`,
+      backgroundSize: "cover",
+      backgroundPosition: "top"
+    };
+
     return(  
-      <div className="container-fluid" >
-        <div className = "image" style={styles}>
-        <h1> The fridge is where magic happens!</h1>
-       </div>
-        <div className = "description">
-          <h2> How it works</h2>
-          <div className = "row"> 
-      <div className = "col-sm">
-      <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/000000/external-vegetable-healthy-lifestyle-icongeek26-outline-icongeek26.png"/>
-      <h4>Your Ingredients</h4>
-        <p>Use ingredients you already have on hand</p>
+      <div className = "image" style={styles}>
+        <div className ="box">
+        <h1 className ="maintitle"> The fridge is where the magic happens!</h1>
+      <div className="App">
+      <h5 className="title">Type ingredients you have...</h5>
+      <div className="typing-container">
+          <span id="sentence" className="sentence"><i className="bi bi-search"></i></span>
+          <span ref={textRef} id="feature-text"></span>
+          <span className="input-cursor"></span>
       </div>
-      <div className = "col-sm">
-        <img src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-becris.png"/>
-        <h4>Find Recipes</h4>
-          <p>Find and select the recipes you want to try.
-            Save them to your library</p>
-        </div>
-      <div className = "col-sm">
-      <img src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-cooking-coping-skills-becris-lineal-becris.png"/>
-        <h4>
-          Enjoy Cooking</h4>
-          <p>Discover the recipes to try new dishes and make your family delicious meals</p>
-        </div>
-        </div>
-        </div>
-        </div>
+      <button className="try">Try it out!</button>  
+    </div>
+    </div>
+    </div>
 )
 };
+
 export default LandingPage;
