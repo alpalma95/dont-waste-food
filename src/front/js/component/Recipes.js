@@ -22,7 +22,6 @@ const Recipes = () => {
       </>
     );
   } else if (store.items.length != 0) {
-    console.table(store.items);
     return (
       <div className="row">
         {store.items.map((item, index) => (

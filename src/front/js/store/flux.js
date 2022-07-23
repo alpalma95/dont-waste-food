@@ -51,6 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       addShoppingList: (ingredient) => {
         const store = getStore();
         setStore({ shoppingList: [...store.shoppingList, ingredient] });
+        console.log(store.shoppingList);
       },
       shoppingListLineToggle: (index) => {
         const store = getStore();
