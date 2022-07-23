@@ -60,9 +60,10 @@ const LandingPage = () => {
   }
 
   const styles = {
-    backgroundImage: `url(${imagem2Image})`,
+    backgroundImage: `linear-gradient(to right bottom, rgba(252, 91, 91, 0.8), rgba(40, 180, 133, 0.8)), url(${imagem2Image})`,
     // backgroundSize: "cover",
     // backgroundPosition: "top",
+    clipPath: "polygon(0 0, 100% 0, 100% 80vh, 0 100%)",
   };
 
   return (
