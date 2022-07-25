@@ -17,6 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       showDinner: false,
       showSnack: false,
       showAll: true,
+      showModal: false,
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -242,6 +243,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             showSnack: false,
             showAll: true,
           });
+      },
+      showModalHandler: () => {
+        const store = getStore();
+
+        setStore({ showModal: !store.showModal });
       },
     },
   };
