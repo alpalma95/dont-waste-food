@@ -105,72 +105,66 @@ export const Navbar = () => {
             </li>
             <li className="text-end m-1">
               <Link to="/search">
-                {!store.userToken ? (
-                  <button
-                    className="btn bg-danger border-white m-1 text-white w-100"
-                    data-bs-toggle="collapse"
-                    data-bs-target=".navbar-collapse.show"
-                  >
-                    Search recipes
-                  </button>
-                ) : (
-                  <button
-                    className="btn border-white m-1 text-white w-100"
-                    data-bs-toggle="collapse"
-                    data-bs-target=".navbar-collapse.show"
-                  >
-                    Search recipes
-                  </button>
-                )}
+                <button
+                  className="btn border-white m-1 text-white w-100"
+                  data-bs-toggle="collapse"
+                  data-bs-target=".navbar-collapse.show"
+                >
+                  Search recipes
+                </button>
               </Link>
             </li>
             <li className="text-end m-1">
-              <div className="dropdown">
-                <button
-                  className="btn btn-dark dropdown-toggle m-1 w-100"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  data-bs-auto-close="outside"
-                  aria-expanded="true"
-                  style={{
-                    marginRight: "40px",
-                    boxShadow: "none",
-                  }}
-                >
-                  Shopping List
-                  <span className="badge text-bg-secondary">
-                    {store.shoppingList.length}
-                  </span>
-                </button>
-
-                <div
-                  className="list-group-flush dropdown-menu dropdown-menu-right"
-                  aria-labelledby="dropdownMenuButton1"
-                  style={{ marginTop: "-5px", marginLeft: "6px" }}
-                >
-                  <ul
-                    className="p-0"
-                    style={{ overflowY: "scroll", maxHeight: "200px" }}
+              {store.userToken ? (
+                <div className="dropdown">
+                  <button
+                    className="btn btn-dark dropdown-toggle m-1 w-100"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside"
+                    aria-expanded="true"
+                    style={{
+                      marginRight: "40px",
+                      boxShadow: "none",
+                    }}
                   >
-                    {list}
-                  </ul>
+                    Shopping List
+                    <span className="badge text-bg-secondary">
+                      {store.shoppingList.length}
+                    </span>
+                  </button>
 
-                  <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
-                    <li className="d-flex justify-content-center">
-                      {store.shoppingList.length !== 0 && (
-                        <span
-                          className="btn btn-dark mt-3"
-                          data-bs-toggle="collapse"
-                          data-bs-target=".navbar-collapse.show"
-                        >
-                          Shopping list
-                        </span>
-                      )}
-                    </li>
-                  </Link>
+                  <div
+                    className="list-group-flush dropdown-menu dropdown-menu-right"
+                    aria-labelledby="dropdownMenuButton1"
+                    style={{ marginTop: "-5px", marginLeft: "6px" }}
+                  >
+                    <ul
+                      className="p-0"
+                      style={{ overflowY: "scroll", maxHeight: "200px" }}
+                    >
+                      {list}
+                    </ul>
+
+                    <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
+                      <li className="d-flex justify-content-center">
+                        {store.shoppingList.length !== 0 && (
+                          <span
+                            className="btn btn-dark mt-3"
+                            data-bs-toggle="collapse"
+                            data-bs-target=".navbar-collapse.show"
+                          >
+                            Shopping list
+                          </span>
+                        )}
+                      </li>
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <></>
+              )}
             </li>
           </ul>
         </div>

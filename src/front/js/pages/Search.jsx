@@ -7,7 +7,7 @@ const Search = () => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    actions.fetchFavorites();
+    if (store.userToken) actions.fetchFavorites();
   }, []);
   return (
     <div className="m-5">
