@@ -83,7 +83,7 @@ def add_favorite():
         db.session.add(category)
         db.session.commit()
     
-    new_favorite = Favorite(user_id=user.id, category_id=category.id, recipe_id=response_body['recipe_id'], recipe_url=response_body["recipe_url"], recipe_title=response_body["recipe_title"], category_name=response_body["category_name"], recipe_img=response_body["recipe_img"])
+    new_favorite = Favorite(user_id=user.id, category_id=category.id, recipe_id=response_body['recipe_id'], recipe_url=response_body["recipe_url"], recipe_title=response_body["recipe_title"], category_name=response_body["category_name"], recipe_img=response_body["recipe_image"])
 
     db.session.add(new_favorite)
     db.session.commit()
