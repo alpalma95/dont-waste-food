@@ -1,10 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import AddFavorite from "./AddFavorite.jsx";
 
 const RecipeCard = ({ item, index }) => {
   const { store, actions } = useContext(Context);
   const [addFavoriteShow, setAddFavoriteShow] = useState(false);
+  const idFromUri = item.recipe.uri.split("_")[1];
+
+  const [starFav, setStarFav] = useState(
+    store.favoriteItems.some((x) => x.recipe_id == idFromUri)
+  );
+
+  useEffect(() => {
+    if (!store.favoriteItems.find((x) => x.recipe_id == idFromUri)) {
+      setStarFav(false);
+    } else {
+      setStarFav(true);
+    }
+  }, [store.favoriteItems]);
 
   const nutrientsArr = ["CA", "CHOLE", "FAT", "FIBTG", "SUGAR", "NA", "FE"];
   const checkBoxHandler = (e) => {
@@ -42,19 +55,16 @@ const RecipeCard = ({ item, index }) => {
     console.log("adding");
   };
 
-  const [starFav, setStarFav] = useState(false);
-
-  const addToFavoriteHandler = () => {
-    setStarFav((previousState) => {
-      return !previousState;
-    });
-    setAddFavoriteShow(true);
-    console.log(
-      "Et maintenant, à toi de jouer Alvaro :P !!! (ces't moi, Al: mdr)"
-    );
+  const addToFavoriteHandler = (e) => {
+    if (starFav) {
+      actions.deleteFavorite(e);
+      actions.deleteFavoriteDatabase(e);
+    } else {
+      setAddFavoriteShow(true);
+    }
   };
   let star = starFav ? (
-    <i className="bi bi-star-fill"></i>
+    <i id={idFromUri} className="bi bi-star-fill"></i>
   ) : (
     <i className="bi bi-star"></i>
   );
@@ -159,8 +169,9 @@ const RecipeCard = ({ item, index }) => {
         </div>
         <div className="card-body d-flex justify-content-between pb-0">
           <span
-            onClick={addToFavoriteHandler}
+            onClick={(e) => addToFavoriteHandler(e)}
             style={{ fontSize: "30px", color: "#FFD300" }}
+            
           >
             {star}
           </span>
