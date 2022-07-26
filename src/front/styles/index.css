@@ -7,6 +7,10 @@ body {
   background-color: #fffafc;
 }
 
+.body--modal-open {
+  overflow: hidden;
+}
+
 .layout {
   display: flex;
   flex-direction: column;
