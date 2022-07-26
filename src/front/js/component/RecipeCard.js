@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useReducer } from "react";
 import { Context } from "../store/appContext";
 import AddFavorite from "./AddFavorite.jsx";
 
@@ -59,8 +59,10 @@ const RecipeCard = ({ item, index }) => {
     if (starFav) {
       actions.deleteFavorite(e);
       actions.deleteFavoriteDatabase(e);
-    } else {
+    } else if (!starFav && store.userToken) {
       setAddFavoriteShow(true);
+    } else if (!store.userToken) {
+      actions.showModalHandler();
     }
   };
   let star = starFav ? (
@@ -171,7 +173,6 @@ const RecipeCard = ({ item, index }) => {
           <span
             onClick={(e) => addToFavoriteHandler(e)}
             style={{ fontSize: "30px", color: "#FFD300" }}
-            
           >
             {star}
           </span>
