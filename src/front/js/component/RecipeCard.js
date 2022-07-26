@@ -66,9 +66,13 @@ const RecipeCard = ({ item, index }) => {
     }
   };
   let star = starFav ? (
-    <i id={idFromUri} className="bi bi-star-fill"></i>
+    <i
+      id={idFromUri}
+      className="bi bi-star-fill"
+      style={{ cursor: "pointer" }}
+    ></i>
   ) : (
-    <i className="bi bi-star"></i>
+    <i className="bi bi-star" style={{ cursor: "pointer" }}></i>
   );
 
   const cardContent = (
