@@ -12,7 +12,7 @@ export const Navbar = () => {
   };
 
   const removeTokenHandler = () => {
-    localStorage.removeItem("jwt-token");
+    sessionStorage.removeItem("jwt-token");
     actions.getToken();
   };
 
