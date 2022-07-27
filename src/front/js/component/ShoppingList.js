@@ -49,7 +49,11 @@ const ShoppingList = () => {
         onClick={linethroughHandler}
         data-index={index}
       >
-        {item.quantity + " "} {item.measure + " "} {item.food}
+        {`
+  ${item.quantity == 0 ? "" : Number(item.quantity).toFixed(1)} ${
+          !item.measure || item.measure[0] == "<" ? "" : item.measure
+        } ${item.food}
+`}
       </div>
     );
   });
