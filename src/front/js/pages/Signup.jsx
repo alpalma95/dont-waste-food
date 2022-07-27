@@ -21,26 +21,31 @@ const Signup = () => {
   const setEmailValueHandler = (e) => {
     setEmailValue(e.target.value);
     setShowEmail(true);
+    e.target.placeholder = "";
   };
 
   const setPasswordValueHandler = (e) => {
     setPasswordValue(e.target.value);
     setShowPassword(true);
+    e.target.placeholder = "";
   };
 
   const setUsernameValueHandler = (e) => {
     setUsernameValue(e.target.value);
     setShowUsername(true);
+    e.target.placeholder = "";
   };
 
   const setNameValueHandler = (e) => {
     setNameValue(e.target.value);
     setShowName(true);
+    e.target.placeholder = "";
   };
 
   const setPasswordConfirmedValueHandler = (e) => {
     setPasswordConfirmedValue(e.target.value);
     setShowPassConfirm(true);
+    e.target.placeholder = "";
   };
 
   const submitUserInfo = () => {
@@ -66,7 +71,7 @@ const Signup = () => {
   return !redirectToLogin ? (
     <div className="container">
       <div className="form-custom">
-        <h1 className="">Create an account</h1>
+        <h1 className="">Create Account</h1>
         <label
           className={`${showEmail ? `bottomToTop` : `hidden`}`}
           htmlFor="email_input"
@@ -80,7 +85,7 @@ const Signup = () => {
           value={emailValue}
           onChange={setEmailValueHandler}
         />
-        <br />
+
         <label
           className={`${showUsername ? `bottomToTop` : `hidden`}`}
           htmlFor="username_input"
@@ -94,7 +99,7 @@ const Signup = () => {
           value={usernameValue}
           onChange={setUsernameValueHandler}
         />
-        <br />
+
         <label
           className={`${showName ? `bottomToTop` : `hidden`}`}
           htmlFor="name_input"
@@ -108,7 +113,7 @@ const Signup = () => {
           value={nameValue}
           onChange={setNameValueHandler}
         />
-        <br />
+
         <label
           className={`${showPassword ? `bottomToTop` : `hidden`}`}
           htmlFor="password_input"
@@ -122,8 +127,7 @@ const Signup = () => {
           id="password_input"
           onChange={setPasswordValueHandler}
         />
-        <br />
-        <br />
+
         <label
           className={`${showPassConfirm ? `bottomToTop` : `hidden`}`}
           htmlFor="password_confirmed_input"

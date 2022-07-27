@@ -50,7 +50,7 @@ const Login = () => {
             value={emailValue}
             onChange={setEmailValueHandler}
           />
-          <br />
+
           <label
             className={`${showPassword ? `bottomToTop` : `hidden`}`}
             htmlFor="password_input"
@@ -64,7 +64,7 @@ const Login = () => {
             id="password_input"
             onChange={setPasswordValueHandler}
           />
-          <br />
+
           <button className="btn btn-outline-dark" onClick={submitUserInfo}>
             Submit
           </button>
