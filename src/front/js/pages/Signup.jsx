@@ -1,35 +1,46 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Navigate } from "react-router-dom";
+import "../../styles/form.css";
 
 const Signup = () => {
   const { store, actions } = useContext(Context);
   const [emailValue, setEmailValue] = useState(``);
   const [usernameValue, setUsernameValue] = useState(``);
   const [nameValue, setNameValue] = useState(``);
-
   const [passwordValue, setPasswordValue] = useState(``);
   const [passwordConfirmedValue, setPasswordConfirmedValue] = useState(``);
   const [redirectToLogin, setRedirectToLogin] = useState(false);
 
+  const [showEmail, setShowEmail] = useState(false);
+  const [showUsername, setShowUsername] = useState(false);
+  const [showName, setShowName] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassConfirm, setShowPassConfirm] = useState(false);
+
   const setEmailValueHandler = (e) => {
     setEmailValue(e.target.value);
+    setShowEmail(true);
   };
 
   const setPasswordValueHandler = (e) => {
     setPasswordValue(e.target.value);
+    setShowPassword(true);
   };
 
   const setUsernameValueHandler = (e) => {
     setUsernameValue(e.target.value);
+    setShowUsername(true);
   };
 
   const setNameValueHandler = (e) => {
     setNameValue(e.target.value);
+    setShowName(true);
   };
 
   const setPasswordConfirmedValueHandler = (e) => {
     setPasswordConfirmedValue(e.target.value);
+    setShowPassConfirm(true);
   };
 
   const submitUserInfo = () => {
@@ -53,58 +64,83 @@ const Signup = () => {
   };
 
   return !redirectToLogin ? (
-    <div className="container w-50 mx-auto  vh-100 d-flex flex-column">
-      <h1 className="mt-5">Create an account!</h1>
-      <label className="mt-5" htmlFor="email_input">
-        Email:
-      </label>
-      <input
-        type="text"
-        placeholder="user@email.com"
-        id="email_input"
-        value={emailValue}
-        onChange={setEmailValueHandler}
-      />
-      <br />
-      <label htmlFor="username_input">Username:</label>
-      <input
-        type="text"
-        placeholder="username"
-        id="username_input"
-        value={usernameValue}
-        onChange={setUsernameValueHandler}
-      />
-      <br />
-      <label htmlFor="name_input">Name:</label>
-      <input
-        type="text"
-        placeholder="Jon"
-        id="name_input"
-        value={nameValue}
-        onChange={setNameValueHandler}
-      />
-      <br />
-      <label htmlFor="password_input">Password:</label>
-      <input
-        type="password"
-        placeholder=""
-        value={passwordValue}
-        id="password_input"
-        onChange={setPasswordValueHandler}
-      />
-      <br />
-      <br />
-      <label htmlFor="password_confirmed_input">Confirm your password:</label>
-      <input
-        type="password"
-        placeholder=""
-        value={passwordConfirmedValue}
-        id="password_confirmed_input"
-        onChange={setPasswordConfirmedValueHandler}
-      />
-      <button className="btn btn-outline-dark" onClick={submitUserInfo}>
-        Submit
-      </button>
+    <div className="container">
+      <div className="form-custom">
+        <h1 className="">Create an account</h1>
+        <label
+          className={`${showEmail ? `bottomToTop` : `hidden`}`}
+          htmlFor="email_input"
+        >
+          Email
+        </label>
+        <input
+          type="text"
+          placeholder="Email"
+          id="email_input"
+          value={emailValue}
+          onChange={setEmailValueHandler}
+        />
+        <br />
+        <label
+          className={`${showUsername ? `bottomToTop` : `hidden`}`}
+          htmlFor="username_input"
+        >
+          Username
+        </label>
+        <input
+          type="text"
+          placeholder="Username"
+          id="username_input"
+          value={usernameValue}
+          onChange={setUsernameValueHandler}
+        />
+        <br />
+        <label
+          className={`${showName ? `bottomToTop` : `hidden`}`}
+          htmlFor="name_input"
+        >
+          Name
+        </label>
+        <input
+          type="text"
+          placeholder="Name"
+          id="name_input"
+          value={nameValue}
+          onChange={setNameValueHandler}
+        />
+        <br />
+        <label
+          className={`${showPassword ? `bottomToTop` : `hidden`}`}
+          htmlFor="password_input"
+        >
+          Password
+        </label>
+        <input
+          type="password"
+          placeholder="Password"
+          value={passwordValue}
+          id="password_input"
+          onChange={setPasswordValueHandler}
+        />
+        <br />
+        <br />
+        <label
+          className={`${showPassConfirm ? `bottomToTop` : `hidden`}`}
+          htmlFor="password_confirmed_input"
+        >
+          Confirm your password
+        </label>
+        <input
+          type="password"
+          placeholder="Confirm your password"
+          value={passwordConfirmedValue}
+          id="password_confirmed_input"
+          onChange={setPasswordConfirmedValueHandler}
+        />
+        <button className="btn btn-outline-dark" onClick={submitUserInfo}>
+          Submit
+        </button>
+      </div>
     </div>
   ) : (
     <Navigate to="/login" replace={true} />
