@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Navigate } from "react-router-dom";
+import "../../styles/form.css";
 
 const Login = () => {
   const [emailValue, setEmailValue] = useState(``);
   const [passwordValue, setPasswordValue] = useState(``);
+  const [showEmail, setShowEmail] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
@@ -13,10 +16,12 @@ const Login = () => {
 
   const setEmailValueHandler = (e) => {
     setEmailValue(e.target.value);
+    setShowEmail(true);
   };
 
   const setPasswordValueHandler = (e) => {
     setPasswordValue(e.target.value);
+    setShowPassword(true);
   };
 
   const submitUserInfo = () => {
@@ -29,31 +34,41 @@ const Login = () => {
 
   return !store.userToken ? (
     <>
-      <div className="container w-50 mx-auto  vh-100 d-flex flex-column">
-        <h1 className="mt-5">Login</h1>
-        <label className="mt-5" htmlFor="email_input">
-          Email or username:
-        </label>
-        <input
-          type="text"
-          placeholder="user@email.com"
-          id="email_input"
-          value={emailValue}
-          onChange={setEmailValueHandler}
-        />
-        <br />
-        <label htmlFor="password_input">Password:</label>
-        <input
-          type="password"
-          placeholder=""
-          value={passwordValue}
-          id="password_input"
-          onChange={setPasswordValueHandler}
-        />
-        <br />
-        <button className="btn btn-outline-dark" onClick={submitUserInfo}>
-          Submit
-        </button>
+      <div className="container">
+        <div className="form-custom">
+          <h1>Login</h1>
+          <label
+            className={`${showEmail ? `bottomToTop` : `hidden`}`}
+            htmlFor="email_input"
+          >
+            Email or username
+          </label>
+          <input
+            type="text"
+            placeholder="user@email.com"
+            id="email_input"
+            value={emailValue}
+            onChange={setEmailValueHandler}
+          />
+
+          <label
+            className={`${showPassword ? `bottomToTop` : `hidden`}`}
+            htmlFor="password_input"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={passwordValue}
+            id="password_input"
+            onChange={setPasswordValueHandler}
+          />
+
+          <button className="btn btn-outline-dark" onClick={submitUserInfo}>
+            Submit
+          </button>
+        </div>
       </div>
     </>
   ) : (
