@@ -85,7 +85,7 @@ const SearchBar = () => {
               <select
                 className="btn btn-dark dropdown-toggle"
                 style={{
-                  backgroundColor: "#009688",
+                  backgroundColor: "#187a26",
                   color: "white",
                   boxShadow: "none",
                   border: "0",
@@ -110,7 +110,7 @@ const SearchBar = () => {
                 <button
                   className="btn"
                   style={{
-                    backgroundColor: "#009688",
+                    backgroundColor: "#187a26",
                     color: "white",
                     boxShadow: "none",
                     borderTopLeftRadius: "0px",

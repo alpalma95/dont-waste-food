@@ -31,11 +31,14 @@ export const Navbar = () => {
   if (store.shoppingList.length === 0) {
     list = <li className="text-center">Add Only what you need!</li>;
   }
-
+  // #187a26 #1e9c31;
   return (
     <nav
       className="navbar navbar-expand-md navbar-light p-3 sticky-top d-flex justify-content-end"
-      style={{ backgroundColor: "#009688" }}
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, var(--dark-green), var(--medium-green))",
+      }}
     >
       <div className="container-fluid">
         <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>

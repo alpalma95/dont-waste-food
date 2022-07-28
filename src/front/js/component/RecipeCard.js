@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useReducer } from "react";
 import { Context } from "../store/appContext";
 import AddFavorite from "./AddFavorite.jsx";
+import "../../styles/card.css";
 
 const RecipeCard = ({ item, index }) => {
   const { store, actions } = useContext(Context);
@@ -177,15 +178,15 @@ const RecipeCard = ({ item, index }) => {
         <div className="card-body d-flex justify-content-between pb-0">
           <span
             onClick={(e) => addToFavoriteHandler(e)}
-            style={{ fontSize: "30px", color: "#FFD300" }}
+            style={{ fontSize: "30px", color: "#fb1d1d" }}
           >
             {star}
           </span>
-          <button type="button" className="btn btn-dark">
+          <button type="button" className="btn search-btn">
             <a
               href={item.recipe.url}
               target="_blank"
-              className="card-link text-white"
+              className=""
               style={{ textDecoration: "none" }}
             >
               Full Recipe!

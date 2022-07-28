@@ -1,0 +1,9 @@
+.search-btn {
+  background-color: var(--white-green);
+  color: var(--dark-green);
+  border: 2px solid var(--dark-green);
+}
+
+.search-btn > a {
+  color: var(--dark-green);
+}
