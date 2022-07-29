@@ -45,7 +45,7 @@ const Login = () => {
           </label>
           <input
             type="text"
-            placeholder="user@email.com"
+            placeholder="Email or username"
             id="email_input"
             value={emailValue}
             onChange={setEmailValueHandler}

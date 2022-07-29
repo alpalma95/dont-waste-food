@@ -71,8 +71,8 @@
 
 @keyframes bottomToTop {
   0% {
-    transform: translateY(2rem) translateX(0.9rem);
-    opacity: 0;
+    transform: translateY(1.5rem) translateX(0.9rem);
+    opacity: 0.4;
   }
 
   100% {
