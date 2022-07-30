@@ -40,7 +40,8 @@
 }
 
 .form-custom > input::placeholder {
-  color: #187a26;
+  color: black;
+  font-weight: 700;
 }
 
 .form-custom > label {

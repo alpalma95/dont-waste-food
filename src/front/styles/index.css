@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Charmonman&family=Fjalla+One&family=Great+Vibes&family=Lato:wght@100&family=Merriweather&family=Montserrat:wght@100&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@300&family=Oxygen:wght@300&family=Poppins:ital,wght@0,100;1,100&family=Proza+Libre&family=Roboto:wght@300&family=Satisfy&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Charmonman&family=Fjalla+One&family=Great+Vibes&family=Lato:wght@100&family=Merriweather&family=Montserrat:wght@100&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@300&family=Oxygen:wght@300&family=Poppins:ital,wght@0,100;1,100&family=Proza+Libre&family=Roboto:wght@300&family=Satisfy&display=swap");
 :root {
-  --dark-green: rgba(24, 122, 39, 0.95);
-  --medium-green: rgb(30, 156, 49);
-  --light-green: rgba(193, 255, 203, 0.996);
-  --white-green: rgba(249, 253, 249, 0.996);
+  --dark-green: rgba(24, 122, 39, 1);
+  --medium-green: rgba(30, 156, 49, 1);
+  --light-green: rgba(193, 255, 203, 1);
+  --white-green: rgba(249, 253, 249, 1);
+
+  --bg-color: #fffafc;
 
   --dark-red: #fb1d1d;
 
@@ -17,7 +18,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #C5D8BF;
+  background-color: var(--bg-color);
 }
 
 .body--modal-open {
@@ -29,7 +30,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  box-sizing: border-box;
 }
 .box {
   padding-top: 100px;
@@ -38,17 +38,23 @@ body {
   text-align: center;
 }
 .image {
-  background-image: url(../../img/green.jpg);
+  background-image: linear-gradient(
+      to bottom,
+      rgba(24, 122, 39, 0.5),
+      rgba(30, 156, 49, 0.5)
+    ),
+    url(../../img/green.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 900px;
+  height: 100vh;
+  padding-top: 4rem;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 .box > h1 {
   display: inline-block;
   justify-content: center;
-  font-family: 'Fjalla One', sans-serif;
-  /* font-size: 80px; */
+  font-family: "Fjalla One", sans-serif;
   font-style: italic;
   font-weight: 700;
   text-transform: capitalize;
@@ -57,19 +63,18 @@ body {
   line-height: 1.1;
   color: #1f3108;
 }
-.caixa{
+.caixa {
   max-width: 700px;
   width: 100%;
-  
   padding: 30px;
-  margin: 15px;
+  margin: 0 auto;
   position: relative;
   flex: 1;
 }
 .maintitle {
-  color: #090e06;
+  color: white;
   text-align: center;
-  font-family: 'Fajalla', sans-serif;
+  font-family: "Fajalla", sans-serif;
   font-size: 6rem;
   /* margin-left: 100px;
   padding-top: 50px;
@@ -78,43 +83,48 @@ body {
   font-weight: 900px;
   text-transform: none;
 }
-.subtitle{
-  font-family:'Fjalla One', sans-serif ;
+.subtitle {
+  font-family: "Fjalla One", sans-serif;
   margin-bottom: 55px;
   text-align: center;
-  color: #090e06;
+  color: white;
   font-size: 3rem;
   line-height: 1;
 }
 .text {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
   font-size: 50px;
   font-style: normal;
   letter-spacing: normal;
   line-height: 27px;
   text-transform: none;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 700;
 }
 .typing-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 3px solid white;
+  border: 2px solid var(--dark-green);
   border-radius: 35px;
   padding: 8px 15px;
   max-width: 30rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 30px;
   margin: 0 auto;
-  color: #090e06;
+  color: black;
+  background-color: var(--white-green);
+}
+
+.t-dark {
+  color: var(--dark-green);
 }
 .title {
   text-align: center;
-  color: #090e06;
+  color: white;
   /* margin-top: 100px; */
   font-size: 3rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   /* padding-right: 300px;
   margin-bottom: 30px; */
 }
@@ -122,7 +132,7 @@ body {
   margin-left: 8px;
 }
 .sentence {
-  color: #090e06;
+  color: white;
 }
 .typing-container .input-cursor {
   display: inline-block;
@@ -133,7 +143,7 @@ body {
   animation: blink 0.6s linear infinite alternate;
 }
 .try {
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   padding: 10px 15px;
   margin: 0 auto;
   /* margin-top: 25px;
@@ -142,41 +152,46 @@ body {
   font-size: 20px;
   display: block;
   margin-top: 40px;
-  background-color:#090e06;
-  color: #FFFFFF;
+  background-color: #090e06;
+  color: #ffffff;
 }
 .try:hover {
   border: 3px solid #ffffff;
-  cursor:pointer;
+  cursor: pointer;
 }
-.section{
-  background-color: #f7f9f1;
+.section-cards {
+  padding-top: 10rem;
+  background-color: var(--white-green);
+  margin-top: -15rem;
+  display: flex;
+  justify-content: space-evenly;
 }
-.title2{
-  color:  #090e06;
+.title2 {
+  color: #090e06;
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
   font-size: 50px;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
   font-weight: 200;
   padding-top: 70px;
   padding-bottom: 50px;
 }
-.icon1, .icon2, .icon3{
-  display: inline-block;
-  margin-left: 200px;
-  margin-top: 20px;
-  height: 100%;
+.icon1,
+.icon2,
+.icon3 {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
 }
-.text1{
-  font-family: 'Fjalla One', sans-serif;
+.text1 {
+  font-family: "Fjalla One", sans-serif;
   text-align: center;
-  font-size:40px;
+  font-size: 40px;
   color: #090e06;
   margin: 30px;
 }
-.text2{
-  font-family: 'Open Sans', sans-serif;
+.text2 {
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: 400;
   color: #090e06;
@@ -184,15 +199,26 @@ body {
   text-align: center;
   display: block;
 }
-.container-left, .container-middle, .container-right{
-  border: 4px solid #69A04E;
+.cards-custom {
+  border: 4px solid #69a04e;
   position: relative;
-  max-width: 100%;
+  width: min(90%, 25rem);
+  padding: 1rem 2rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(24, 122, 39, 0.3),
+    rgba(193, 255, 203, 0.3)
+  );
 }
 
-
 /* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
+.container-cards-custom {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 
 /* Clear floats after the columns */
 .row:after {
@@ -200,8 +226,6 @@ body {
   display: table;
   clear: both;
 }
-
-
 
 @keyframes blink {
   0% {
@@ -236,4 +260,3 @@ body {
     height: 100vh;
   }
 }
-
