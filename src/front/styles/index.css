@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Charmonman&family=Fjalla+One&family=Great+Vibes&family=Lato:wght@100&family=Merriweather&family=Montserrat:wght@100&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@300&family=Oxygen:wght@300&family=Poppins:ital,wght@0,100;1,100&family=Proza+Libre&family=Roboto:wght@300&family=Satisfy&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 body {
-  background-color: #fffafc;
+  background-color: #C5D8BF;
 }
 
 .layout {
@@ -12,6 +14,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  box-sizing: border-box;
 }
 .box {
   padding-top: 100px;
@@ -20,7 +23,7 @@ body {
   text-align: center;
 }
 .image {
-  background-image: url(../../img/table.jpg);
+  background-image: url(../../img/green.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -29,18 +32,47 @@ body {
 .box > h1 {
   display: inline-block;
   justify-content: center;
-  font-family: "Oswald", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   /* font-size: 80px; */
   font-style: italic;
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: capitalize;
   text-transform: none;
   letter-spacing: normal;
-  line-height: 150%;
-  color: white;
-  padding-bottom: 150px;
+  line-height: 1.1;
+  color: #1f3108;
+}
+.caixa{
+  max-width: 700px;
+  width: 100%;
+  
+  padding: 30px;
+  margin: 15px;
+  position: relative;
+  flex: 1;
+}
+.maintitle {
+  color: #090e06;
+  text-align: center;
+  font-family: 'Fajalla', sans-serif;
+  font-size: 6rem;
+  /* margin-left: 100px;
+  padding-top: 50px;
+  padding-right: 450px; */
+  letter-spacing: normal;
+  font-weight: 900px;
+  text-transform: none;
+}
+.subtitle{
+  font-family:'Fjalla One', sans-serif ;
+  margin-bottom: 55px;
+  text-align: center;
+  color: #090e06;
+  font-size: 3rem;
+  line-height: 1;
 }
 .text {
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-size: 50px;
   font-style: normal;
   letter-spacing: normal;
@@ -49,7 +81,112 @@ body {
   color: #ffffff;
   font-weight: 500;
 }
-.description {
+.typing-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 35px;
+  padding: 8px 15px;
+  max-width: 30rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  margin: 0 auto;
+  color: #090e06;
+}
+.title {
+  text-align: center;
+  color: #090e06;
+  /* margin-top: 100px; */
+  font-size: 3rem;
+  font-family: 'Open Sans', sans-serif;
+  /* padding-right: 300px;
+  margin-bottom: 30px; */
+}
+#feature-text {
+  margin-left: 8px;
+}
+.sentence {
+  color: #090e06;
+}
+.typing-container .input-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 42px;
+  background-color: white;
+  /* margin-left: 8px; */
+  animation: blink 0.6s linear infinite alternate;
+}
+.try {
+  border: 2px solid #FFFFFF;
+  padding: 10px 15px;
+  margin: 0 auto;
+  /* margin-top: 25px;
+  margin-left: 550px; */
+  border-radius: 50px;
+  font-size: 20px;
+  display: block;
+  margin-top: 40px;
+  background-color:#090e06;
+  color: #FFFFFF;
+}
+.try:hover {
+  border: 3px solid #ffffff;
+  cursor:pointer;
+}
+.section{
+  background-color: #f7f9f1;
+}
+.title2{
+  color:  #090e06;
+  text-align: center;
+  margin: auto;
+  font-size: 50px;
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: 200;
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+.icon1, .icon2, .icon3{
+  display: inline-block;
+  margin-left: 200px;
+  margin-top: 20px;
+  height: 100%;
+}
+.text1{
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center;
+  font-size:40px;
+  color: #090e06;
+  margin: 30px;
+}
+.text2{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #090e06;
+  margin: 20px 30px 0px;
+  text-align: center;
+  display: block;
+}
+.container-left, .container-middle, .container-right{
+  border: 4px solid #69A04E;
+  position: relative;
+  max-width: 100%;
+}
+
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*.description {
   display: none;
   font-size: 26px;
   font-style: normal;
@@ -67,68 +204,9 @@ body {
 .line-through {
   text-decoration: line-through;
 }
+*/
 /*landing page*/
-.maintitle {
-  color: white;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 6rem;
-  /* margin-left: 100px;
-  padding-top: 50px;
-  padding-right: 450px; */
-  letter-spacing: normal;
-  font-weight: 900px;
-  text-transform: none;
-}
 
-.typing-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: 3px solid white;
-  border-radius: 35px;
-  padding: 8px 15px;
-  max-width: 30rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 30px;
-  margin: 0 auto;
-  color: white;
-}
-.title {
-  text-align: center;
-  color: white;
-  /* margin-top: 100px; */
-  font-size: 3rem;
-  font-family: "Roboto", sans-serif;
-  /* padding-right: 300px;
-  margin-bottom: 30px; */
-}
-#feature-text {
-  margin-left: 8px;
-}
-.sentence {
-  color: white;
-}
-.typing-container .input-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 42px;
-  background-color: white;
-  /* margin-left: 8px; */
-  animation: blink 0.6s linear infinite alternate;
-}
-.try {
-  background: rgb(235, 240, 236);
-  background-color: white;
-  border: 0px;
-  padding: 10px 15px;
-  margin: 0 auto;
-  /* margin-top: 25px;
-  margin-left: 550px; */
-  border-radius: 50px;
-  font-size: 20px;
-  display: block;
-}
 @keyframes blink {
   0% {
     opacity: 1;
@@ -162,3 +240,7 @@ body {
     height: 100vh;
   }
 }
+
+/*trabalhar botao;
+trabalhar icons;
+*/

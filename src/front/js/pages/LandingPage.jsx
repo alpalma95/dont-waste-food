@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { render } from "react-dom";
-//import tableImage from "../../img/table.jpg"
-import imagem2Image from "../../../img/imagem2.jpg";
+import greenImage from "../../../img/green.jpg";
 
 const LandingPage = () => {
   const textRef = useRef();
@@ -60,16 +59,21 @@ const LandingPage = () => {
   }
 
   const styles = {
-    backgroundImage: `linear-gradient(to right bottom, rgba(252, 91, 91, 0.8), rgba(40, 180, 133, 0.8)), url(${imagem2Image})`,
-    // backgroundSize: "cover",
-    // backgroundPosition: "top",
-    clipPath: "polygon(0 0, 100% 0, 100% 80vh, 0 100%)",
+    backgroundImage: `url(${greenImage})`,
+    //backgroundImage: `linear-gradient(to right bottom, rgba(252, 91, 91, 0.8), rgba(40, 180, 133, 0.8)), url(${imagem2Image})`,
+
+     backgroundSize: "cover",
+     backgroundPosition: "top",
+    //clipPath: "polygon(0 0, 100% 0, 100% 80vh, 0 100%)",
   };
 
   return (
+    <div className = "landing">
     <div className="image" style={styles}>
       <div className="box">
-        <h1 className="maintitle"> The fridge is where the magic happens!</h1>
+        <div className = "caixa">
+        <h1 className="maintitle"> Oh!My Ginger</h1>
+        <h2 className = "subtitle"> The fridge is where the magic happens!</h2>
         <div className="typing-demonstration">
           <h5 className="title">Type ingredients you have...</h5>
           <div className="typing-container">
@@ -82,8 +86,50 @@ const LandingPage = () => {
           <button className="try">Try it out!</button>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
+    <div className = "section">
+    <h2 className = "title2"> How it works</h2>
+     <div className = "layout">
+     <div className=" row">
+     <div className=" col-md-4">
+      <div className = "container-left"> 
+          <span className = "icon1">
+         <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/000000/external-vegetable-healthy-lifestyle-icongeek26-outline-icongeek26.png"/>
+         </span>
+         <div className = "p1">
+         <h3 className = "text1"> Your Ingredients</h3>
+					<p className = "text2">Use ingredients you already have on hand. Avoid food waste</p>
+          </div>
+         </div>
+         </div>
+         <div className="col-md-4">
+         <div className = "container-middle">
+         <span className = "icon2">
+         <img src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-becris.png"/>
+         </span>
+         <div className = "p1">
+         <h3 className = "text1">Find Recipes</h3>
+					<p className = "text2">Find and select the recipes you want to try.Save them to your library </p>
+         </div>
+         </div>
+         </div>
+         <div className="col-md-4">
+         <div className = "container-right">
+         <span className = "icon3">
+         <img src="https://img.icons8.com/external-tulpahn-detailed-outline-tulpahn/64/000000/external-eco-food-ecology-tulpahn-detailed-outline-tulpahn.png"/>
+         </span>
+         <div className = "p1">
+         <h3 className = "text1">Enjoy Cooking</h3>
+					<p className = "text2">Discover the recipes and make your family delicious meals</p>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
   );
-};
+}
 
 export default LandingPage;
