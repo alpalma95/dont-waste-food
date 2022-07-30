@@ -12,7 +12,7 @@ const Modal = () => {
     >
       <div className="modal-custom">
         <span className="modal__close-btn" onClick={actions.showModalHandler}>
-          ❌
+          <i className="fas fa-times"></i>{" "}
         </span>
         <h3 className="modal-custom__h3">
           Sign up or login for adding favorites!
