@@ -1,10 +1,24 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useReducer } from "react";
 import { Context } from "../store/appContext";
 import AddFavorite from "./AddFavorite.jsx";
+import "../../styles/card.css";
 
 const RecipeCard = ({ item, index }) => {
   const { store, actions } = useContext(Context);
   const [addFavoriteShow, setAddFavoriteShow] = useState(false);
+  const idFromUri = item.recipe.uri.split("_")[1];
+
+  const [starFav, setStarFav] = useState(
+    store.favoriteItems.some((x) => x.recipe_id == idFromUri)
+  );
+
+  useEffect(() => {
+    if (!store.favoriteItems.find((x) => x.recipe_id == idFromUri)) {
+      setStarFav(false);
+    } else {
+      setStarFav(true);
+    }
+  }, [store.favoriteItems]);
 
   const nutrientsArr = ["CA", "CHOLE", "FAT", "FIBTG", "SUGAR", "NA", "FE"];
   const checkBoxHandler = (e) => {
@@ -25,7 +39,8 @@ const RecipeCard = ({ item, index }) => {
       };
 
       actions.addShoppingList(ingredient);
-      console.log(store.shoppingList);
+
+      console.log("YAAAAY", ingredient);
     } else {
       const ingredient = {
         ingredientIndex: e.target.getAttribute("data-recipe-ingredient-index"),
@@ -42,21 +57,24 @@ const RecipeCard = ({ item, index }) => {
     console.log("adding");
   };
 
-  const [starFav, setStarFav] = useState(false);
-
-  const addToFavoriteHandler = () => {
-    setStarFav((previousState) => {
-      return !previousState;
-    });
-    setAddFavoriteShow(true);
-    console.log(
-      "Et maintenant, à toi de jouer Alvaro :P !!! (ces't moi, Al: mdr)"
-    );
+  const addToFavoriteHandler = (e) => {
+    if (starFav) {
+      actions.deleteFavorite(e);
+      actions.deleteFavoriteDatabase(e);
+    } else if (!starFav && store.userToken) {
+      setAddFavoriteShow(true);
+    } else if (!store.userToken) {
+      actions.showModalHandler();
+    }
   };
   let star = starFav ? (
-    <i className="bi bi-star-fill"></i>
+    <i
+      id={idFromUri}
+      className="bi bi-star-fill"
+      style={{ cursor: "pointer" }}
+    ></i>
   ) : (
-    <i className="bi bi-star"></i>
+    <i className="bi bi-star" style={{ cursor: "pointer" }}></i>
   );
 
   const cardContent = (
@@ -159,16 +177,16 @@ const RecipeCard = ({ item, index }) => {
         </div>
         <div className="card-body d-flex justify-content-between pb-0">
           <span
-            onClick={addToFavoriteHandler}
-            style={{ fontSize: "30px", color: "#FFD300" }}
+            onClick={(e) => addToFavoriteHandler(e)}
+            style={{ fontSize: "30px", color: "#fb1d1d" }}
           >
             {star}
           </span>
-          <button type="button" className="btn btn-dark">
+          <button type="button" className="btn search-btn">
             <a
               href={item.recipe.url}
               target="_blank"
-              className="card-link text-white"
+              className=""
               style={{ textDecoration: "none" }}
             >
               Full Recipe!

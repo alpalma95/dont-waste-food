@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Charmonman&family=Fjalla+One&family=Great+Vibes&family=Lato:wght@100&family=Merriweather&family=Montserrat:wght@100&family=Open+Sans:ital,wght@0,300;1,300&family=Oswald:wght@300&family=Oxygen:wght@300&family=Poppins:ital,wght@0,100;1,100&family=Proza+Libre&family=Roboto:wght@300&family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+:root {
+  --dark-green: rgba(24, 122, 39, 0.95);
+  --medium-green: rgb(30, 156, 49);
+  --light-green: rgba(193, 255, 203, 0.996);
+  --white-green: rgba(249, 253, 249, 0.996);
+
+  --dark-red: #fb1d1d;
+
+  --box-shadow: 0px 5px 15px -10px var(--dark-green);
+}
 
 * {
   padding: 0;
@@ -7,6 +18,10 @@
 }
 body {
   background-color: #C5D8BF;
+}
+
+.body--modal-open {
+  overflow: hidden;
 }
 
 .layout {
@@ -186,26 +201,7 @@ body {
   clear: both;
 }
 
-/*.description {
-  display: none;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 200;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: normal;
-  padding-top: 15px;
-}
 
-.text:hover > .description {
-  display: block;
-}
-
-.line-through {
-  text-decoration: line-through;
-}
-*/
-/*landing page*/
 
 @keyframes blink {
   0% {
@@ -241,6 +237,3 @@ body {
   }
 }
 
-/*trabalhar botao;
-trabalhar icons;
-*/

@@ -8,8 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       items: [],
       favoriteItems: [], // filter by category to display on view, by default all
       shoppingList: [],
-      userToken: localStorage.getItem("jwt-token") ?? null,
-      userLogged: !localStorage.getItem("jwt-token") ? false : true,
+      userToken: sessionStorage.getItem("jwt-token") ?? null,
+      userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
       userEmail: null,
       userId: null,
       showBreakfast: false,
@@ -17,6 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       showDinner: false,
       showSnack: false,
       showAll: true,
+      showModal: false,
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -120,14 +121,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((response) => response.json())
           .then((data) => {
-            localStorage.setItem("jwt-token", data.token);
-            setStore({ userToken: localStorage.getItem("jwt-token") });
+            sessionStorage.setItem("jwt-token", data.token);
+            setStore({ userToken: sessionStorage.getItem("jwt-token") });
           })
           .catch((err) => alert("Invalid credentials!"));
       },
       getToken: () => {
         setStore({
-          userToken: localStorage.getItem("jwt-token") ?? null,
+          userToken: sessionStorage.getItem("jwt-token") ?? null,
         });
       },
       addFavorite: (newItem) => {
@@ -135,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ favoriteItems: [...store.favoriteItems, newItem] });
       },
       sendToDatabase: (favorite) => {
-        const token = localStorage.getItem("jwt-token");
+        const token = sessionStorage.getItem("jwt-token");
         fetch(`${process.env.BACKEND_URL}/api/favorites/add`, {
           method: "POST",
           headers: {
@@ -156,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ favoriteItems: newFavsArray });
       },
       deleteFavoriteDatabase: (e) => {
-        const token = localStorage.getItem("jwt-token");
+        const token = sessionStorage.getItem("jwt-token");
         fetch(`${process.env.BACKEND_URL}/api/favorites/delete`, {
           method: "DELETE",
           headers: {
@@ -172,7 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       fetchFavorites: () => {
         const store = getStore();
-        const token = localStorage.getItem("jwt-token");
+        const token = sessionStorage.getItem("jwt-token");
         fetch(`${process.env.BACKEND_URL}/api/favorites/get`, {
           method: "GET",
           headers: {
@@ -242,6 +243,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             showSnack: false,
             showAll: true,
           });
+      },
+      showModalHandler: () => {
+        const store = getStore();
+
+        setStore({ showModal: !store.showModal });
       },
     },
   };
