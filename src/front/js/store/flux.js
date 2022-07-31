@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       showSnack: false,
       showAll: true,
       showModal: false,
+      userUsername: "",
+      userName: "",
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -248,6 +250,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         setStore({ showModal: !store.showModal });
+      },
+      getUserDetails: () => {
+        const store = getStore();
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/user/info`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((resp) => resp.json())
+          .then((data) =>
+            setStore({ userName: data.name, userUsername: data.username })
+          )
+          .catch((err) => alert("Something went wrong!" + err));
       },
     },
   };

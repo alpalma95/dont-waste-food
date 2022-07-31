@@ -1,0 +1,32 @@
+.settings__h1,
+.settings__h2 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--dark-green);
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.settings > input {
+  border: 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid #187a26;
+  padding: 0rem 1.5rem 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.settings > input:focus {
+  outline: none;
+}
+
+.settings > button {
+  color: #187a26;
+  border: 1px solid #187a26;
+  display: inline-block;
+  padding: 0.5rem 0.7rem;
+}
+.settings > button:hover {
+  color: white;
+  background-color: #187a26;
+  border: 2px solid #187a26;
+}
