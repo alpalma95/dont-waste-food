@@ -17,39 +17,27 @@ api = Blueprint('api', __name__)
 def handle_signup():
     response_body = request.get_json(force=True)
     
-    existing_username = User.query.filter_by(username=response_body["username"]).first()
+    # existing_username = User.query.filter_by(username=response_body["username"]).first()
     existing_email = User.query.filter_by(email=response_body["email"]).first()
     entered_password = response_body["password"]
     confirmed_password = response_body["confirmed_password"]
 
-    if not existing_email and not existing_username and entered_password == confirmed_password:
+    if not existing_email and entered_password == confirmed_password:
         hashed_pw = generate_password_hash(response_body['password'], "md5")
-        new_user = User(email=response_body['email'], password_hashed=hashed_pw, username=response_body['username'], name=response_body['name'])
+        new_user = User(email=response_body['email'], password_hashed=hashed_pw)
         db.session.add(new_user)
         db.session.commit()
         return "ok", 200
     
-    elif not existing_email and not existing_username and entered_password != confirmed_password:
+    elif not existing_email and entered_password != confirmed_password:
         error_body = {
             "error_message": "Password don't match!"
         }
         return jsonify(error_body), 401
 
-    elif existing_email and not existing_username:
+    elif existing_email:
         error_body = {
             "error_message": "Email already taken!"
-        }
-        return jsonify(error_body), 401
-
-    elif existing_username and not existing_email:
-        error_body = {
-            "error_message": "Username already taken!"
-        }
-        return jsonify(error_body), 401
-
-    else:
-        error_body = {
-            "error_message": "Username and email already taken!"
         }
         return jsonify(error_body), 401
 
