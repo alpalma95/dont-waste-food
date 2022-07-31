@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import UserIcon from "./UserIcon.jsx";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -31,7 +32,6 @@ export const Navbar = () => {
   if (store.shoppingList.length === 0) {
     list = <li className="text-center">Add Only what you need!</li>;
   }
-  // #187a26 #1e9c31;
   return (
     <nav
       className="navbar navbar-expand-md navbar-light p-3 sticky-top d-flex justify-content-end"
@@ -42,8 +42,8 @@ export const Navbar = () => {
     >
       <div className="container-fluid">
         <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>
-          <h1 className="navbar-brand" style={{ color: "white" }} href="#">
-            Don't Waste My Food
+          <h1 className="navbar-brand" style={{ color: "white" }}>
+            Oh! My ginger!
           </h1>
         </Link>
         <button
@@ -61,16 +61,7 @@ export const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="text-end m-1">
               {store.userToken ? (
-                <Link to="/">
-                  <button
-                    className="btn btn-outline-dark m-1 w-100"
-                    onClick={removeTokenHandler}
-                    data-bs-toggle="collapse"
-                    data-bs-target=".navbar-collapse.show"
-                  >
-                    Log out
-                  </button>
-                </Link>
+                <UserIcon />
               ) : (
                 <Link to="/login">
                   <button
