@@ -22,9 +22,16 @@ const UserIcon = (props) => {
         <i className="far fa-user"></i>
       </button>
       <ul className="list-group-flush dropdown-menu dropdown-menu-right">
+        {store.userName ? (
+          <li className="dropdown-item">
+            <strong>Hi, {store.userName}!</strong>
+          </li>
+        ) : (
+          <></>
+        )}
         <li>
           <Link className="dropdown-item" to="/settings">
-            Settings
+            <i className="fas fa-cog"></i> Settings
           </Link>
         </li>
         <li>
@@ -38,7 +45,7 @@ const UserIcon = (props) => {
               data-bs-toggle="collapse"
               data-bs-target=".navbar-collapse.show"
             >
-              Log out
+              <i className="fas fa-sign-out-alt"></i> Log out
             </span>
           </Link>
         </li>

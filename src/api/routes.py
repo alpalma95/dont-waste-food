@@ -100,3 +100,41 @@ def delete_favorite():
     db.session.commit()
 
     return "Deleted", 200
+
+@api.route('/user/info', methods=['GET'])
+@jwt_required()
+def get_user_info():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    
+    return jsonify(user.serialize()), 200
+
+@api.route('/user/name', methods=['PUT'])
+@jwt_required()
+def set_name():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
+
+    user.name = response_body["name"]
+
+    db.session.commit()
+    return jsonify("Name modified"), 200
+
+@api.route('/user/username', methods=['PUT'])
+@jwt_required()
+def set_username():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
+    username_exists = User.query.filter_by(username=response_body['username']).first()
+
+    if not username_exists:
+        user.username = response_body["username"]
+        db.session.commit()
+        return jsonify("Username modified"), 200
+    
+    elif username_exists:
+        return jsonify("Username already exists!"), 400
+
+

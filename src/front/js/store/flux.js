@@ -18,8 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       showSnack: false,
       showAll: true,
       showModal: false,
-      userUsername: "",
-      userName: "",
+      userUsername: null,
+      userName: null,
     },
     actions: {
       searchInputHandler: (textSearch) => {
@@ -262,10 +262,36 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
         })
           .then((resp) => resp.json())
-          .then((data) =>
-            setStore({ userName: data.name, userUsername: data.username })
-          )
+          .then((data) => {
+            setStore({ userName: data.name, userUsername: data.username });
+            console.log(store.userName, store.userUsername);
+          })
           .catch((err) => alert("Something went wrong!" + err));
+      },
+      setUserName: (name) => {
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/user/name`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify({ name: name }),
+        }).then((resp) => resp.json());
+      },
+      setUserNameStore: (name) => {
+        const store = getStore();
+        setStore({ userName: name });
+      },
+      setUserUsernameStore: (username) => {
+        const store = getStore();
+        setStore({ userUsername: username });
+      },
+      clearUserNameStore: () => {
+        setStore({ userName: null });
+      },
+      clearUserUsernameStore: () => {
+        setStore({ userUsername: null });
       },
     },
   };
