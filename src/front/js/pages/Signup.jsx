@@ -1,20 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import "../../styles/form.css";
 
 const Signup = () => {
-  const { store, actions } = useContext(Context);
   const [emailValue, setEmailValue] = useState(``);
-  const [usernameValue, setUsernameValue] = useState(``);
-  const [nameValue, setNameValue] = useState(``);
   const [passwordValue, setPasswordValue] = useState(``);
   const [passwordConfirmedValue, setPasswordConfirmedValue] = useState(``);
   const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const [showEmail, setShowEmail] = useState(false);
-  const [showUsername, setShowUsername] = useState(false);
-  const [showName, setShowName] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showPassConfirm, setShowPassConfirm] = useState(false);
 
@@ -27,18 +21,6 @@ const Signup = () => {
   const setPasswordValueHandler = (e) => {
     setPasswordValue(e.target.value);
     setShowPassword(true);
-    e.target.placeholder = "";
-  };
-
-  const setUsernameValueHandler = (e) => {
-    setUsernameValue(e.target.value);
-    setShowUsername(true);
-    e.target.placeholder = "";
-  };
-
-  const setNameValueHandler = (e) => {
-    setNameValue(e.target.value);
-    setShowName(true);
     e.target.placeholder = "";
   };
 
@@ -56,8 +38,6 @@ const Signup = () => {
         body: JSON.stringify({
           email: emailValue,
           password: passwordValue,
-          username: usernameValue,
-          name: nameValue,
           confirmed_password: passwordConfirmedValue,
         }),
       })
@@ -84,34 +64,6 @@ const Signup = () => {
           id="email_input"
           value={emailValue}
           onChange={setEmailValueHandler}
-        />
-
-        <label
-          className={`${showUsername ? `bottomToTop` : `hidden`}`}
-          htmlFor="username_input"
-        >
-          Username
-        </label>
-        <input
-          type="text"
-          placeholder="Username"
-          id="username_input"
-          value={usernameValue}
-          onChange={setUsernameValueHandler}
-        />
-
-        <label
-          className={`${showName ? `bottomToTop` : `hidden`}`}
-          htmlFor="name_input"
-        >
-          Name
-        </label>
-        <input
-          type="text"
-          placeholder="Name"
-          id="name_input"
-          value={nameValue}
-          onChange={setNameValueHandler}
         />
 
         <label

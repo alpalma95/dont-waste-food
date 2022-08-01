@@ -9,6 +9,8 @@ const Search = () => {
 
   useEffect(() => {
     if (store.userToken) actions.fetchFavorites();
+
+    actions.getUserDetails();
   }, []);
   return (
     <div className="m-5">

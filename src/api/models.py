@@ -6,8 +6,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hashed = db.Column(db.String(120), nullable=False)
-    username = db.Column(db.String(80), nullable=False, unique=True)
-    name = db.Column(db.String(80), nullable=False)
+    username = db.Column(db.String(80), nullable=True, unique=True)
+    name = db.Column(db.String(80), nullable=True)
     shopping_list = db.relationship('ShoppingList', backref='user', lazy=True)
     favorites = db.relationship('Favorite', backref='user', lazy=True)
 

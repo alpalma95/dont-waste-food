@@ -17,39 +17,27 @@ api = Blueprint('api', __name__)
 def handle_signup():
     response_body = request.get_json(force=True)
     
-    existing_username = User.query.filter_by(username=response_body["username"]).first()
+    # existing_username = User.query.filter_by(username=response_body["username"]).first()
     existing_email = User.query.filter_by(email=response_body["email"]).first()
     entered_password = response_body["password"]
     confirmed_password = response_body["confirmed_password"]
 
-    if not existing_email and not existing_username and entered_password == confirmed_password:
+    if not existing_email and entered_password == confirmed_password:
         hashed_pw = generate_password_hash(response_body['password'], "md5")
-        new_user = User(email=response_body['email'], password_hashed=hashed_pw, username=response_body['username'], name=response_body['name'])
+        new_user = User(email=response_body['email'], password_hashed=hashed_pw)
         db.session.add(new_user)
         db.session.commit()
         return "ok", 200
     
-    elif not existing_email and not existing_username and entered_password != confirmed_password:
+    elif not existing_email and entered_password != confirmed_password:
         error_body = {
             "error_message": "Password don't match!"
         }
         return jsonify(error_body), 401
 
-    elif existing_email and not existing_username:
+    elif existing_email:
         error_body = {
             "error_message": "Email already taken!"
-        }
-        return jsonify(error_body), 401
-
-    elif existing_username and not existing_email:
-        error_body = {
-            "error_message": "Username already taken!"
-        }
-        return jsonify(error_body), 401
-
-    else:
-        error_body = {
-            "error_message": "Username and email already taken!"
         }
         return jsonify(error_body), 401
 
@@ -109,6 +97,64 @@ def delete_favorite():
     response_body = request.get_json(force=True)
 
     favorite = Favorite.query.filter_by(user_id=user.id, recipe_id=response_body["recipe_id"]).delete()
+    db.session.commit()
+
+    return "Deleted", 200
+
+@api.route('/favorites/deleteall', methods=['DELETE'])
+@jwt_required()
+def delete_all_favorites():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    favorite = Favorite.query.filter_by(user_id=user.id).delete()
+    db.session.commit()
+
+    return "Deleted", 200
+
+@api.route('/user/info', methods=['GET'])
+@jwt_required()
+def get_user_info():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    
+    return jsonify(user.serialize()), 200
+
+@api.route('/user/name', methods=['PUT'])
+@jwt_required()
+def set_name():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
+
+    user.name = response_body["name"]
+
+    db.session.commit()
+    return jsonify("Name modified"), 200
+
+@api.route('/user/username', methods=['PUT'])
+@jwt_required()
+def set_username():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
+    username_exists = User.query.filter_by(username=response_body['username']).first()
+
+    if not username_exists:
+        user.username = response_body["username"]
+        db.session.commit()
+        return jsonify("Username modified"), 200
+    
+    elif username_exists:
+        return jsonify("Username already exists!"), 400
+
+@api.route('/user/delete', methods=['DELETE'])
+@jwt_required()
+def delete_user():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    delete_user = User.query.filter_by(id=user.id).delete()
     db.session.commit()
 
     return "Deleted", 200
