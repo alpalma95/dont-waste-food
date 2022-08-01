@@ -12,12 +12,7 @@ const UserSettings = () => {
   const [borderError, setBorderError] = useState("");
   const [nameValue, setNameValue] = useState("");
   const [usernameValue, setUsernameValue] = useState("");
-  const [showModifyName, setShowModifyName] = useState(
-    store.userName ? true : false
-  );
-  const [showModifyUsername, setShowModifyUsername] = useState(
-    store.userUsername ? true : false
-  );
+
   const [showDelete, setShowDelete] = useState(false);
 
   const setNameValueHandler = (e) => {
@@ -66,7 +61,6 @@ const UserSettings = () => {
               onClick={() => {
                 actions.setUserName(nameValue);
                 actions.setUserNameStore(nameValue);
-                // setShowModifyName(false);
               }}
             >
               Submit

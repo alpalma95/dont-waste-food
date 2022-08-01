@@ -16,7 +16,20 @@ const DeleteBtns = ({ setShowDelete }) => {
       actions.getToken();
     }, 3000);
   };
+  const deleteAllFavorites = () => {
+    const token = sessionStorage.getItem("jwt-token");
+    fetch(`${process.env.BACKEND_URL}/api/favorites/deleteall`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    }).then((resp) => {
+      resp.json();
+    });
+  };
   const deleteUser = () => {
+    deleteAllFavorites();
     const token = sessionStorage.getItem("jwt-token");
     fetch(`${process.env.BACKEND_URL}/api/user/delete`, {
       method: "DELETE",

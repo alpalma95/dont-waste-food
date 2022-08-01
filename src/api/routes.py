@@ -101,6 +101,17 @@ def delete_favorite():
 
     return "Deleted", 200
 
+@api.route('/favorites/deleteall', methods=['DELETE'])
+@jwt_required()
+def delete_all_favorites():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    favorite = Favorite.query.filter_by(user_id=user.id).delete()
+    db.session.commit()
+
+    return "Deleted", 200
+
 @api.route('/user/info', methods=['GET'])
 @jwt_required()
 def get_user_info():
