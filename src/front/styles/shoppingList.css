@@ -4,7 +4,7 @@
   padding: 50px 50px 20px 50px;
   border-radius: 10px;
   opacity: 0.9;
-  background-color: white;
+  background-color: #dbffca;
   cursor: default;
 }
 .shopping__list h1 {
@@ -23,18 +23,26 @@
 .shopping__recipe__label {
   color: white;
   text-transform: capitalize;
+  font-family: "Fjalla One", sans-serif;
+  letter-spacing: 1px;
   font-weight: bold;
-  text-align: center;
-  background-color: #a79456;
-  border-radius: 16px;
+  overflow: hidden;
+  background-color: #648a3d;
+  border-radius: 5px;
+  margin-top: 10px;
   height: 34px;
-  padding: 5px 0px;
+  padding: 5px 12px;
 }
 .shopping__recipe__ingredient {
   margin-top: 5px;
   border-bottom: 1px solid white;
   cursor: pointer;
   color: black;
+  /* font-style: italic; */
+  font-family: monospace;
+}
+.shopping__recipe__ingredient::before {
+  content: "\2192";
 }
 .line-through {
   text-decoration: line-through;

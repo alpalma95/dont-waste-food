@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import UserIcon from "./UserIcon.jsx";
+import logo from "../../../img/pick_me3.png";
+import "../../styles/navbar.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -44,7 +46,7 @@ export const Navbar = () => {
   }
   return (
     <nav
-      className="navbar navbar-expand-md navbar-light p-3 sticky-top d-flex justify-content-end"
+      className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end"
       style={{
         backgroundImage:
           "linear-gradient(to right, var(--dark-green), var(--medium-green))",
@@ -52,9 +54,7 @@ export const Navbar = () => {
     >
       <div className="container-fluid">
         <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>
-          <h1 className="navbar-brand" style={{ color: "white" }}>
-            Oh! My ginger!
-          </h1>
+          <img className="logo" src={logo} />
         </Link>
         <button
           className="navbar-toggler"
