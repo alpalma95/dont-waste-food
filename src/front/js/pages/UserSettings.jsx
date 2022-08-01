@@ -3,29 +3,6 @@ import { Context } from "../store/appContext";
 import "../../styles/userSettings.css";
 import DeleteBtns from "../component/DeteleBtns.jsx";
 
-/*
-  On mount, fetch user details. IMPLEMENT ENDPOINT!! Need to get username and name
-
-  If store.username OR name == "", then show the inputs. Othetwise, show the name / username and submit
-  btn should be "change" or something. -> On click, will show the input and when the user sends the new
-  information, the page should reload.
-
-  On store: implement several put paths 
-  useEffect:
-    on mount, fetch userName and userUsername from database
-
-  Use context:
-    if store.userName or userUsername == "", show forms
-      else, show userName or Username
-    
-    for username: on click, fetch put to database:
-      create state for borderRed, setBorderRed(default=false)
-      if username exists, catch error => setBorderRed(true)
-      else reload
-
-    for username/name: send info to the store and in the background fetch put to database
-*/
-
 const UserSettings = () => {
   useEffect(() => {
     actions.getUserDetails();
