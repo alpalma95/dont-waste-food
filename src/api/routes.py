@@ -1,6 +1,3 @@
-"""
-This module takes care of starting the API Server, Loading the DB and Adding the endpoints
-"""
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Category, Favorite
 from api.utils import generate_sitemap, APIException
@@ -27,7 +24,7 @@ def handle_signup():
         new_user = User(email=response_body['email'], password_hashed=hashed_pw)
         db.session.add(new_user)
         db.session.commit()
-        return "ok", 200
+        return jsonify("ok"), 200
     
     elif not existing_email and entered_password != confirmed_password:
         error_body = {
@@ -54,7 +51,7 @@ def user_login():
         access_token = create_access_token(identity=user.id)
         return jsonify({"token": access_token, "user_id": user.id})
     else:
-        return "NOT OK", 401
+        return jsonify("NOT OK"), 401
 
 @api.route('/favorites/add', methods=['POST'])
 @jwt_required()
@@ -76,7 +73,7 @@ def add_favorite():
     db.session.add(new_favorite)
     db.session.commit()
     
-    return "Favorite added", 200
+    return jsonify("Favorite added"), 200
 
 @api.route('/favorites/get', methods=['GET'])
 @jwt_required()
@@ -99,7 +96,7 @@ def delete_favorite():
     favorite = Favorite.query.filter_by(user_id=user.id, recipe_id=response_body["recipe_id"]).delete()
     db.session.commit()
 
-    return "Deleted", 200
+    return jsonify("Deleted"), 200
 
 @api.route('/favorites/deleteall', methods=['DELETE'])
 @jwt_required()
@@ -110,7 +107,7 @@ def delete_all_favorites():
     favorite = Favorite.query.filter_by(user_id=user.id).delete()
     db.session.commit()
 
-    return "Deleted", 200
+    return jsonify("Deleted"), 200
 
 @api.route('/user/info', methods=['GET'])
 @jwt_required()
@@ -157,4 +154,4 @@ def delete_user():
     delete_user = User.query.filter_by(id=user.id).delete()
     db.session.commit()
 
-    return "Deleted", 200
+    return jsonify("Deleted"), 200
