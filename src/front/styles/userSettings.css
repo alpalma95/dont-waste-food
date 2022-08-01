@@ -24,6 +24,8 @@
   border: 1px solid #187a26;
   display: inline-block;
   padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  background-color: transparent;
 }
 .settings > button:hover {
   color: white;
@@ -34,6 +36,36 @@
 .border-error {
   border: 2px solid var(--dark-red) !important;
 }
-.border-success {
-  border: 2px solid var(--dark-green) !important;
+
+.settings > .settings__delete-btn,
+.settings__delete-section > .settings__delete-btn {
+  color: var(--dark-red);
+  border: 2px solid var(--dark-red);
+  display: block;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 0.5rem 0.7rem;
+}
+.settings > .settings__delete-btn:hover,
+.settings__delete-section > .settings__delete-btn:hover {
+  color: var(--white-green);
+  border: 2px solid var(--dark-red);
+  padding: 0.5rem 0.7rem;
+
+  background-color: var(--dark-red);
+}
+
+.settings__delete-section > .settings__cancel-btn {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  border: 2px solid var(--dark-green);
+  color: var(--dark-green);
+  background-color: transparent;
+}
+
+.settings__delete-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
 }

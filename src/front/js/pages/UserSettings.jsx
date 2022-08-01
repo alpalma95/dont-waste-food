@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/userSettings.css";
+import DeleteBtns from "../component/DeteleBtns.jsx";
 
 /*
   On mount, fetch user details. IMPLEMENT ENDPOINT!! Need to get username and name
@@ -40,6 +41,7 @@ const UserSettings = () => {
   const [showModifyUsername, setShowModifyUsername] = useState(
     store.userUsername ? true : false
   );
+  const [showDelete, setShowDelete] = useState(false);
 
   const setNameValueHandler = (e) => {
     setNameValue(e.target.value);
@@ -134,6 +136,17 @@ const UserSettings = () => {
           </>
         )}
       </>
+      <h2 className="settings__h2">Delete your account</h2>
+      {showDelete ? (
+        <DeleteBtns setShowDelete={setShowDelete} />
+      ) : (
+        <button
+          className="settings__delete-btn"
+          onClick={() => setShowDelete(true)}
+        >
+          Delete
+        </button>
+      )}
     </div>
   );
 };

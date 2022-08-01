@@ -137,4 +137,13 @@ def set_username():
     elif username_exists:
         return jsonify("Username already exists!"), 400
 
+@api.route('/user/delete', methods=['DELETE'])
+@jwt_required()
+def delete_user():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
 
+    delete_user = User.query.filter_by(id=user.id).delete()
+    db.session.commit()
+
+    return "Deleted", 200
