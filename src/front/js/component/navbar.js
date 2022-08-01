@@ -17,12 +17,22 @@ export const Navbar = () => {
     actions.getToken();
   };
 
-  let list = store.shoppingList.map((ingredient, index) => (
+  let list = store.shoppingList.map((item, index) => (
     <li
       className="list-group-item p-2 d-flex flex-row justify-content-between small"
       key={index}
     >
-      <div>{ingredient.ingredientText}</div>
+      <div>
+        {`
+  ${
+    item.quantity == 0
+      ? ""
+      : item.quantity % 1 == 0
+      ? Number(item.quantity).toFixed(0)
+      : Number(item.quantity).toFixed(1)
+  } ${!item.measure || item.measure[0] == "<" ? "" : item.measure} ${item.food}
+`}
+      </div>
       <div onClick={removeIngredientHandler} data-index={index}>
         <i className="bi bi-trash3"></i>
       </div>
