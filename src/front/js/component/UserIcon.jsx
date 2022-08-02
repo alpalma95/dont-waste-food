@@ -11,7 +11,7 @@ const UserIcon = (props) => {
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown ">
       <button
         type="button"
         className="btn border-white m-1 text-white w-100 dropdown-toggle"
@@ -30,7 +30,12 @@ const UserIcon = (props) => {
           <></>
         )}
         <li>
-          <Link className="dropdown-item" to="/settings">
+          <Link
+            className="dropdown-item"
+            data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse.show"
+            to="/settings"
+          >
             <i className="fas fa-cog"></i> Settings
           </Link>
         </li>
