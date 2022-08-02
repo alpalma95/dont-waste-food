@@ -14,7 +14,7 @@ const UserIcon = (props) => {
     <div className="dropdown ">
       <button
         type="button"
-        className="btn border-white m-1 text-white w-100 dropdown-toggle"
+        className="btn border-white m-1 text-white w-100 dropdown-toggle navbar__btns"
         data-bs-toggle="dropdown"
         data-bs-display="static"
         aria-expanded="false"

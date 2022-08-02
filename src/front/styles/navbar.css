@@ -4,12 +4,17 @@
   top: -5px;
 }
 
+.navbar--custom {
+  background-color: transparent;
+}
+
 .navbar__btns {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
-    var(--dark-green),
-    var(--medium-green)
-  );
+    var(--light-green),
+    var(--white-green)
+  ) !important; */
   font-family: Montserrat;
+  background-color: var(--medium-green);
   font-weight: 500;
 }

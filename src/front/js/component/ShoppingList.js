@@ -64,7 +64,7 @@ ${
 
   return (
     <div
-      className="row p-5"
+      className="h-100 row p-1 w-100"
       style={{
         backgroundImage: `url(${greenImage})`,
         backgroundRepeat: "no-repeat",
@@ -76,7 +76,7 @@ ${
           <h1>SHOPPING LIST</h1>
         </div>
 
-        <div className="row">{shoppingListItem}</div>
+        <div className="row h-75">{shoppingListItem}</div>
         <button
           className="btn btn-danger d-block m-auto mt-4"
           onClick={clearHandler}

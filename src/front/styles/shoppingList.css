@@ -4,9 +4,10 @@
   padding: 50px 50px 20px 50px;
   border-radius: 10px;
   opacity: 0.9;
-  background-color: #dbffca;
+  background-color: #ffffff;
   cursor: default;
 }
+
 .shopping__list h1 {
   text-align: center;
   margin-bottom: 20px;

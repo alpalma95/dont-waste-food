@@ -26,7 +26,7 @@ const FavoriteCard = ({ recipeUrl, recipeTitle, recipeId, imgUrl }) => {
                 actions.deleteFavorite(e);
                 actions.deleteFavoriteDatabase(e);
               }}
-              className="bi bi-star-fill d-inline-block"
+              className="fas fa-times d-inline-block"
             ></i>
           </span>
 

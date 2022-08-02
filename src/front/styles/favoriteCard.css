@@ -2,7 +2,9 @@
   box-shadow: var(--box-shadow);
   width: 20rem;
   height: 30rem;
-  background-color: var(--white-green);
+  background-color: var(--bg-color);
+  border: 1px solid var(--dark-green);
+  border-radius: 5px;
 }
 
 .favorites__card__title {
@@ -11,14 +13,14 @@
   height: 4.5rem;
   padding: 1rem 0.5rem;
   font-family: "Montserrat", sans-serif;
-  color: var(--dark-green);
+  color: var(--black);
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .favorites__card__btn {
   padding: 0 0.5rem;
-  background-color: var(--white-green);
+  background-color: transparent;
   color: var(--dark-green);
   border: 2px solid var(--dark-green);
   border-radius: 5px;

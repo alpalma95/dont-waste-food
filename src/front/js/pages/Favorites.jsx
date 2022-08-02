@@ -12,7 +12,7 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-3">
+    <div className="container mx-auto mt-3 pt-5">
       <div className="row">
         <div
           className="col-12 col-md-2 d-flex flex-sm-row flex-md-column"

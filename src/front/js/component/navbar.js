@@ -45,13 +45,17 @@ export const Navbar = () => {
     list = <li className="text-center">Add Only what you need!</li>;
   }
   return (
-    <nav className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end navbar__btns">
+    <nav className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end navbar--custom">
       <div className="container-fluid">
-        <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>
+        <Link
+          to="/"
+          className="me-auto navbar__btns"
+          style={{ textDecoration: "none" }}
+        >
           <img className="logo" src={logo} />
         </Link>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler navbar__btns"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -67,7 +71,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <Link to="/favorites">
                   <button
-                    className="btn border-white m-1 text-white w-100"
+                    className="btn border-white m-1 text-white w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
@@ -77,7 +81,7 @@ export const Navbar = () => {
               ) : (
                 <Link to="/signup">
                   <button
-                    className="btn border-white m-1 text-white w-100"
+                    className="btn border-white m-1 text-white w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
@@ -89,7 +93,7 @@ export const Navbar = () => {
             <li className="text-end m-1">
               <Link to="/search">
                 <button
-                  className="btn border-white m-1 text-white w-100"
+                  className="btn border-white m-1 text-white w-100 navbar__btns"
                   data-bs-toggle="collapse"
                   data-bs-target=".navbar-collapse.show"
                 >
@@ -101,7 +105,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <div className="dropdown">
                   <button
-                    className="btn border-white dropdown-toggle text-white m-1 w-100"
+                    className="btn border-white dropdown-toggle text-white m-1 w-100 navbar__btns"
                     type="button"
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
@@ -131,7 +135,7 @@ export const Navbar = () => {
                     </ul>
 
                     <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
-                      <li className="d-flex justify-content-center">
+                      <span className="d-flex justify-content-center">
                         {store.shoppingList.length !== 0 && (
                           <span
                             className="btn btn-dark mt-3"
@@ -141,7 +145,7 @@ export const Navbar = () => {
                             Shopping list
                           </span>
                         )}
-                      </li>
+                      </span>
                     </Link>
                   </div>
                 </div>
@@ -155,7 +159,7 @@ export const Navbar = () => {
               ) : (
                 <Link to="/login">
                   <button
-                    className="btn border-white m-1 text-white w-100"
+                    className="btn border-white m-1 text-white w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >

@@ -4,7 +4,7 @@
 
 .favorite-category__title {
   font-family: "Montserrat", sans-serif;
-  color: var(--dark-green);
+  color: var(--black);
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 2rem;

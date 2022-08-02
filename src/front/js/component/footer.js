@@ -10,7 +10,7 @@ export const Footer = () => {
     e.target.reset();
   };
   return (
-    <footer className="footer mt-auto text-center mt-auto text-white">
+    <footer className="footer text-center text-white">
       <div className="row g-0">
         <div className="col-12 col-sm-4 company">
           <h5>Company</h5>
