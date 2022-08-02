@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/shoppingList.css";
 import greenImage from "../../../img/green_1.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingList = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   const linethroughHandler = (e) => {
     console.log("LINETHROUGH!!!", e.target.getAttribute("data-index"));
@@ -13,6 +15,7 @@ const ShoppingList = () => {
 
   const clearHandler = (e) => {
     actions.clearShoppingList();
+    navigate("/");
   };
 
   let oldRecipeLabel = "";

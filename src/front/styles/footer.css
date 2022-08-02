@@ -6,14 +6,13 @@
   padding-top: 15px;
   /* max-height: 25px; */
 }
-.suscribe {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
-.suscribe input[type="text"],
-input[type="submit"] {
+.suscribe input[type="text"] {
   width: 200px;
   border: none;
   padding: 3px 5px;
@@ -23,6 +22,7 @@ input[type="submit"] {
 .suscribe input[type="submit"] {
   border: 1px solid white;
   color: white;
+  width: 200px;
   background-color: transparent;
 }
 
@@ -43,7 +43,7 @@ input[type="submit"] {
 .icons {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .social__title {

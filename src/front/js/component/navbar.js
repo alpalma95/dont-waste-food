@@ -116,7 +116,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <div className="dropdown">
                   <button
-                    className="btn btn-dark dropdown-toggle m-1 w-100"
+                    className="btn border-white dropdown-toggle text-white m-1 w-100"
                     type="button"
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
