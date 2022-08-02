@@ -1,0 +1,15 @@
+.logo {
+  height: 35px;
+  position: relative;
+  top: -5px;
+}
+
+.navbar__btns {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-green),
+    var(--medium-green)
+  );
+  font-family: Montserrat;
+  font-weight: 500;
+}

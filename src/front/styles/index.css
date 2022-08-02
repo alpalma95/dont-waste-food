@@ -210,7 +210,6 @@ body {
     rgba(193, 255, 203, 0.3)
   );
 }
-
 /* Remove extra left and right margins, due to padding */
 .container-cards-custom {
   display: flex;

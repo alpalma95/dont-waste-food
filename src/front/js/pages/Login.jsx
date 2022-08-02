@@ -17,11 +17,13 @@ const Login = () => {
   const setEmailValueHandler = (e) => {
     setEmailValue(e.target.value);
     setShowEmail(true);
+    e.target.placeholder = "";
   };
 
   const setPasswordValueHandler = (e) => {
     setPasswordValue(e.target.value);
     setShowPassword(true);
+    e.target.placeholder = "";
   };
 
   const submitUserInfo = () => {

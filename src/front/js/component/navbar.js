@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import UserIcon from "./UserIcon.jsx";
+import logo from "../../../img/pick_me3.png";
+import "../../styles/navbar.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -17,12 +19,22 @@ export const Navbar = () => {
     actions.getToken();
   };
 
-  let list = store.shoppingList.map((ingredient, index) => (
+  let list = store.shoppingList.map((item, index) => (
     <li
       className="list-group-item p-2 d-flex flex-row justify-content-between small"
       key={index}
     >
-      <div>{ingredient.ingredientText}</div>
+      <div>
+        {`
+  ${
+    item.quantity == 0
+      ? ""
+      : item.quantity % 1 == 0
+      ? Number(item.quantity).toFixed(0)
+      : Number(item.quantity).toFixed(1)
+  } ${!item.measure || item.measure[0] == "<" ? "" : item.measure} ${item.food}
+`}
+      </div>
       <div onClick={removeIngredientHandler} data-index={index}>
         <i className="bi bi-trash3"></i>
       </div>
@@ -33,18 +45,10 @@ export const Navbar = () => {
     list = <li className="text-center">Add Only what you need!</li>;
   }
   return (
-    <nav
-      className="navbar navbar-expand-md navbar-light p-3 sticky-top d-flex justify-content-end"
-      style={{
-        backgroundImage:
-          "linear-gradient(to right, var(--dark-green), var(--medium-green))",
-      }}
-    >
+    <nav className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end navbar__btns">
       <div className="container-fluid">
         <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>
-          <h1 className="navbar-brand" style={{ color: "white" }}>
-            Oh! My ginger!
-          </h1>
+          <img className="logo" src={logo} />
         </Link>
         <button
           className="navbar-toggler"
@@ -112,7 +116,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <div className="dropdown">
                   <button
-                    className="btn btn-dark dropdown-toggle m-1 w-100"
+                    className="btn border-white dropdown-toggle text-white m-1 w-100"
                     type="button"
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"

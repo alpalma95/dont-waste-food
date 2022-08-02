@@ -16,6 +16,9 @@
   display: block;
   width: 100%;
 }
+.container {
+  min-height: 90vh;
+}
 
 .form-custom > h1 {
   font-weight: 700;
@@ -41,7 +44,7 @@
 
 .form-custom > input::placeholder {
   color: black;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .form-custom > label {

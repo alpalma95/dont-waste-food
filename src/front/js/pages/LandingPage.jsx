@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { render } from "react-dom";
-import greenImage from "../../../img/green.jpg";
+import greenImage from "../../../img/green_1.jpg";
 
 const LandingPage = () => {
   const textRef = useRef();

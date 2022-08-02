@@ -1,9 +1,23 @@
 .search-btn {
-  background-color: var(--white-green);
+  /* background-color: var(--white-green);
   color: var(--dark-green);
-  border: 2px solid var(--dark-green);
+  border: 2px solid var(--dark-green); */
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
 }
 
 .search-btn > a {
-  color: var(--dark-green);
+  /* color: var(--dark-green); */
+  color: black;
+}
+
+.recipe__card {
+  -webkit-box-shadow: 2px 2px 3px -3px #000000;
+  box-shadow: 2px 2px 3px -3px #000000;
+  /* border-radius: 10px; */
+}
+
+.img__card {
+  margin: 5px;
 }

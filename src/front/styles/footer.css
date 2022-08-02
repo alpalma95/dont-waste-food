@@ -1,0 +1,51 @@
+.footer {
+  background-image: linear-gradient(to right, #187a26, #1e9c31);
+  font-family: Montserrat;
+  font-weight: 100;
+  font-size: 13px;
+  padding-top: 15px;
+  /* max-height: 25px; */
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.suscribe input[type="text"] {
+  width: 200px;
+  border: none;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.suscribe input[type="submit"] {
+  border: 1px solid white;
+  color: white;
+  width: 200px;
+  background-color: transparent;
+}
+
+.company {
+  text-align: center;
+}
+
+.company ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+/* .company h5 {
+  
+} */
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social__title {
+  margin-bottom: 5px;
+}
