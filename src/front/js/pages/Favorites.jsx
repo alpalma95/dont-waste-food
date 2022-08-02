@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react";
-import PillFavorite from "../component/PillFavorite.jsx";
 import FavoriteCategory from "../component/FavoriteCategory.jsx";
 import { Context } from "../store/appContext.js";
 import FavoritePillsSection from "../component/FavoritePillsSection.jsx";
