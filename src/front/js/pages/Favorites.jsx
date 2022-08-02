@@ -24,27 +24,49 @@ const Favorites = () => {
           className="col-12 col-md-10"
           style={{ height: "80vh", overflow: "scroll" }}
         >
-          {store.showBreakfast ? (
-            <FavoriteCategory categoryName="Breakfast" />
+          {store.favoriteItems.length == 0 ? (
+            <h1
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                fontWeight: "700",
+                color: "var(--dark-green)",
+              }}
+            >
+              Nothing to see here yet!
+            </h1>
           ) : (
-            <></>
-          )}
-          {store.showLunch ? <FavoriteCategory categoryName="Lunch" /> : <></>}
-          {store.showDinner ? (
-            <FavoriteCategory categoryName="Dinner" />
-          ) : (
-            <></>
-          )}
-          {store.showSnack ? <FavoriteCategory categoryName="Snack" /> : <></>}
-          {store.showAll ? (
             <>
-              <FavoriteCategory categoryName="Breakfast" />
-              <FavoriteCategory categoryName="Lunch" />
-              <FavoriteCategory categoryName="Dinner" />
-              <FavoriteCategory categoryName="Snack" />
+              {store.showBreakfast ? (
+                <FavoriteCategory categoryName="Breakfast" />
+              ) : (
+                <></>
+              )}
+              {store.showLunch ? (
+                <FavoriteCategory categoryName="Lunch" />
+              ) : (
+                <></>
+              )}
+              {store.showDinner ? (
+                <FavoriteCategory categoryName="Dinner" />
+              ) : (
+                <></>
+              )}
+              {store.showSnack ? (
+                <FavoriteCategory categoryName="Snack" />
+              ) : (
+                <></>
+              )}
+              {store.showAll ? (
+                <>
+                  <FavoriteCategory categoryName="Breakfast" />
+                  <FavoriteCategory categoryName="Lunch" />
+                  <FavoriteCategory categoryName="Dinner" />
+                  <FavoriteCategory categoryName="Snack" />
+                </>
+              ) : (
+                <></>
+              )}
             </>
-          ) : (
-            <></>
           )}
         </div>
       </div>

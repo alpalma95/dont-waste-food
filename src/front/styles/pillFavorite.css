@@ -7,9 +7,15 @@
   background-color: var(--dark-green);
   color: var(--white-green);
 }
+.favorites-pill--selected:hover {
+  color: var(--white-green);
+}
 .favorites-pill--unselected {
   background-color: var(--white-green) !important;
   border: 1px solid var(--dark-green) !important;
+  color: var(--dark-green);
+}
+.favorites-pill--unselected:hover {
   color: var(--dark-green);
 }
 
