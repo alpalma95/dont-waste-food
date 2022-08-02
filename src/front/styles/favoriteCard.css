@@ -1,7 +1,7 @@
 .favorites__card {
   box-shadow: var(--box-shadow);
-  width: 15rem;
-  height: 25rem;
+  width: 20rem;
+  height: 30rem;
   background-color: var(--white-green);
 }
 

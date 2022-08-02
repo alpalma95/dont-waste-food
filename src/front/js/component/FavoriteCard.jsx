@@ -7,9 +7,9 @@ const FavoriteCard = ({ recipeUrl, recipeTitle, recipeId, imgUrl }) => {
 
   return (
     <div className="favorites__card">
-      <h5 className="favorites__card__title">{recipeTitle} </h5>
+      <h5 className="favorites__card__title">{recipeTitle}</h5>
 
-      <img src={imgUrl} className="card-img-top" alt="..." />
+      <img src={imgUrl} className="card-img-top" alt={recipeTitle} />
 
       <div className="card-body">
         <div className="d-flex">

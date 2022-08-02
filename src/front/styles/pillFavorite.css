@@ -9,7 +9,7 @@
 }
 .favorites-pill--unselected {
   background-color: var(--white-green) !important;
-  border: 2px solid var(--dark-green) !important;
+  border: 1px solid var(--dark-green) !important;
   color: var(--dark-green);
 }
 
@@ -19,6 +19,7 @@
   place-items: center;
   border-radius: 2px;
   font-weight: 700;
+  font-size: 0.7rem;
 }
 
 .favorites-pill--selected > .favorites-pill__badge {
