@@ -27,8 +27,22 @@ input[type="submit"] {
 }
 .company ul {
   list-style-type: none;
+  text-align: start;
+  padding-left: 60px;
+}
+
+.company h5 {
+  list-style-type: none;
+  text-align: start;
+  padding-left: 59px;
 }
 
 .icons {
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.social__title {
+  margin-bottom: 5px;
 }

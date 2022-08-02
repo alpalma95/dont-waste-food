@@ -16,7 +16,7 @@ export const Footer = () => (
 
       <div className="col-4">
         <img className="logo" src={logo} />
-        <p>Get social - Join us!</p>
+        <p className="social__title">Get social - Join us!</p>
         <div className="icons">
           <i class="bi bi-instagram"></i>
           <i class="bi bi-facebook"></i>
