@@ -155,7 +155,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               setStore({ items: result.hits });
               setTimeout(() => {
                 setStore({ isLoaded: true });
-              }, 2000);
+              }, 2500);
             },
             (error) => {
               setStore({ isLoaded: true });

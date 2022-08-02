@@ -25,17 +25,20 @@ input[type="submit"] {
   color: white;
   background-color: transparent;
 }
-.company ul {
-  list-style-type: none;
-  text-align: start;
-  padding-left: 60px;
+
+.company {
+  text-align: center;
 }
 
-.company h5 {
+.company ul {
   list-style-type: none;
-  text-align: start;
-  padding-left: 59px;
+  margin-bottom: 0;
+  padding-left: 0;
 }
+
+/* .company h5 {
+  
+} */
 
 .icons {
   display: flex;
