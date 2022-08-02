@@ -64,6 +64,7 @@ const LandingPage = () => {
       rgba(24, 122, 39, 0.3),
       rgba(193, 255, 203, 0.3)
     ),url(${greenImage})`,
+    
     //backgroundImage: `linear-gradient(to right bottom, rgba(252, 91, 91, 0.8), rgba(40, 180, 133, 0.8)), url(${imagem2Image})`,
 
     backgroundSize: "cover",

@@ -205,10 +205,17 @@ body {
   width: min(90%, 25rem);
   padding: 1rem 2rem;
   background-image: linear-gradient(
-    to bottom,
-    rgba(24, 122, 39, 0.3),
+    to bottom rgba(24, 122, 39, 0.3),
     rgba(193, 255, 203, 0.3)
   );
+  /*transition: all 0.2s ease;
+  cursor: pointer;*/
+  transition: 0.5s;
+  margin-bottom: 15px;
+}
+.cards-custom:hover {
+  transform: translateY(-50px);
+  box-shadow: var(--box-shadow);
 }
 
 /* Remove extra left and right margins, due to padding */
