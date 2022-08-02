@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import "../../styles/pillFavorite.css";
 
 const PillFavorite = ({ categoryName, showHandler, show }) => {
   const { store, actions } = useContext(Context);
@@ -25,15 +26,17 @@ const PillFavorite = ({ categoryName, showHandler, show }) => {
 
   return (
     <div
-      className={`btn btn-${
-        displayCategory ? "primary" : "secondary"
+      className={`btn favorites-pill ${
+        displayCategory
+          ? "favorites-pill--selected"
+          : "favorites-pill--unselected"
       } d-block d-flex justify-content-between`}
       onClick={() => {
         showHandler();
       }}
     >
       {categoryName}{" "}
-      <span className="badge bg-success">{favoriteCategory.length}</span>
+      <span className=" favorites-pill__badge">{favoriteCategory.length}</span>
     </div>
   );
 };
