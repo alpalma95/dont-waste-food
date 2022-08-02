@@ -89,6 +89,7 @@ const SearchBar = () => {
                   color: "white",
                   boxShadow: "none",
                   border: "0",
+                  fontFamily: "Montserrat",
                 }}
                 type="button"
                 ref={searchOption}
@@ -100,7 +101,7 @@ const SearchBar = () => {
               <input
                 type="text"
                 className="form-control"
-                style={{ boxShadow: "none" }}
+                style={{ boxShadow: "none", fontFamily: "Montserrat" }}
                 aria-label="Text input with dropdown button"
                 placeholder="What's in your fridge"
                 ref={searchRef}
@@ -115,6 +116,7 @@ const SearchBar = () => {
                     boxShadow: "none",
                     borderTopLeftRadius: "0px",
                     borderBottomLeftRadius: "0px",
+                    fontFamily: "Montserrat",
                   }}
                   type="submit"
                 >

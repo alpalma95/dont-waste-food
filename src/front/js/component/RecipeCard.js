@@ -80,7 +80,11 @@ const RecipeCard = ({ item, index }) => {
 
   const cardContent = (
     <>
-      <img src={item.recipe.image} alt={item.recipe.label} />
+      <img
+        src={item.recipe.image}
+        alt={item.recipe.label}
+        className="img__card"
+      />
       <div className="card-body">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingTwo">
@@ -182,7 +186,7 @@ const RecipeCard = ({ item, index }) => {
         <div className="card-body d-flex justify-content-between pb-0">
           <span
             onClick={(e) => addToFavoriteHandler(e)}
-            style={{ fontSize: "30px", color: "#fb1d1d" }}
+            style={{ fontSize: "30px", color: "rgb(255, 211, 0)" }}
           >
             {star}
           </span>
@@ -202,7 +206,7 @@ const RecipeCard = ({ item, index }) => {
   );
 
   return (
-    <div className="col-12 col-sm-4 col-xl-3">
+    <div className="col-12 col-sm-4 col-xl-3 g-4">
       <div className="card" style={{ marginTop: "40px", minHeight: "587px" }}>
         <div
           style={{

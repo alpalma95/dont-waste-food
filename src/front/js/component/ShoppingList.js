@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/shoppingList.css";
-import greenImage from "../../../img/green.jpg";
+import greenImage from "../../../img/green_1.jpg";
 
 const ShoppingList = () => {
   const { store, actions } = useContext(Context);

@@ -1,0 +1,34 @@
+.footer {
+  background-image: linear-gradient(to right, #187a26, #1e9c31);
+  font-family: Montserrat;
+  font-weight: 100;
+  font-size: 13px;
+  padding-top: 15px;
+  /* max-height: 25px; */
+}
+.suscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.suscribe input[type="text"],
+input[type="submit"] {
+  width: 200px;
+  border: none;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.suscribe input[type="submit"] {
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+}
+.company ul {
+  list-style-type: none;
+}
+
+.icons {
+  align-items: center;
+}

@@ -45,13 +45,7 @@ export const Navbar = () => {
     list = <li className="text-center">Add Only what you need!</li>;
   }
   return (
-    <nav
-      className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end"
-      style={{
-        backgroundImage:
-          "linear-gradient(to right, var(--dark-green), var(--medium-green))",
-      }}
-    >
+    <nav className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end navbar__btns">
       <div className="container-fluid">
         <Link to="/" className="me-auto" style={{ textDecoration: "none" }}>
           <img className="logo" src={logo} />

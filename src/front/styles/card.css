@@ -7,3 +7,13 @@
 .search-btn > a {
   color: var(--dark-green);
 }
+
+/* .recipe__card {
+  -webkit-box-shadow: 2px 2px 6px -3px #000000;
+  box-shadow: 2px 2px 6px -3px #000000;
+  border-radius: 10px;
+} */
+
+.img__card {
+  margin: 5px;
+}
