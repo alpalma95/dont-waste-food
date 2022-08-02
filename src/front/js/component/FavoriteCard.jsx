@@ -1,26 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
-import Spinner from "./Spinner.jsx";
+import "../../styles/favoriteCard.css";
 
 const FavoriteCard = ({ recipeUrl, recipeTitle, recipeId, imgUrl }) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card col-5" style={{ width: "18rem" }}>
-      <div
-        style={{
-          paddingTop: "10px",
-          height: "90px",
-        }}
-      >
-        <h5 className="card-title text-center">{recipeTitle} </h5>
-      </div>
+    <div className="favorites__card">
+      <h5 className="favorites__card__title">{recipeTitle}</h5>
 
-      <img src={imgUrl} className="card-img-top" alt="..." />
+      <img src={imgUrl} className="card-img-top" alt={recipeTitle} />
 
       <div className="card-body">
         <div className="d-flex">
-          <span style={{ fontSize: "30px", color: "#FFD300" }}>
+          <span
+            style={{
+              fontSize: "30px",
+              color: "var(--dark-red)",
+              cursor: "pointer",
+            }}
+          >
             <i
               id={recipeId}
               onClick={(e) => {
@@ -31,12 +30,11 @@ const FavoriteCard = ({ recipeUrl, recipeTitle, recipeId, imgUrl }) => {
             ></i>
           </span>
 
-          <button type="button" className="btn btn-dark d-block ms-auto">
+          <button type="button" className="favorites__card__btn">
             <a
               href={recipeUrl}
               target="_blank"
               className="card-link text-white"
-              style={{ textDecoration: "none" }}
             >
               Full Recipe!
             </a>

@@ -50,6 +50,7 @@ body {
   height: 100vh;
   padding-top: 4rem;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 .box > h1 {
   display: inline-block;

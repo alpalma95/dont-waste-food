@@ -11,7 +11,7 @@ const UserIcon = (props) => {
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown ">
       <button
         type="button"
         className="btn border-white m-1 text-white w-100 dropdown-toggle"
@@ -21,7 +21,7 @@ const UserIcon = (props) => {
       >
         <i className="far fa-user"></i>
       </button>
-      <ul className="list-group-flush dropdown-menu dropdown-menu-right">
+      <ul className="list-group-flush dropdown-menu dropdown-menu-end">
         {store.userName ? (
           <li className="dropdown-item">
             <strong>Hi, {store.userName}!</strong>
@@ -30,8 +30,14 @@ const UserIcon = (props) => {
           <></>
         )}
         <li>
-          <Link className="dropdown-item" to="/settings">
-            <i className="fas fa-cog"></i> Settings
+          <Link to="/settings" className="settings-btn">
+            <span
+              className="dropdown-item"
+              data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show"
+            >
+              <i className="fas fa-cog"></i> Settings
+            </span>
           </Link>
         </li>
         <li>
