@@ -61,21 +61,6 @@ export const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="text-end m-1">
               {store.userToken ? (
-                <UserIcon />
-              ) : (
-                <Link to="/login">
-                  <button
-                    className="btn border-white m-1 text-white w-100"
-                    data-bs-toggle="collapse"
-                    data-bs-target=".navbar-collapse.show"
-                  >
-                    Login
-                  </button>
-                </Link>
-              )}
-            </li>
-            <li className="text-end m-1">
-              {store.userToken ? (
                 <Link to="/favorites">
                   <button
                     className="btn border-white m-1 text-white w-100"
@@ -158,6 +143,21 @@ export const Navbar = () => {
                 </div>
               ) : (
                 <></>
+              )}
+            </li>
+            <li className="text-end m-1">
+              {store.userToken ? (
+                <UserIcon />
+              ) : (
+                <Link to="/login">
+                  <button
+                    className="btn border-white m-1 text-white w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
+                  >
+                    Login
+                  </button>
+                </Link>
               )}
             </li>
           </ul>

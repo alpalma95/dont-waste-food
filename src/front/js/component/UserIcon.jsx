@@ -21,7 +21,7 @@ const UserIcon = (props) => {
       >
         <i className="far fa-user"></i>
       </button>
-      <ul className="list-group-flush dropdown-menu dropdown-menu-right">
+      <ul className="list-group-flush dropdown-menu dropdown-menu-end">
         {store.userName ? (
           <li className="dropdown-item">
             <strong>Hi, {store.userName}!</strong>
