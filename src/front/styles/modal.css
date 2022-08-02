@@ -79,3 +79,14 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 779px) {
+  .btn-custom {
+    width: fit-content;
+  }
+  .modal-custom__btns {
+    justify-content: space-evenly;
+    gap: 1rem;
+    font-weight: 700;
+  }
+}

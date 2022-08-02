@@ -6,7 +6,7 @@ const FavoritePillsSection = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="d-flex flex-sm-row flex-md-column gap-3 flex-wrap">
+    <div className="d-flex flex-sm-row flex-md-column gap-3 flex-wrap pb-5">
       <PillFavorite
         categoryName="Breakfast"
         showHandler={actions.showBreakfastHandler}

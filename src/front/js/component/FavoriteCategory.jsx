@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import FavoriteCard from "./FavoriteCard.jsx";
 import { Context } from "../store/appContext";
+import "../../styles/favoriteCategory.css";
 
 const FavoriteCategory = ({ categoryName }) => {
   const { store, actions } = useContext(Context);
@@ -11,9 +12,9 @@ const FavoriteCategory = ({ categoryName }) => {
   return (
     <div>
       {favoriteCategory.length != 0 ? (
-        <div className="container mb-2">
-          <h2 className="text-danger mb-5">{categoryName}</h2>
-          <div className="d-flex overflow-auto gap-5">
+        <div className="container favorite-category">
+          <h2 className="favorite-category__title">{categoryName}</h2>
+          <div className="favorite-category__cards">
             {favoriteCategory.map((x, i) => (
               <FavoriteCard
                 key={i}
