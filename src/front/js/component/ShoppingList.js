@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/shoppingList.css";
 import greenImage from "../../../img/green_1.jpg";
+import logo from "../../../img/PM_logo.png";
 import { useNavigate } from "react-router-dom";
 
 const ShoppingList = () => {
@@ -72,8 +73,8 @@ ${
       // }}
     >
       <div className="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-4 offset-lg-4 mt-3 shopping__list">
-        <div>
-          <h1>SHOPPING LIST</h1>
+        <div style={{ textAlign: "center" }}>
+          <img className="logo" src={logo} />
         </div>
 
         <div className="row h-75">{shoppingListItem}</div>

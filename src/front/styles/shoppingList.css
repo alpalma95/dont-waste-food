@@ -1,18 +1,23 @@
 .shopping__list {
   -webkit-box-shadow: 2px 2px 8px -3px #000000;
   box-shadow: 2px 2px 8px -3px #000000;
-  padding: 50px 50px 20px 50px;
+  padding: 35px 40px 40px 50px;
   border-radius: 10px;
   opacity: 0.9;
   background-color: #ffffff;
   cursor: default;
 }
 
-.shopping__list h1 {
+.shopping__list .logo {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.shopping__list h1 {
+  /* text-align: center; */
   margin-bottom: 20px;
   color: black;
-  display: none;
+  /* display: none; */
 }
 .shopping__list .row {
   max-height: 350px;
@@ -22,13 +27,12 @@
   box-shadow: none;
 }
 .shopping__recipe__label {
-  color: white;
+  color: #18965f;
   text-transform: capitalize;
   font-family: "Fjalla One", sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-weight: bold;
   overflow: hidden;
-  background-color: #18965f;
   border-radius: 5px;
   margin-top: 10px;
   height: 34px;
@@ -40,7 +44,7 @@
   cursor: pointer;
   color: black;
   /* font-style: italic; */
-  font-family: monospace;
+  font-family: Montserrat;
 }
 .shopping__recipe__ingredient::before {
   content: "\2192";

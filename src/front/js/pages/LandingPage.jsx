@@ -91,7 +91,38 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="layout section-cards">
+      <div className="landing__container">
+        <div className="landing__card">
+          <div className="landind__card__img">
+            <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/000000/external-vegetable-healthy-lifestyle-icongeek26-outline-icongeek26.png" />
+          </div>
+          <h5 className="">Your Ingredients</h5>
+          <p className="">
+            Use ingredients you already have on hand. Avoid food waste.
+          </p>
+        </div>
+        <div className="landing__card">
+          <div className="landind__card__img">
+            <img src="https://img.icons8.com/external-becris-lineal-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-becris.png" />
+          </div>
+          <h5 className="">Find Recipes</h5>
+          <p className="">
+            Find and select the recipes you want to try. Save them to your
+            library.
+          </p>
+        </div>
+        <div className="landing__card">
+          <div className="landind__card__img">
+            <img src="https://img.icons8.com/external-tulpahn-detailed-outline-tulpahn/64/000000/external-eco-food-ecology-tulpahn-detailed-outline-tulpahn.png" />
+          </div>
+          <h5 className="">Enjoy Cooking</h5>
+          <p className="">
+            Discover the recipes and make your family delicious meals.
+          </p>
+        </div>
+      </div>
+
+      {/* <div className="layout section-cards">
         <h2 className="title2"> How it works</h2>
 
         <div className="container-cards-custom">
@@ -125,14 +156,14 @@ const LandingPage = () => {
               <img src="https://img.icons8.com/external-tulpahn-detailed-outline-tulpahn/64/000000/external-eco-food-ecology-tulpahn-detailed-outline-tulpahn.png" />
             </span>
             <div className="p1">
-              <h3 className="text1">Enjoy Cooking</h3>
+              <h3 className="text1">Enjoy Cooking!</h3>
               <p className="text2">
                 Discover the recipes and make your family delicious meals
               </p>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
