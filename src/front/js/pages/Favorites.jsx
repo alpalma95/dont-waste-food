@@ -29,7 +29,7 @@ const Favorites = () => {
               style={{
                 fontFamily: "Montserrat, sans-serif",
                 fontWeight: "700",
-                color: "var(--dark-green)",
+                color: "#18965f",
               }}
             >
               Nothing to see here yet!

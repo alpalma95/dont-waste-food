@@ -21,12 +21,12 @@
 .favorites__card__btn {
   padding: 0 0.5rem;
   background-color: transparent;
-  color: #4eb88a;
+  color: var(--dark-green);
   border: 2px solid var(--dark-green);
   border-radius: 5px;
   margin-left: auto;
 }
 .favorites__card__btn > a {
-  color: #4eb88a !important;
+  color: var(--dark-green) !important;
   text-decoration: none;
 }

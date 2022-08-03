@@ -59,12 +59,8 @@ const LandingPage = () => {
   }
 
   const styles = {
-    backgroundImage: `linear-gradient(
-      to bottom,
-      rgba(24, 122, 39, 0.3),
-      rgba(193, 255, 203, 0.3)
-    ),url(${greenImage})`,
-    
+    backgroundImage: `url(${greenImage})`,
+
     //backgroundImage: `linear-gradient(to right bottom, rgba(252, 91, 91, 0.8), rgba(40, 180, 133, 0.8)), url(${imagem2Image})`,
 
     backgroundSize: "cover",
@@ -77,11 +73,10 @@ const LandingPage = () => {
       <div className="image" style={styles}>
         <div className="box">
           <div className="caixa">
-            <h1 className="maintitle"> Oh!My Ginger</h1>
-            <h2 className="subtitle">
-              {" "}
-              The fridge is where the magic happens!
-            </h2>
+            <h1 className="maintitle"> Pick Me</h1>
+            <h5 className="subtitle">
+              - The fridge is where the magic happens -
+            </h5>
             <div className="typing-demonstration">
               <h5 className="title">Type ingredients you have...</h5>
               <div className="typing-container">
