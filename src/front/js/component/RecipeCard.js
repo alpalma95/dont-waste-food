@@ -40,8 +40,7 @@ const RecipeCard = ({ item, index }) => {
       };
 
       actions.addShoppingList(ingredient);
-
-      console.log("YAAAAY", ingredient);
+      actions.addShoppingListBE(ingredient);
     } else {
       const ingredient = {
         ingredientIndex: e.target.getAttribute("data-recipe-ingredient-index"),
