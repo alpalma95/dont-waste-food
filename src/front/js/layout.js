@@ -19,6 +19,12 @@ import UserSettings from "./pages/UserSettings.jsx";
 const Layout = () => {
   const { store, actions } = useContext(Context);
 
+  useEffect(() => {
+    if (!store.userToken) return;
+
+    actions.fetchShoppingList();
+  }, [store.userToken]);
+
   const basename = process.env.BASENAME || "";
 
   return (

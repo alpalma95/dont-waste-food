@@ -70,6 +70,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           resp.json();
         });
       },
+      fetchShoppingList: () => {
+        const store = getStore();
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/shopping/get`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((resp) => resp.json())
+          .then((data) => setStore({ shoppingList: data }))
+          .catch((err) => alert("Something went wrong!" + err));
+      },
       shoppingListLineToggle: (index) => {
         const store = getStore();
         let lineItem = store.shoppingList[index];
