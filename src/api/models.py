@@ -40,6 +40,15 @@ class Category(db.Model):
 class ShoppingList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
+    recipeLabel = db.Column(db.String(180))
+    ingredientIndex = db.Column(db.String(20))
+    ingredientText = db.Column(db.String(180))
+    recipeUri = db.Column(db.String(300))
+    quantity = db.Column(db.String(20))
+    food = db.Column(db.String(180))
+    isChecked = db.Column(db.Boolean)
+    index = db.Column(db.Integer)
+
 
     def __repr__(self):
         return f'<ShoppingList {self.user_id}>'
@@ -47,8 +56,18 @@ class ShoppingList(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "user_id": self.user_id
+            "user_id": self.user_id,
+            "recipeLabel": self.recipeLabel,
+            "ingredientIndex": self.ingredientIndex,
+            "ingredientText": self.ingredientText,
+            "recipeUri": self.recipeUri,
+            "quantity": self.quantity,
+            "food": self.food,
+            "isChecked": self.isChecked,
+            "index": self.index
         }
+
+
 
 class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)

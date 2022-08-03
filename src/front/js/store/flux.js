@@ -7,120 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       error: null,
       items: [],
       favoriteItems: [], // filter by category to display on view, by default all
-      shoppingList: [
-        {
-          recipeLabel: "Mushroom & Shrimp Quinoa Risotto",
-          ingredientIndex: "0",
-          ingredientText: "¾ cup quinoa",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_e8a3eb301ff268768c1cb33e5791cb4e",
-          quantity: "0.75",
-          food: "quinoa",
-          measure: "cup",
-          weight: "127.5",
-          foodCategory: "grains",
-          isChecked: false,
-          index: 0,
-        },
-        {
-          recipeLabel: "Mushroom & Shrimp Quinoa Risotto",
-          ingredientIndex: "3",
-          ingredientText: "1 medium shallot, minced (about 1/4 cup)",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_e8a3eb301ff268768c1cb33e5791cb4e",
-          quantity: "0.25",
-          food: "shallot",
-          measure: "cup",
-          weight: "40.00000000067628",
-          foodCategory: "vegetables",
-          isChecked: false,
-          index: 1,
-        },
-        {
-          recipeLabel: "Mushroom & Shrimp Quinoa Risotto",
-          ingredientIndex: "5",
-          ingredientText: "2 large garlic cloves, minced (about 1 Tbsp.)",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_e8a3eb301ff268768c1cb33e5791cb4e",
-          quantity: "1",
-          food: "garlic",
-          measure: "tablespoon",
-          weight: "10.624999999820364",
-          foodCategory: "vegetables",
-          isChecked: false,
-          index: 2,
-        },
-        {
-          recipeLabel: "crunchy quinoa & veggie roaster",
-          ingredientIndex: "2",
-          ingredientText: "2 tablespoons lemon juice",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_641aed160759399e377d807e3cd61dfc",
-          quantity: "2",
-          food: "lemon juice",
-          measure: "tablespoon",
-          weight: "30.4999999994844",
-          foodCategory: "100% juice",
-          isChecked: false,
-          index: 3,
-        },
-        {
-          recipeLabel: "crunchy quinoa & veggie roaster",
-          ingredientIndex: "3",
-          ingredientText: "1 teaspoon dried basil",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_641aed160759399e377d807e3cd61dfc",
-          quantity: "1",
-          food: "dried basil",
-          measure: "teaspoon",
-          weight: "0.7",
-          foodCategory: "Condiments and sauces",
-          isChecked: false,
-          index: 4,
-        },
-        {
-          recipeLabel: "crunchy quinoa & veggie roaster",
-          ingredientIndex: "4",
-          ingredientText: "1 teaspoon fennel seeds",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_641aed160759399e377d807e3cd61dfc",
-          quantity: "1",
-          food: "fennel seeds",
-          measure: "teaspoon",
-          weight: "2",
-          foodCategory: "Condiments and sauces",
-          isChecked: false,
-          index: 5,
-        },
-        {
-          recipeLabel: "Warm Quinoa, Spinach, and Shiitake Salad",
-          ingredientIndex: "4",
-          ingredientText: "2 lb. fresh shiitake mushrooms",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_5d0be9889a4795a1c9bb40bb471808af",
-          quantity: "2",
-          food: "shiitake mushrooms",
-          measure: "pound",
-          weight: "907.18474",
-          foodCategory: "vegetables",
-          isChecked: false,
-          index: 6,
-        },
-        {
-          recipeLabel: "Warm Quinoa, Spinach, and Shiitake Salad",
-          ingredientIndex: "6",
-          ingredientText: "1 lb. baby spinach",
-          recipeUri:
-            "http://www.edamam.com/ontologies/edamam.owl#recipe_5d0be9889a4795a1c9bb40bb471808af",
-          quantity: "1",
-          food: "spinach",
-          measure: "pound",
-          weight: "453.59237",
-          foodCategory: "vegetables",
-          isChecked: false,
-          index: 7,
-        },
-      ],
+      shoppingList: [],
       userToken: sessionStorage.getItem("jwt-token") ?? null,
       userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
       userEmail: null,
@@ -170,6 +57,33 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ shoppingList: [...store.shoppingList, ingredient] });
         console.log(JSON.stringify(store.shoppingList));
       },
+      addShoppingListBE: (ingredient) => {
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/shopping/add`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify(ingredient),
+        }).then((resp) => {
+          resp.json();
+        });
+      },
+      fetchShoppingList: () => {
+        const store = getStore();
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/shopping/get`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((resp) => resp.json())
+          .then((data) => setStore({ shoppingList: data }))
+          .catch((err) => alert("Something went wrong!" + err));
+      },
       shoppingListLineToggle: (index) => {
         const store = getStore();
         let lineItem = store.shoppingList[index];
@@ -182,7 +96,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       clearShoppingList: () => {
         setStore({ shoppingList: [] });
       },
-
+      clearShoppingListBE: () => {
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/shopping/delete`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }).then((resp) => {
+          resp.json();
+        });
+      },
       removeShoppingList: (ingredient) => {
         const store = getStore();
         const list = store.shoppingList.filter((line) => {
