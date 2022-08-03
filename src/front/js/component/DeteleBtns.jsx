@@ -30,6 +30,8 @@ const DeleteBtns = ({ setShowDelete }) => {
   };
   const deleteUser = () => {
     deleteAllFavorites();
+    actions.clearShoppingListBE();
+
     const token = sessionStorage.getItem("jwt-token");
     fetch(`${process.env.BACKEND_URL}/api/user/delete`, {
       method: "DELETE",

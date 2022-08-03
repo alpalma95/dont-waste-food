@@ -15,6 +15,7 @@ const ShoppingList = () => {
 
   const clearHandler = (e) => {
     actions.clearShoppingList();
+    actions.clearShoppingListBE();
     navigate("/");
   };
 

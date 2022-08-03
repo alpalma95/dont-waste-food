@@ -96,7 +96,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       clearShoppingList: () => {
         setStore({ shoppingList: [] });
       },
-
+      clearShoppingListBE: () => {
+        const token = sessionStorage.getItem("jwt-token");
+        fetch(`${process.env.BACKEND_URL}/api/shopping/delete`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }).then((resp) => {
+          resp.json();
+        });
+      },
       removeShoppingList: (ingredient) => {
         const store = getStore();
         const list = store.shoppingList.filter((line) => {
