@@ -14,12 +14,12 @@ const UserIcon = (props) => {
     <div className="dropdown ">
       <button
         type="button"
-        className="btn border-white m-1 text-white w-100 dropdown-toggle navbar__btns"
+        className="btn border-white m-1 text-black w-100 dropdown-toggle navbar__btns"
         data-bs-toggle="dropdown"
         data-bs-display="static"
         aria-expanded="false"
       >
-        <i className="far fa-user"></i>
+        <i className="far fa-user fa-lg"></i>
       </button>
       <ul className="list-group-flush dropdown-menu dropdown-menu-end">
         {store.userName ? (

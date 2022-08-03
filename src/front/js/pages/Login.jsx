@@ -67,8 +67,12 @@ const Login = () => {
             onChange={setPasswordValueHandler}
           />
 
-          <button className="btn btn-outline-dark" onClick={submitUserInfo}>
-            Submit
+          <button
+            className="btn btn-outline-dark"
+            type="submit"
+            onClick={submitUserInfo}
+          >
+            Login
           </button>
         </div>
       </div>

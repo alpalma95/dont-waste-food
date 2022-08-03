@@ -6,8 +6,8 @@
   --white-green: rgba(249, 253, 249, 1);
   --black: #282828;
 
-  --bg-color: #fffafc;
-
+  --bg-color: #f1f1f1;
+  /* #ececec */
   --dark-red: #fb1d1d;
 
   --box-shadow: 0px 5px 15px -10px var(--black);

@@ -93,8 +93,12 @@ const Signup = () => {
           id="password_confirmed_input"
           onChange={setPasswordConfirmedValueHandler}
         />
-        <button className="btn btn-outline-dark" onClick={submitUserInfo}>
-          Submit
+        <button
+          className="btn btn-outline-dark"
+          type="submit"
+          onClick={submitUserInfo}
+        >
+          Sign Up
         </button>
       </div>
     </div>

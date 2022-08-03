@@ -1,11 +1,13 @@
 .logo {
-  height: 35px;
-  position: relative;
-  top: -5px;
+  height: 60px;
 }
-
+.brand__logo {
+  color: #18965f;
+  padding-left: 0.7rem;
+  font-size: 1.5rem;
+}
 .navbar--custom {
-  background-color: transparent;
+  background-color: white;
 }
 
 .navbar__btns {
@@ -15,6 +17,12 @@
     var(--white-green)
   ) !important; */
   font-family: Montserrat;
-  background-color: var(--medium-green);
+  background-color: white;
+
   font-weight: 500;
+}
+
+navbar__btns__logo {
+  display: flex;
+  align-items: center;
 }

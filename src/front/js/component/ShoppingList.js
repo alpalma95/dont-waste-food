@@ -65,11 +65,11 @@ ${
   return (
     <div
       className="h-100 row p-1 w-100"
-      style={{
-        backgroundImage: `url(${greenImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
+      // style={{
+      //   backgroundImage: `url(${greenImage})`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "cover",
+      // }}
     >
       <div className="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-4 offset-lg-4 mt-3 shopping__list">
         <div>
