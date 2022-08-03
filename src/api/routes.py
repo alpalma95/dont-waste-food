@@ -158,7 +158,7 @@ def delete_user():
 
 @api.route('/shopping/add', methods=['POST'])
 @jwt_required()
-def add_favorite():
+def add_ingredient():
     current_user_id = get_jwt_identity()
     user = User.query.get(current_user_id)
     response_body = request.get_json(force=True)
@@ -169,4 +169,26 @@ def add_favorite():
     db.session.add(new_ingredient)
     db.session.commit()
     
-    return jsonify("Favorite added"), 200
+    return jsonify("Ingredient added"), 200
+
+@api.route('/shopping/get', methods=['GET'])
+@jwt_required()
+def get_ingredient():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    shopping = ShoppingList.query.filter_by(user_id=user.id).all()
+    shopping_serialized = list(map(lambda x: x.serialize(), shopping))
+
+    return jsonify(shopping_serialized), 200
+
+@api.route('/shopping/delete', methods=['DELETE'])
+@jwt_required()
+def delete_ingredient():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+
+    shopping = ShoppingList.query.filter_by(user_id=user.id).delete()
+    db.session.commit()
+
+    return jsonify("Deleted"), 200
