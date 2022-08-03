@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Category, Favorite
+from api.models import db, User, Category, Favorite, ShoppingList
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
@@ -155,3 +155,18 @@ def delete_user():
     db.session.commit()
 
     return jsonify("Deleted"), 200
+
+@api.route('/shopping/add', methods=['POST'])
+@jwt_required()
+def add_favorite():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    response_body = request.get_json(force=True)
+
+    new_ingredient = ShoppingList(user_id=user.id, recipeLabel=response_body["recipeLabel"], ingredientIndex=response_body["ingredientIndex"], ingredientText=response_body["ingredientText"], recipeUri=response_body["recipeUri"], quantity=response_body["quantity"], food=response_body["food"], isChecked=response_body["isChecked"], index=response_body["index"])
+
+
+    db.session.add(new_ingredient)
+    db.session.commit()
+    
+    return jsonify("Favorite added"), 200
