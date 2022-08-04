@@ -78,7 +78,7 @@ const LandingPage = () => {
               - The fridge is where the magic happens -
             </h5>
             <div className="typing-demonstration">
-              <h5 className="title">Type ingredients you have...</h5>
+              <h5 className="title">Type ingredients you have</h5>
               <div className="typing-container">
                 <span id="sentence" className="sentence">
                   <i className="bi bi-search t-dark"></i>

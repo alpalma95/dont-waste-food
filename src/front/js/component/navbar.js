@@ -64,7 +64,7 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon text-black"></span>
+          <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-lg-0">
@@ -72,7 +72,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <Link to="/favorites">
                   <button
-                    className="btn border-white m-1 text-black w-100 navbar__btns"
+                    className="btn border-white m-1  w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
@@ -83,7 +83,7 @@ export const Navbar = () => {
               ) : (
                 <Link to="/signup">
                   <button
-                    className="btn border-white m-1 text-black w-100 navbar__btns"
+                    className="btn border-white m-1  w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
@@ -95,7 +95,7 @@ export const Navbar = () => {
             <li className="text-end m-1">
               <Link to="/search">
                 <button
-                  className="btn border-white m-1 text-black w-100 navbar__btns"
+                  className="btn border-white m-1  w-100 navbar__btns"
                   data-bs-toggle="collapse"
                   data-bs-target=".navbar-collapse.show"
                 >
@@ -108,7 +108,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <div className="dropdown">
                   <button
-                    className="btn border-white text-black m-1 w-100 navbar__btns"
+                    className="btn border-white m-1 w-100 navbar__btns"
                     type="button"
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
@@ -162,7 +162,7 @@ export const Navbar = () => {
               ) : (
                 <Link to="/login">
                   <button
-                    className="btn border-white m-1 text-black w-100 navbar__btns"
+                    className="btn border-white m-1 w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >

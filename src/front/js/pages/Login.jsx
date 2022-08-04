@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Navigate } from "react-router-dom";
+import logo_back from "../../../img/logo-back.png";
 import "../../styles/form.css";
 
 const Login = () => {
@@ -36,7 +37,14 @@ const Login = () => {
 
   return !store.userToken ? (
     <>
-      <div className="container">
+      <div
+        className=""
+        style={{
+          backgroundImage: `url(${logo_back}`,
+          backgroundSize: "80px",
+          minHeight: "70vh",
+        }}
+      >
         <div className="form-custom">
           <h1>Login</h1>
           <label

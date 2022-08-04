@@ -109,9 +109,9 @@ body {
   /* border: 2px solid #18965f; */
   border-radius: 35px;
   padding: 6px 13px;
-  max-width: 25rem;
+  max-width: 24rem;
   font-family: "Open Sans", sans-serif;
-  font-size: 25px;
+  font-size: 1.2rem;
   margin: 0 auto;
   color: black;
   background-color: white;
@@ -309,4 +309,8 @@ body {
     background-position: right;
     height: 100vh;
   }
+}
+
+.btn:focus {
+  box-shadow: none;
 }

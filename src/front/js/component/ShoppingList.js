@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/shoppingList.css";
 import greenImage from "../../../img/green_1.jpg";
+import logo_back from "../../../img/logo-back.png";
 import logo from "../../../img/PM_logo.png";
 import { useNavigate } from "react-router-dom";
 
@@ -66,18 +67,16 @@ ${
   return (
     <div
       className="h-100 row p-1 w-100"
-      // style={{
-      //   backgroundImage: `url(${greenImage})`,
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundSize: "cover",
-      // }}
+      style={{ backgroundImage: `url(${logo_back}`, backgroundSize: "80px" }}
     >
       <div className="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-4 offset-lg-4 mt-3 shopping__list">
         <div style={{ textAlign: "center" }}>
-          <img className="logo" src={logo} />
+          {/* <img className="logo" src={logo} /> */}
+          <h4 className="list__title">- Shopping List -</h4>
         </div>
 
         <div className="row h-75">{shoppingListItem}</div>
+
         <button
           className="btn btn-danger d-block m-auto mt-4"
           onClick={clearHandler}
