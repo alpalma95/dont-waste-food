@@ -163,7 +163,7 @@ def add_ingredient():
     user = User.query.get(current_user_id)
     response_body = request.get_json(force=True)
 
-    new_ingredient = ShoppingList(user_id=user.id, recipeLabel=response_body["recipeLabel"], ingredientIndex=response_body["ingredientIndex"], ingredientText=response_body["ingredientText"], recipeUri=response_body["recipeUri"], quantity=response_body["quantity"], food=response_body["food"], isChecked=response_body["isChecked"], index=response_body["index"])
+    new_ingredient = ShoppingList(user_id=user.id, recipeLabel=response_body["recipeLabel"], ingredientIndex=response_body["ingredientIndex"], ingredientText=response_body["ingredientText"], recipeUri=response_body["recipeUri"], quantity=response_body["quantity"], food=response_body["food"], isChecked=response_body["isChecked"], index=response_body["index"], measure=response_body["measure"])
 
 
     db.session.add(new_ingredient)

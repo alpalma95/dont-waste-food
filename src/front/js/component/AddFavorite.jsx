@@ -37,7 +37,7 @@ const AddFavorite = ({ setAddFavoriteShow, item }) => {
       </select>
       <div className="d-flex justify-content-center gap-4">
         <button
-          className="btn btn-primary"
+          className="btn recipe__btn"
           onClick={() => {
             actions.addFavorite(newFavorite);
             actions.sendToDatabase(newFavorite);

@@ -22,7 +22,8 @@
 .settings > button {
   color: #187a26;
   border: 1px solid #187a26;
-  display: inline-block;
+  display: block;
+  margin-top: 1rem;
   padding: 0.5rem 0.7rem;
   border-radius: 5px;
   background-color: transparent;

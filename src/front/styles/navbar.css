@@ -27,6 +27,12 @@ navbar__btns__logo {
   align-items: center;
 }
 
+.navbar__signup {
+  color: #18965f;
+  border: 1.5px solid #18965f !important;
+  border-radius: 100px;
+}
+
 .active,
 .navbar__btns:hover {
   color: #18965f;

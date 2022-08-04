@@ -48,6 +48,7 @@ class ShoppingList(db.Model):
     food = db.Column(db.String(180))
     isChecked = db.Column(db.Boolean)
     index = db.Column(db.Integer)
+    measure = db.Column(db.String(250))
 
 
     def __repr__(self):
@@ -64,7 +65,8 @@ class ShoppingList(db.Model):
             "quantity": self.quantity,
             "food": self.food,
             "isChecked": self.isChecked,
-            "index": self.index
+            "index": self.index,
+            "measure": self.measure
         }
 
 

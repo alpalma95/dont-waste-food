@@ -14,36 +14,6 @@ export const Navbar = () => {
     console.log("Delete ITEM", e);
   };
 
-  const removeTokenHandler = () => {
-    sessionStorage.removeItem("jwt-token");
-    actions.getToken();
-  };
-
-  let list = store.shoppingList.map((item, index) => (
-    <li
-      className="list-group-item p-2 d-flex flex-row justify-content-between small"
-      key={index}
-    >
-      <div>
-        {`
-  ${
-    item.quantity == 0
-      ? ""
-      : item.quantity % 1 == 0
-      ? Number(item.quantity).toFixed(0)
-      : Number(item.quantity).toFixed(1)
-  } ${!item.measure || item.measure[0] == "<" ? "" : item.measure} ${item.food}
-`}
-      </div>
-      <div onClick={removeIngredientHandler} data-index={index}>
-        <i className="bi bi-trash3"></i>
-      </div>
-    </li>
-  ));
-
-  if (store.shoppingList.length === 0) {
-    list = <li className="text-center">Add Only what you need!</li>;
-  }
   return (
     <nav className="navbar navbar-expand-md navbar-light p-2 sticky-top d-flex justify-content-end navbar--custom">
       <div className="container-fluid">
@@ -69,6 +39,18 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="text-end m-1">
+              <Link to="/search">
+                <button
+                  className="btn border-white m-1  w-100 navbar__btns "
+                  data-bs-toggle="collapse"
+                  data-bs-target=".navbar-collapse.show"
+                >
+                  <i className="bi bi-search fa-lg"></i>
+                  <span style={{ padding: "10px" }}>Search</span>
+                </button>
+              </Link>
+            </li>
+            <li className="text-end m-1">
               {store.userToken ? (
                 <Link to="/favorites">
                   <button
@@ -83,7 +65,7 @@ export const Navbar = () => {
               ) : (
                 <Link to="/signup">
                   <button
-                    className="btn border-white m-1  w-100 navbar__btns"
+                    className="btn border-white m-1  w-100 navbar__btns navbar__signup"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
@@ -93,65 +75,23 @@ export const Navbar = () => {
               )}
             </li>
             <li className="text-end m-1">
-              <Link to="/search">
-                <button
-                  className="btn border-white m-1  w-100 navbar__btns"
-                  data-bs-toggle="collapse"
-                  data-bs-target=".navbar-collapse.show"
-                >
-                  <i className="bi bi-search fa-lg"></i>
-                  <span style={{ padding: "10px" }}>Search</span>
-                </button>
-              </Link>
-            </li>
-            <li className="text-end m-1">
               {store.userToken ? (
-                <div className="dropdown">
+                <Link to="/shoppinglist">
                   <button
-                    className="btn border-white m-1 w-100 navbar__btns"
-                    type="button"
-                    id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown"
-                    data-bs-auto-close="outside"
-                    aria-expanded="true"
+                    className="btn border-white m-1  w-100 navbar__btns"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show"
                     style={{
                       marginRight: "40px",
                       boxShadow: "none",
                     }}
                   >
-                    <i className="bi bi-cart4 fa-lg"></i>
+                    <i className="fas fa-shopping-basket fa-lg"></i>
                     <span className="badge text-black">
                       {store.shoppingList.length}
                     </span>
                   </button>
-
-                  <div
-                    className="list-group-flush dropdown-menu dropdown-menu-right"
-                    aria-labelledby="dropdownMenuButton1"
-                    style={{ marginTop: "-5px", marginLeft: "6px" }}
-                  >
-                    <ul
-                      className="p-0"
-                      style={{ overflowY: "scroll", maxHeight: "200px" }}
-                    >
-                      {list}
-                    </ul>
-
-                    <Link to="/shoppinglist" style={{ textDecoration: "none" }}>
-                      <span className="d-flex justify-content-center">
-                        {store.shoppingList.length !== 0 && (
-                          <span
-                            className="btn btn-dark mt-3"
-                            data-bs-toggle="collapse"
-                            data-bs-target=".navbar-collapse.show"
-                          >
-                            Shopping list
-                          </span>
-                        )}
-                      </span>
-                    </Link>
-                  </div>
-                </div>
+                </Link>
               ) : (
                 <></>
               )}
