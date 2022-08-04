@@ -79,11 +79,11 @@ const SearchBar = () => {
   return (
     <div className="row">
       <div className="row">
-        <div className="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
-          <form onSubmit={searchBarHandler}>
-            <div className="input-group mb-3">
+        <div className=" col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+          <form className="" onSubmit={searchBarHandler}>
+            <div className="input-group mb-3 search-bar">
               <select
-                className="btn btn-dark dropdown-toggle"
+                className="btn btn-dark dropdown-toggle search-bar__options"
                 style={{
                   backgroundColor: "#18965f",
                   color: "white",
@@ -100,14 +100,14 @@ const SearchBar = () => {
               </select>
               <input
                 type="text"
-                className="form-control"
+                className="form-control search-bar__input"
                 style={{ boxShadow: "none", fontFamily: "Montserrat" }}
                 aria-label="Text input with dropdown button"
                 placeholder="What's in your fridge"
                 ref={searchRef}
                 onFocus={onFocusSearchBarHandler}
               />
-              <div className="input-group-append">
+              <div className="input-group-append  search-bar__btn">
                 <button
                   className="btn"
                   style={{
@@ -120,7 +120,7 @@ const SearchBar = () => {
                   }}
                   type="submit"
                 >
-                  Search
+                  <i className="bi bi-search fa-lg"></i>
                 </button>
               </div>
             </div>

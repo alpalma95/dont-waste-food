@@ -294,6 +294,10 @@ body {
   }
 }
 
+.search-bar {
+  padding: 0 !important;
+}
+
 @media (max-width: 700px) {
   .maintitle {
     font-size: 3rem;
@@ -310,6 +314,26 @@ body {
     background-repeat: no-repeat;
     background-position: right;
     height: 100vh;
+  }
+  .search-bar {
+    display: grid;
+    gap: 0.1rem;
+    grid-template-areas:
+      "input input input"
+      "opts opts search";
+  }
+  .search-bar__btn {
+    grid-area: search;
+    justify-self: end;
+    display: block;
+  }
+  .search-bar__input {
+    width: 100% !important;
+    grid-area: input;
+  }
+  .search-bar__options {
+    grid-area: opts;
+    width: 100% !important;
   }
 }
 

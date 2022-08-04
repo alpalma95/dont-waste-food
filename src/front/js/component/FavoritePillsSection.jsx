@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import PillFavorite from "./PillFavorite.jsx";
+import "../../styles/favoritePillsSection.css";
 
 const FavoritePillsSection = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="d-flex flex-sm-row flex-md-column gap-2 flex-wrap pb-5">
+    <div className="d-flex flex-sm-row flex-md-column gap-2 flex-wrap pb-5 favorite-pills__section">
       <PillFavorite
         categoryName="Breakfast"
         showHandler={actions.showBreakfastHandler}
