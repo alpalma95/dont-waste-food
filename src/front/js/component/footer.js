@@ -39,7 +39,7 @@ export const Footer = () => {
           </form>
         </div>
       </div>
-      <p style={{ color: "black", marginBottom: "0.5rem" }}>
+      <p style={{ color: "black", marginBottom: "0" }}>
         Made with <i className="fa fa-heart text-danger" /> by{" "}
         <a style={{ color: "white" }} href="https://github.com/Jules-11">
           @Jules-11

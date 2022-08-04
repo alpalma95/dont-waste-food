@@ -67,10 +67,10 @@ ${
 
   return (
     <div
-      className="h-100 row p-1 w-100"
+      className=""
       style={{ backgroundImage: `url(${logo_back}`, backgroundSize: "80px" }}
     >
-      <div className="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-4 offset-lg-4 mt-3 shopping__list">
+      <div className="shopping__list">
         <div style={{ textAlign: "center" }}>
           {/* <img className="logo" src={logo} /> */}
           <h4 className="list__title">- Shopping List -</h4>

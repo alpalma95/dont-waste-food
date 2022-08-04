@@ -12,7 +12,7 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-3 pt-5">
+    <div className="container mx-auto mt-3 pt-5" style={{ heigth: "100vh" }}>
       <div className="row">
         <div
           className="col-12 col-md-2 d-flex flex-sm-row flex-md-column"
@@ -22,7 +22,7 @@ const Favorites = () => {
         </div>
         <div
           className="col-12 col-md-10"
-          style={{ height: "80vh", overflow: "scroll" }}
+          style={{ height: "95vh", overflow: "scroll" }}
         >
           {store.favoriteItems.length == 0 ? (
             <h1
