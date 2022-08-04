@@ -191,7 +191,7 @@ const RecipeCard = ({ item, index }) => {
           </span>
           <button type="button" className="btn search-btn recipe__btn">
             <a href={item.recipe.url} target="_blank">
-              Recipe
+              Go to recipe &rarr;
             </a>
           </button>
         </div>
