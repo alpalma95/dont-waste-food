@@ -17,7 +17,11 @@ const Recipes = () => {
       <>
         <img
           src={Frying_Pan}
-          style={{ margin: "0 auto", display: "block", width: "450px" }}
+          style={{
+            margin: "0 auto",
+            display: "block",
+            width: "min(100%, 450px)",
+          }}
         />
       </>
     );
