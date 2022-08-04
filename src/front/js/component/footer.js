@@ -32,10 +32,10 @@ export const Footer = () => {
         </div>
 
         <div className="col-12 col-sm-4 suscribe">
-          <h5>Suscribe. Be inspired. Don't Waste</h5>
+          <h5>Subscribe. Be inspired. Don't Waste</h5>
           <form onSubmit={newsletterHandler}>
             <input type="text" placeholder="Email Address" ref={email} />
-            <input type="submit" value="Suscribe" />
+            <input type="submit" value="Subscribe" />
           </form>
         </div>
       </div>

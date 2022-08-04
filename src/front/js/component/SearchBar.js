@@ -95,8 +95,8 @@ const SearchBar = () => {
                 ref={searchOption}
                 onChange={dietRequirementHandler}
               >
-                <option>Ingredients</option>
-                <option>Diet</option>
+                <option className="bg-white text-dark">Ingredients</option>
+                <option className="bg-white text-dark">Diet</option>
               </select>
               <input
                 type="text"
