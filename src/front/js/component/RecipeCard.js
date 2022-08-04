@@ -189,14 +189,9 @@ const RecipeCard = ({ item, index }) => {
           >
             {star}
           </span>
-          <button type="button" className="btn search-btn">
-            <a
-              href={item.recipe.url}
-              target="_blank"
-              className=""
-              style={{ textDecoration: "none" }}
-            >
-              Full Recipe!
+          <button type="button" className="btn search-btn recipe__btn">
+            <a href={item.recipe.url} target="_blank">
+              Recipe
             </a>
           </button>
         </div>

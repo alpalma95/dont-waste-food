@@ -4,16 +4,17 @@
 }
 
 .favorites-pill--selected {
-  background-color: var(--dark-green);
+  background-color: #18965f;
   color: var(--white-green);
+  border: 0px;
 }
 .favorites-pill--selected:hover {
   color: var(--white-green);
 }
 .favorites-pill--unselected {
-  background-color: var(--white-green) !important;
-  border: 1px solid var(--dark-green) !important;
-  color: var(--dark-green);
+  background-color: white !important;
+  border: 0px solid black !important;
+  color: black;
 }
 .favorites-pill--unselected:hover {
   color: var(--dark-green);
@@ -30,10 +31,10 @@
 
 .favorites-pill--selected > .favorites-pill__badge {
   background-color: var(--white-green);
-  color: var(--dark-green);
+  color: #18965f;
 }
 
 .favorites-pill--unselected > .favorites-pill__badge {
-  background-color: var(--dark-green);
+  background-color: #18965f;
   color: var(--white-green);
 }

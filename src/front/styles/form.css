@@ -5,7 +5,7 @@
   margin: 2rem auto;
   border-radius: 20px;
   padding: 2rem 3rem;
-  background-color: #f9fdf9fe;
+  background-color: white;
   /* -webkit-box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.24);
   box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.24); */
   -webkit-box-shadow: var(--box-shadow);
@@ -17,12 +17,12 @@
   width: 100%;
 }
 .container {
-  min-height: 90vh;
+  min-height: 70vh;
 }
 
 .form-custom > h1 {
   font-weight: 700;
-  color: #187a26;
+  color: black;
   font-size: 1.7rem;
   /* letter-spacing: 0.2rem; */
   text-transform: uppercase;
@@ -32,7 +32,7 @@
 .form-custom > input {
   border: 0;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid #187a26;
+  border-bottom: 1px solid black;
   padding: 0rem 1.5rem 0.5rem 1rem;
   font-size: 1rem;
   background-color: transparent;
@@ -50,19 +50,21 @@
 .form-custom > label {
   font-size: 1rem;
   font-weight: bold;
-  color: #187a26;
+  color: black;
   margin-top: 1rem;
 }
 
 .form-custom > button {
-  color: #187a26;
-  border: 1px solid #187a26;
+  background-color: #4eb88a;
+  color: white;
+  border: 1px solid #4eb88a;
   margin: 2.5rem auto 0 auto;
+  transition: all 500ms ease-out;
 }
 .form-custom > button:hover {
   color: white;
-  background-color: #187a26;
-  border: 2px solid #187a26;
+  background-color: #18965f;
+  border: 1px solid #18965f;
 }
 
 .hidden {

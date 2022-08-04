@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
+import logo_back from "../../../img/logo-back.png";
 import "../../styles/form.css";
 
 const Signup = () => {
@@ -49,7 +50,14 @@ const Signup = () => {
   };
 
   return !redirectToLogin ? (
-    <div className="container">
+    <div
+      className=""
+      style={{
+        backgroundImage: `url(${logo_back}`,
+        backgroundSize: "80px",
+        minHeight: "70vh",
+      }}
+    >
       <div className="form-custom">
         <h1 className="">Create Account</h1>
         <label
@@ -93,8 +101,12 @@ const Signup = () => {
           id="password_confirmed_input"
           onChange={setPasswordConfirmedValueHandler}
         />
-        <button className="btn btn-outline-dark" onClick={submitUserInfo}>
-          Submit
+        <button
+          className="btn btn-outline-dark"
+          type="submit"
+          onClick={submitUserInfo}
+        >
+          Sign Up
         </button>
       </div>
     </div>

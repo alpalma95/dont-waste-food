@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import UserIcon from "./UserIcon.jsx";
-import logo from "../../../img/pick_me3.png";
+import logo from "../../../img/PM_logo.png";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
@@ -49,10 +49,11 @@ export const Navbar = () => {
       <div className="container-fluid">
         <Link
           to="/"
-          className="me-auto navbar__btns"
+          className="me-auto navbar__btns__logo"
           style={{ textDecoration: "none" }}
         >
           <img className="logo" src={logo} />
+          <span className="brand__logo">Pick Me</span>
         </Link>
         <button
           className="navbar-toggler navbar__btns"
@@ -63,7 +64,7 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon text-white"></span>
+          <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-lg-0">
@@ -71,17 +72,18 @@ export const Navbar = () => {
               {store.userToken ? (
                 <Link to="/favorites">
                   <button
-                    className="btn border-white m-1 text-white w-100 navbar__btns"
+                    className="btn border-white m-1  w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
-                    Favorites
+                    <i className="bi bi-star fa-lg"></i>
+                    <span style={{ padding: "8px" }}>Favorites</span>
                   </button>
                 </Link>
               ) : (
                 <Link to="/signup">
                   <button
-                    className="btn border-white m-1 text-white w-100 navbar__btns"
+                    className="btn border-white m-1  w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >
@@ -93,11 +95,12 @@ export const Navbar = () => {
             <li className="text-end m-1">
               <Link to="/search">
                 <button
-                  className="btn border-white m-1 text-white w-100 navbar__btns"
+                  className="btn border-white m-1  w-100 navbar__btns"
                   data-bs-toggle="collapse"
                   data-bs-target=".navbar-collapse.show"
                 >
-                  Search recipes
+                  <i className="bi bi-search fa-lg"></i>
+                  <span style={{ padding: "10px" }}>Search</span>
                 </button>
               </Link>
             </li>
@@ -105,7 +108,7 @@ export const Navbar = () => {
               {store.userToken ? (
                 <div className="dropdown">
                   <button
-                    className="btn border-white dropdown-toggle text-white m-1 w-100 navbar__btns"
+                    className="btn border-white m-1 w-100 navbar__btns"
                     type="button"
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
@@ -116,8 +119,8 @@ export const Navbar = () => {
                       boxShadow: "none",
                     }}
                   >
-                    Shopping List
-                    <span className="badge text-bg-secondary">
+                    <i className="bi bi-cart4 fa-lg"></i>
+                    <span className="badge text-black">
                       {store.shoppingList.length}
                     </span>
                   </button>
@@ -159,7 +162,7 @@ export const Navbar = () => {
               ) : (
                 <Link to="/login">
                   <button
-                    className="btn border-white m-1 text-white w-100 navbar__btns"
+                    className="btn border-white m-1 w-100 navbar__btns"
                     data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse.show"
                   >

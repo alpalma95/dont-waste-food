@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import RecipeCard from "./RecipeCard";
 import { Context } from "../store/appContext";
-import Frying_Pan from "../../../assets/gif/frying pan loading logo.gif";
+import Frying_Pan from "../../../assets/gif/frying-pan.gif";
 
 const Recipes = () => {
   const { store, actions } = useContext(Context);
