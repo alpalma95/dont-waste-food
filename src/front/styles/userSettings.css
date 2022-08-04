@@ -1,7 +1,19 @@
+.settings {
+  padding-bottom: 2rem;
+}
+
+.settings__h1 {
+  color: #18965f;
+}
+
+.settings__h2 {
+  color: black;
+  font-size: 1rem;
+}
+
 .settings__h1,
 .settings__h2 {
   font-family: "Montserrat", sans-serif;
-  color: var(--dark-green);
   font-weight: 700;
   margin-top: 2rem;
 }
@@ -9,7 +21,7 @@
 .settings > input {
   border: 0;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid #187a26;
+  border-bottom: 1px solid #18965f;
   padding: 0rem 1.5rem 0.5rem 1rem;
   font-size: 1rem;
   background-color: transparent;
@@ -20,8 +32,8 @@
 }
 
 .settings > button {
-  color: #187a26;
-  border: 1px solid #187a26;
+  color: #18965f;
+  border: 1px solid #18965f;
   display: block;
   margin-top: 1rem;
   padding: 0.5rem 0.7rem;
@@ -30,8 +42,8 @@
 }
 .settings > button:hover {
   color: white;
-  background-color: #187a26;
-  border: 2px solid #187a26;
+  background-color: #18965f;
+  border: 2px solid #18965f;
 }
 
 .border-error {

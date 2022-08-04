@@ -68,7 +68,11 @@ ${
   return (
     <div
       className=""
-      style={{ backgroundImage: `url(${logo_back}`, backgroundSize: "80px" }}
+      style={{
+        backgroundImage: `url(${logo_back}`,
+        backgroundSize: "80px",
+        minHeight: "75vh",
+      }}
     >
       <div className="shopping__list">
         <div style={{ textAlign: "center" }}>

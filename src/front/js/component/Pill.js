@@ -3,15 +3,7 @@ import { Context } from "../store/appContext";
 
 const Pill = (props) => {
   const { store, actions } = useContext(Context);
-  // const element = store.pillDietInput.find((elem) => {
-  //   return elem === props.diet.key
-  // })
-  // let pillExist = false
-  // if( element === undefined){
-  //   pillExist = false;
-  // }  else {
-  //   pillExist = true;
-  // }
+  
   const [pillState, setPillState] = useState(false);
   const pillHandler = () => {
     setPillState((prevState) => {
