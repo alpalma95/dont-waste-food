@@ -200,7 +200,7 @@ const RecipeCard = ({ item, index }) => {
   );
 
   return (
-    <div className="col-12 col-sm-4 col-xl-3 g-4 p-0">
+    <div className="col-12 col-sm-4 col-xl-3 g-4 recipe-card__container">
       <div className="card recipe__card" style={{ minHeight: "587px" }}>
         <div
           style={{

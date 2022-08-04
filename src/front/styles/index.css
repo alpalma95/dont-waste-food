@@ -335,6 +335,9 @@ body {
     grid-area: opts;
     width: 100% !important;
   }
+  .recipe-card__container {
+    padding: 0 !important;
+  }
 }
 
 .btn:focus {
