@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoaded: false,
       error: null,
       items: [],
-      favoriteItems: [], 
+      favoriteItems: [],
       shoppingList: [],
       userToken: sessionStorage.getItem("jwt-token") ?? null,
       userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
@@ -289,6 +289,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         setStore({ showModal: !store.showModal });
+        store.showModal
+          ? document
+              .getElementsByTagName("body")[0]
+              .classList.add("body--modal-open")
+          : document
+              .getElementsByTagName("body")[0]
+              .classList.remove("body--modal-open");
       },
       getUserDetails: () => {
         const store = getStore();
@@ -336,27 +343,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({
           searchInput: ["mushrooms", "quinoa", "cheese"],
-        pillDietInput: [],
-        isLoaded: false,
-        error: null,
-        items: [],
-        favoriteItems: [], 
-        shoppingList: [],
-        userToken: sessionStorage.getItem("jwt-token") ?? null,
-        userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
-        userEmail: null,
-        userId: null,
-        showBreakfast: false,
-        showLunch: false,
-        showDinner: false,
-        showSnack: false,
-        showAll: true,
-        showModal: false,
-        userUsername: null,
-        userName: null,
-  
-        })
-      }
+          pillDietInput: [],
+          isLoaded: false,
+          error: null,
+          items: [],
+          favoriteItems: [],
+          shoppingList: [],
+          userToken: sessionStorage.getItem("jwt-token") ?? null,
+          userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
+          userEmail: null,
+          userId: null,
+          showBreakfast: false,
+          showLunch: false,
+          showDinner: false,
+          showSnack: false,
+          showAll: true,
+          showModal: false,
+          userUsername: null,
+          userName: null,
+        });
+      },
     },
   };
 };
