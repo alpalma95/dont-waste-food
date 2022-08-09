@@ -15,7 +15,6 @@ import Search from "./pages/Search.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import UserSettings from "./pages/UserSettings.jsx";
 
-//create your first component
 const Layout = () => {
   const { store, actions } = useContext(Context);
 
