@@ -2,13 +2,19 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/userSettings.css";
 import DeleteBtns from "../component/DeteleBtns.jsx";
+import { useNavigate } from "react-router-dom";
 
 const UserSettings = () => {
+  const { store, actions } = useContext(Context);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
+    if (!store.userToken) navigate("/");
+
     actions.getUserDetails();
   }, []);
 
-  const { store, actions } = useContext(Context);
   const [borderError, setBorderError] = useState("");
   const [nameValue, setNameValue] = useState("");
   const [usernameValue, setUsernameValue] = useState("");

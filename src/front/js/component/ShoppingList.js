@@ -10,6 +10,12 @@ const ShoppingList = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!store.userToken) {
+      navigate("/");
+    }
+  }, []);
+
   const linethroughHandler = (e) => {
     console.log("LINETHROUGH!!!", e.target.getAttribute("data-index"));
     actions.shoppingListLineToggle(e.target.getAttribute("data-index"));

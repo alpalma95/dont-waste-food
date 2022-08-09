@@ -2,10 +2,17 @@ import React, { useEffect, useContext } from "react";
 import FavoriteCategory from "../component/FavoriteCategory.jsx";
 import { Context } from "../store/appContext.js";
 import FavoritePillsSection from "../component/FavoritePillsSection.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
   const { store, actions } = useContext(Context);
- 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!store.userToken) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="container mx-auto mt-3 pt-5" style={{ heigth: "100vh" }}>
