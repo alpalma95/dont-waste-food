@@ -7,13 +7,12 @@ const DeleteBtns = ({ setShowDelete }) => {
 
   const { store, actions } = useContext(Context);
   const removeTokenHandler = () => {
-    setDeleteHeader(
-      "Sad to see you go! You'll be automatically redirected. Thank you for your trust 😊"
-    );
+    setDeleteHeader("Sad to see you go! You'll be automatically redirected 😊");
 
     setTimeout(() => {
       sessionStorage.removeItem("jwt-token");
       actions.getToken();
+      actions.resetStore();
     }, 3000);
   };
   const deleteAllFavorites = () => {
