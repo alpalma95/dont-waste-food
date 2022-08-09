@@ -5,11 +5,7 @@ import FavoritePillsSection from "../component/FavoritePillsSection.jsx";
 
 const Favorites = () => {
   const { store, actions } = useContext(Context);
-  useEffect(() => {
-    if (store.favoriteItems.length === 0) {
-      actions.fetchFavorites();
-    }
-  }, []);
+ 
 
   return (
     <div className="container mx-auto mt-3 pt-5" style={{ heigth: "100vh" }}>

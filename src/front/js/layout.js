@@ -22,7 +22,9 @@ const Layout = () => {
   useEffect(() => {
     if (!store.userToken) return;
 
+    actions.fetchFavorites();
     actions.fetchShoppingList();
+    actions.getUserDetails();
   }, [store.userToken]);
 
   const basename = process.env.BASENAME || "";

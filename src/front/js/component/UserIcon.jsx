@@ -8,6 +8,7 @@ const UserIcon = (props) => {
   const removeTokenHandler = () => {
     sessionStorage.removeItem("jwt-token");
     actions.getToken();
+    actions.resetStore();
   };
 
   return (

@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLoaded: false,
       error: null,
       items: [],
-      favoriteItems: [], // filter by category to display on view, by default all
+      favoriteItems: [], 
       shoppingList: [],
       userToken: sessionStorage.getItem("jwt-token") ?? null,
       userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
@@ -332,6 +332,31 @@ const getState = ({ getStore, getActions, setStore }) => {
       clearUserUsernameStore: () => {
         setStore({ userUsername: null });
       },
+      resetStore: () => {
+        const store = getStore();
+        setStore({
+          searchInput: ["mushrooms", "quinoa", "cheese"],
+        pillDietInput: [],
+        isLoaded: false,
+        error: null,
+        items: [],
+        favoriteItems: [], 
+        shoppingList: [],
+        userToken: sessionStorage.getItem("jwt-token") ?? null,
+        userLogged: !sessionStorage.getItem("jwt-token") ? false : true,
+        userEmail: null,
+        userId: null,
+        showBreakfast: false,
+        showLunch: false,
+        showDinner: false,
+        showSnack: false,
+        showAll: true,
+        showModal: false,
+        userUsername: null,
+        userName: null,
+  
+        })
+      }
     },
   };
 };
