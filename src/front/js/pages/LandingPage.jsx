@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { render } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import greenImage from "../../../img/green_1.jpg";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   const textRef = useRef();
   const carouselText = [
     { text: "mushroom, quinoa, cheese" },
@@ -86,7 +88,9 @@ const LandingPage = () => {
                 <span ref={textRef} id="feature-text"></span>
                 <span className="input-cursor"></span>
               </div>
-              <button className="try">Try it out!</button>
+              <button className="try" onClick={() => navigate("/search")}>
+                Try it out!
+              </button>
             </div>
           </div>
         </div>
