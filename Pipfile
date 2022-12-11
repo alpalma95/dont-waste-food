@@ -18,6 +18,9 @@ gunicorn = "*"
 cloudinary = "*"
 flask-admin = "*"
 typing-extensions = "*"
+werkzeug = "*"
+flask-jwt-extended = "*"
+l = "*"
 
 [requires]
 python_version = "3.8"
